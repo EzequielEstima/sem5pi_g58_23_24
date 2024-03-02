@@ -1,0 +1,12 @@
+autonumber
+
+actor "Gestor de campus" as ator <<Container (C4)>>
+participant SPA as spa <<Container (C4)>>
+
+ator-> spa: pretende carregar mapa e coloca o ficheiro com o mapa
+activate spa
+alt
+ator<-- spa: OK
+else "Erro"
+ator<-- spa: Erro
+end alt

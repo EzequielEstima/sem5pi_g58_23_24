@@ -1,0 +1,11 @@
+autonumber
+
+participant MDRoboISEP as md <<Container (C4)>>
+
+[o-> md: criar edifício e insere a informação(descricao, nome, codigo,dimensao)
+activate md
+alt
+<-- md: OK
+else "Erro"
+<-- md: Erro
+end alt

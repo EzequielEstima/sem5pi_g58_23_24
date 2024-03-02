@@ -1,0 +1,49 @@
+<html>
+  <body>
+    <div class="sidebar">
+      <app-sidebarGestaoCampus></app-sidebarGestaoCampus>
+    </div>
+    <div class="conteudo">
+      <div class="input-field">
+        <select id="codigo" name="codigoEdificio" #codigoEdificio (change)="onCodigoChange(codigoEdificio.value)" required>
+          <option value="" disabled selected>Codigo Edificio *</option>
+          <option *ngFor="let option of listaCodigos" [value]="option">{{ option }}</option>
+        </select>
+        <span></span>
+      </div>
+
+      <div class = "input-field">
+        <input type="string" name="id" #id placeholder="Nome da Sala *" required/>
+        <span></span>
+      </div>
+
+      <div class = "input-field">
+        <input type="number" name="numeroPiso" #numeroPiso placeholder="Numero do Piso *" required/>
+        <span></span>
+      </div>
+      
+      <div class = "input-field">
+        <input type="string" name="descricao" #descricao placeholder="Descricao da sala *" required/>
+        <span></span>
+      </div>
+
+      <div class="input-field">
+        <select name="categoria" #categoria required>
+          <option value="" disabled selected>Categoria da Sala *</option>
+          <option value="Gabinete">Gabinete</option>
+          <option value="Anfiteatro">Anfiteatro</option>
+          <option value="Laboratorio">Laboratorio</option>
+          <option value="Outro">Outro</option>
+        </select>
+        <span></span>
+      </div>
+
+      <div class = "button-submit">
+        <button type="button" class="add-button" (click)="add(id.value, codigoEdificio.value, +numeroPiso.value, descricao.value,categoria.value);">Criar Sala</button>
+      </div>
+      
+      <app-message></app-message>
+    </div>
+  </body>
+  
+</html>

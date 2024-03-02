@@ -1,0 +1,16 @@
+autonumber
+
+actor "Potencial Utente" as actor
+participant SPA as fe <<Container (C4)>>
+participant auth as md <<Container (C4)>>
+
+actor -> fe:  pede para registar e insere os dados(nome, password, email, telefone, numero contribuinte)
+activate fe
+fe	-> md: signupUtente(signupUtenteDTO)
+activate md
+return resposta
+return resposta
+
+
+ 
+ 

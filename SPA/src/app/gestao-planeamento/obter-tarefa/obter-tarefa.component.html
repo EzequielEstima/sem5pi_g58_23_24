@@ -1,0 +1,122 @@
+<html>
+
+<body>
+    <div class="sidebar">
+        <app-sidebar-gestao-planeamento></app-sidebar-gestao-planeamento>
+    </div>
+    <div class="header">
+        <h1>Pesquisar Tarefas</h1>
+    </div>
+    <div class="conteudo">
+
+        <div class="input-field">
+            <select [(ngModel)]="selectedCriteria" name="criterio" #criterio (change)="selectedValue = null">
+                <option value="" disabled selected>Escolhe uma opção *</option>
+                <option value="estado">Estado da Tarefa</option>
+                <option value="tipo">Tipo de Dispositivo</option>
+                <option value="utente">Utente</option>
+            </select>
+            <span></span>
+        </div>
+
+        <div class="input-field" *ngIf="selectedCriteria === 'estado'">
+            <select [(ngModel)]="selectedValue" name="estado" #estado>
+                <option value="" disabled selected>Escolhe uma opção *</option>
+                <option value="Pendente">Pendente</option>
+                <option value="Aceite">Aceite</option>
+                <option value="Rejeitada">Rejeitada</option>
+                <option value="Planeada">Planeada</option>
+            </select>
+            <span></span>
+        </div>
+
+        <div class="input-field" *ngIf="selectedCriteria === 'tipo'">
+            <select [(ngModel)]="selectedValue" name="tipo" #tipo>
+                <option value="" disabled selected>Escolhe uma opção *</option>
+                <option value="Vigilancia">Vigilancia</option>
+                <option value="PickUpDelivery">PickUpDelivery</option>
+            </select>
+            <span></span>
+        </div>
+
+        <div class="input-field" *ngIf="selectedCriteria === 'utente'">
+            <input name="email" #email placeholder="Email do Utente" (change)="changeValue(email.value)" />
+            <span></span>
+        </div>
+
+        <div class="button-submit" *ngIf="selectedCriteria !== null && selectedValue !== null">
+            <button type="button" class="add-button" (click)=" add()">Pesquisar
+                Utilizador</button>
+        </div>
+
+        <div *ngIf="listaTarefas && listaTarefas.length > 0 && !tarefasPlaneadas">
+            <p-table [value]="listaTarefas" [tableStyle]="{'border-collapse': 'collapse', 'margin-top':'10px'}">
+              <ng-template pTemplate="header">
+                <tr>
+                  <th class="table-header">Id Tarefa</th>
+                  <th class="table-header">Tipo de Tarefa</th>
+                  <th class="table-header">Sala Inicial - SalaFinal</th>
+                  <th class="table-header">Edificio - Piso</th>
+                  <th class="table-header">Email do Requisitador</th>
+                  <th class="table-header">Estado</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-tarefa>
+                <tr>
+                    <td class="table-data">{{ tarefa.id || '-' }}</td>
+                    <td class="table-data">{{ tarefa.tipoTarefa || '-' }}</td>
+                    <td class="table-data">
+                      {{ tarefa.salaInicial ? tarefa.salaInicial + ' - ' + tarefa.salaFinal : '-' }}
+                    </td>
+                    <td class="table-data">
+                      {{ tarefa.codEdificio ? tarefa.codEdificio + ' - ' + tarefa.numeroPiso : '-' }}
+                    </td>
+                    <td class="table-data">{{ tarefa.emailRequisitor || '-' }}</td>
+                    <td class="table-data">{{ tarefa.estadoString || '-' }}</td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+
+          <div *ngIf="listaTarefas && listaTarefas.length > 0 && tarefasPlaneadas">
+            <p-table [value]="listaTarefas" [tableStyle]="{'border-collapse': 'collapse', 'margin-top':'10px'}">
+              <ng-template pTemplate="header">
+                <tr>
+                  <th class="table-header">Id Tarefa</th>
+                  <th class="table-header">Tipo de Tarefa</th>
+                  <th class="table-header">Sala Inicial - SalaFinal</th>
+                  <th class="table-header">Edificio - Piso</th>
+                  <th class="table-header">Email do Requisitador</th>
+                  <th class="table-header-view3d">Visualização 3D</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-tarefa>
+                <tr>
+                    <td class="table-data">{{ tarefa.id || '-' }}</td>
+                    <td class="table-data">{{ tarefa.tipoTarefa || '-' }}</td>
+                    <td class="table-data">
+                      {{ tarefa.salaInicial ? tarefa.salaInicial + ' - ' + tarefa.salaFinal : '-' }}
+                    </td>
+                    <td class="table-data">
+                      {{ tarefa.codEdificio ? tarefa.codEdificio + ' - ' + tarefa.numeroPiso : '-' }}
+                    </td>
+                    <td class="table-data">{{ tarefa.emailRequisitor || '-' }}</td>
+                    <td class="table-data-view3d">
+                      <button type="button" class="add-button-v3d" (click)="v3D(tarefa.id)">Visualização 3D</button>
+                    </td>
+                    
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+          
+          
+          
+
+        <app-message></app-message>
+
+    </div>
+
+</body>
+
+</html>

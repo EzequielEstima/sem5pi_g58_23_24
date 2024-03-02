@@ -1,0 +1,38 @@
+autonumber
+
+participant "route: \n dispositivoRoute" as route
+participant "controller: \n dispositivoController" as ctrl
+participant "service: \n dispositivoService" as service
+participant "repo: \n dispositivoRepo" as disRepo
+participant "dto: \n dispositivoMapper" as mapper
+participant "dto: \n dispositivoDTO" as dto
+
+[o-> route: GET()
+activate route
+route -> ctrl: listarDispositivosDaFrota(req, res, next)
+activate ctrl
+ctrl -> service: listarDispositivosDaFrota() 
+activate service
+service -> disRepo: findAll()
+activate disRepo
+return listaDispositivos
+service -> mapper : toDTO(dispositivo)
+activate mapper
+mapper -> dto ** : dispositivo
+return dispositivoDTO
+return listaDispositivosDTO
+return listaDispositivosDTO
+return listaDispositivosDTO
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,57 @@
+{
+    "codigoEdificio": "B",
+    "numeroPiso" : 3,
+    "elevador" : {
+        "xCoord" :21,
+        "yCoord" : 7,
+        "orientacao": "Oeste"   
+    },
+    "salas": [{
+        "nome": "B301",
+        "abcissaA": 0,
+        "ordenadaA": 0,
+        "abcissaB": 3,
+        "ordenadaB": 9,
+        "abcissaPorta" : 4,
+        "ordenadaPorta" : 1,
+        "orientacaoPorta" : "Oeste"
+    },
+    {
+        "nome": "B302",
+        "abcissaA": 12,
+        "ordenadaA": 7,
+        "abcissaB": 16,
+        "ordenadaB": 9,
+        "abcissaPorta" : 13,
+        "ordenadaPorta" : 7,
+        "orientacaoPorta" : "Norte"
+    },
+    {
+        "nome": "B303",
+        "abcissaA": 6,
+        "ordenadaA": 0,
+        "abcissaB": 9,
+        "ordenadaB": 7,
+        "abcissaPorta" : 6,
+        "ordenadaPorta" : 1,
+        "orientacaoPorta" : "Oeste"
+    },
+    {
+        "nome": "B305",
+        "abcissaA": 12,
+        "ordenadaA": 0,
+        "abcissaB": 21,
+        "ordenadaB": 4,
+        "abcissaPorta" : 12,
+        "ordenadaPorta" : 2,
+        "orientacaoPorta" : "Oeste"
+    }
+    ],
+    "passagens": [{
+        "id": 53,
+        "abcissa": 22,
+        "ordenada": 8,
+        "orientacao": "Oeste"
+    }
+    ]
+}

@@ -1,0 +1,16 @@
+autonumber
+
+actor "gestor de frota" as ator
+participant "component: criar-tipo-robo" as componente
+participant "infoService" as infoService
+participant "dataModel" as dataModel
+
+ator -> componente: Escolhe opção de criar tipo de robo e insere os dados
+activate componente
+componente -> infoService: criarTipoRobo(tipoTarefa, marca, modelo)
+activate infoService
+infoService -> dataModel**: create()
+infoService ->o] : POST: /edificio
+infoService<-- : 201
+return resposta
+return resposta

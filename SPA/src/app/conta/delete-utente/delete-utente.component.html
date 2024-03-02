@@ -1,0 +1,23 @@
+<html>
+    <body>
+        <div class="sidebar">
+            <app-sidebar-conta></app-sidebar-conta>
+        </div>
+        <div class="header">
+            <h1>Eliminar conta</h1>
+        </div>
+        <div class="conteudo">
+            <div class = "input-field"> 
+                <input id="delete" name="delete" #delete placeholder="Escreva 'delete' caso deseja eliminar a conta*" required />
+            </div>
+
+            <div class = "button-submit">
+                <button type="button" class="add-button" (click) = "deleteUtente(delete.value)"> Eliminar</button>
+            </div>
+
+            <app-message></app-message>
+        </div>    
+    </body>
+</html>
+
+

@@ -1,0 +1,8 @@
+autonumber
+
+actor "Utente" as ator
+participant "SPA" as modulo <<Container (C4)>>
+
+ator -> modulo: Escolhe opção de exportar dados pessoais
+activate modulo
+return Ficheiro

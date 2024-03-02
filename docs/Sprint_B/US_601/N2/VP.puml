@@ -1,0 +1,7 @@
+autonumber
+
+participant "MDRoboISEP" as system <<component (C4)>>
+
+[o-> system: GET /mapa com codigoEdificio e numeroPiso
+activate system
+return mapa

@@ -1,0 +1,14 @@
+autonumber
+
+actor "Gestor de Campus" as ator
+participant SPA as fe <<Container (C4)>>
+participant MDRoboISEP as md <<Container (C4)>>
+
+
+
+ator -> fe:  quer listar Edifícios com min e max pisos e introduz dados
+activate fe
+fe -> md: GET listarEdificioMinEMaxPisos()
+activate md
+return resposta
+ator <-- fe: lista edifícios

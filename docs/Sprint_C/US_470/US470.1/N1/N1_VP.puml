@@ -1,0 +1,10 @@
+autonumber
+
+actor "Gestor de tarefas" as act 
+participant "SistemaRobDroneGo" as sistema <<System (C4)>>
+
+act -> sistema:  manda um pedido para o MDtarefas com o estado, id, codigoRobo
+activate sistema
+return resposta
+
+ 

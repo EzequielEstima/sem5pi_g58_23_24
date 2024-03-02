@@ -1,0 +1,8 @@
+autonumber
+
+actor "User" as User
+participant "SPA" as modulo <<Container (C4)>>
+
+User -> modulo: Escolhe a opção de listar tarefas pendentes
+activate modulo
+return lista de tarefas pendentes

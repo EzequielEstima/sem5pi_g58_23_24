@@ -1,0 +1,15 @@
+autonumber
+
+participant Frontend as fe <<Container (C4)>>
+participant MDRoboISEP as md <<Container (C4)>>
+
+[o-> fe: editar a informação do piso e insere a informação para atualizar
+activate fe
+fe	-> md: ediatarPiso(json)
+activate md
+return resposta
+return resposta
+
+
+
+ 

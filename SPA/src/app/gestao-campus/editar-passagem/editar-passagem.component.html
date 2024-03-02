@@ -1,0 +1,56 @@
+<html>
+
+<body>
+  <div class="sidebar">
+    <app-sidebarGestaoCampus></app-sidebarGestaoCampus>
+  </div>
+  <div class="conteudo">
+
+    <div class="input-field">
+      <select id="codigo" name="codigoEdificioA" #codigoEdificioA (change)="listarNumeroPisosA(codigoEdificioA.value)" required>
+        <option value="" disabled selected>Codigo Edificio *</option>
+        <option *ngFor="let option of listaCodigos" [value]="option">{{ option }}</option>
+      </select>
+      <span></span>
+    </div>
+
+    <div class="input-field">
+      <select id="codigo" name="codigoEdificioB" #codigoEdificioB (change)="listarNumeroPisosB(codigoEdificioB.value)" required>
+        <option value="" disabled selected>Codigo Edificio *</option>
+        <option *ngFor="let option of listaCodigos" [value]="option">{{ option }}</option>
+      </select>
+      <span></span>
+    </div>
+
+    <div class="input-field">
+      <select type="number" id="numeroPisoA" name="numeroPisoA" #numeroPisoA required>
+        <option value="" disabled selected>Numero de Piso do Edificio A *</option>
+        <option *ngFor="let option of listaNumeroPisosA" [value]="option">{{ option }}</option>
+      </select>
+      <span></span>
+    </div>
+
+    <div class="input-field">
+      <select type= "number" id="numeroPisoB" name="numeroPisoB" #numeroPisoB required>
+        <option value="" disabled selected>Numero de Piso do Edificio B *</option>
+        <option *ngFor="let option of listaNumeroPisosB" [value]="option">{{ option }}</option>
+      </select>
+      <span></span>
+    </div>
+
+    <div class="input-field">
+      <input type="number" name="id" #id placeholder="ID da Passagem *" min="0" required/>
+      <span></span>
+    </div>
+
+    <div class="button-submit">
+      <div class="button-submit">
+        <button type="button" class="add-button" (click)="editarPassagem(+id.value, codigoEdificioA.value, codigoEdificioB.value, +numeroPisoA.value, +numeroPisoB.value)">Editar Passagens</button>
+      </div>
+    </div>
+
+    <app-message></app-message>
+  </div>
+</body>
+
+</html>

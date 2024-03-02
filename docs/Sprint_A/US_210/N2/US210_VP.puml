@@ -1,0 +1,15 @@
+autonumber
+
+participant Frontend as fe <<Container (C4)>>
+participant MDRoboISEP as md <<Container (C4)>>
+
+[o-> fe: Listar todos os pisos de um edificio e inserir o codigo do edificio
+activate fe
+fe	-> md: listarTodosOsPisosDeUmEdificio(json)
+activate md
+return resposta
+return resposta
+
+
+
+ 

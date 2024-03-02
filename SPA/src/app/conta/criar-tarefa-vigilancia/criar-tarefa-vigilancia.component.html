@@ -1,0 +1,42 @@
+<html>
+    <body>
+        <div class="sidebar">
+            <app-sidebar-conta></app-sidebar-conta>
+        </div>
+        <div class="header">
+            <h1>Criar tarefa Vigilância</h1>
+        </div>
+        <form class="conteudo" [formGroup]="myForm">
+            <div class = "input-field"> 
+                <input formControlName="nomeVigilancia" name="nomeVigilancia" #nomeVigilancia placeholder="Nome do contacto de vigilância*" required />
+            </div>
+
+            <div class = "input-field"> 
+                <input formControlName="numeroVigilancia" name="numeroVigilancia" #numeroVigilancia placeholder="Numero de telefone do contacto de vigilância*" required/>
+            </div>
+            
+            <div class = "input-field">
+                <select formControlName="codigoEd" id="codigoEd" name="codigoEd" (change) = "listarNumeroPisos()"required>
+                  <option value="" disabled selected>Codigo Edificio *</option>
+                  <option *ngFor="let option of listaCodEdificios" [value]="option">{{ option }}</option>
+                </select>
+            </div>
+
+            <div class = "input-field">
+                <select formControlName="numeroPiso" id="numeroPiso" name="numeroPiso" required>
+                  <option value="" disabled selected>Número piso *</option>
+                  <option *ngFor="let option of listaNumeroPisos" [value]="option">{{ option }}</option> 
+                </select>
+            </div>
+            
+              <div class = "button-submit">
+                <button type="button" class="add-button" (click)="criarTarefaVigilancia()"> Criar</button>
+            </div>
+
+
+            <app-message></app-message>
+        </form>
+    </body>
+</html>
+
+

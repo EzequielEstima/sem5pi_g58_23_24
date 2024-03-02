@@ -1,0 +1,20 @@
+autonumber
+
+actor "Gestor de Tarefas" as actor
+participant SPA as fe <<Container (C4)>>
+participant MDTarefas as mdT <<Container (C4)>>
+participant MDRoboISEP as mdri <<Container (C4)>>
+
+actor -> fe: informação de criação da tarefa
+activate fe
+fe	-> mdT: criarTarefa(tarefaDataModel)
+activate mdT
+mdT	-> mdri: GET obterPercurso()
+activate mdri
+return resposta
+return resposta
+return resposta
+
+
+ 
+ 

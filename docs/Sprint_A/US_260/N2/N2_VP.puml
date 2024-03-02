@@ -1,0 +1,15 @@
+autonumber
+
+participant Frontend as fe <<Container (C4)>>
+participant MDRoboISEP as md <<Container (C4)>>
+
+[o-> fe: recebe pedido de listagem de passagens
+activate fe
+fe	-> md: listarPassagensDosEdificios(json)
+activate md
+return lista de passagens
+return lista de passagens
+
+
+ 
+ 

@@ -1,0 +1,7 @@
+Sabemos o que é pretendido obter.
+Sabemos as regras de negócio.
+Sabemos as dependencias que exitem.
+Temos um plano de testes.
+
+
+

@@ -1,0 +1,12 @@
+autonumber
+
+actor "Gestor de Campus" as ator
+participant RobDroneGo as sistema <<System (C4)>>
+
+
+ator -> sistema: quer listar os pisos e intruduz o codigo do edificio
+activate sistema
+return resposta
+
+
+ 

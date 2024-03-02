@@ -1,0 +1,14 @@
+autonumber
+
+actor "Utente" as ator
+participant "Component" as componente
+participant "infoService" as infoService
+
+ator -> componente: Escolhe opção de listar as tarefas pendentes
+activate componente
+componente -> infoService: getTarefasPendentes()
+activate infoService
+infoService ->o] : GET: /Tarefas/tarefasPendentes
+infoService<-- : 200
+return resposta
+return resposta

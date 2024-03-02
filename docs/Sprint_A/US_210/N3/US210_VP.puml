@@ -1,0 +1,49 @@
+autonumber
+
+participant pisoRoute as route
+participant "controller: PisoController" as ctrl
+participant "service: PisoService" as service
+participant "EdificioRepo" as edRepo
+participant "Edificio" as edificio
+participant "PisoMap" as pisoMap
+
+
+
+[o-> route: Get(json)
+activate route
+route -> ctrl: listarTodosOsPisosDeUmEdificio(json)(Request, Response, Next)
+activate ctrl
+ctrl -> service: listarTodosOsPisosDeUmEdificio(codigo) 
+activate service
+service -> edRepo: findByDomainId(codigo)
+activate edRepo
+return edificio
+service -> edificio :  returnListaPisos()
+activate edificio
+return listaPisos
+service -> pisoMap: toDTO(piso)
+activate pisoMap
+return pisoDTO
+return resposta
+return resposta
+alt
+<-- route: Ok
+else "Erro"
+<-- route: Erro
+end alt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

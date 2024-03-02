@@ -1,0 +1,19 @@
+autonumber
+
+actor "Gestor de Campus" as ator
+participant SPA as fe <<Container (C4)>>
+participant MDRoboISEP as md <<Container (C4)>>
+
+
+
+ator -> fe: escolhe a opção listar pisos
+activate fe
+fe -> md: GET listarEdificios()
+activate md
+return resposta
+ator <-- fe: lista de codigos de edificios
+ator -> fe: escolhe o codigo
+fe -> md: GET listarTodosOsPisosDeUmEdificio()
+activate md
+return resposta
+return resposta

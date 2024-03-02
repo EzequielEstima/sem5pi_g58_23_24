@@ -1,0 +1,23 @@
+autonumber
+
+actor "Gestor de Campus" as ator
+participant SPA as fe <<Container (C4)>>
+participant MDRoboISEP as md <<Container (C4)>>
+
+
+ator -> fe: escolhe a opção editar piso
+activate fe
+fe -> md: GET listarEdificios()
+activate md
+return resposta
+ator <-- fe: lista de codigos de edificios
+ator -> fe: escolhe o edificio e introduz o numero piso e descrição
+fe -> md: GET listarTodosOsPisosDeUmEdificio()
+activate md
+return resposta
+ator <-- fe: lista de numeros de pisos
+ator -> fe: escolhe o piso a editar e insere informação a editar
+fe	-> md: PUT editarPiso(json)
+activate md
+return resposta
+return resposta

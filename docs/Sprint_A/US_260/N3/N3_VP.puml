@@ -1,0 +1,51 @@
+autonumber
+
+participant "route: \n passagemRoute" as route
+participant "dto: \n listarPassagensPorParDeEdificioDTO" as paramDTO
+participant "controller: \n passagemController" as ctrl
+participant "service: \n passagemService" as service
+participant "repo: \n edificioRepo" as edRepo
+participant "repo: \n passagemRepo" as passRepo
+participant "dto: \n passagemMapper" as mapper
+participant "dto: \n listarPassagenDTO" as resDTO
+
+[o-> route: GET(json)
+activate route
+route -> paramDTO : create(json)
+activate paramDTO
+deactivate paramDTO
+route -> ctrl: listarPassagensPorParDeEdificios(req, res, next)
+activate ctrl
+ctrl -> service: listarPassagensPorParDeEdificios(edificiosDTO) 
+activate service
+service -> edRepo: findByDomainId(codEdA)
+activate edRepo
+return edificioA
+service -> edRepo: findByDomainId(codEdB)
+activate edRepo
+return edificioB
+service -> passRepo: listarPassagensPorParDePisos(pisoEdA, pisoEdB)
+activate passRepo
+return listaPassagens
+service -> mapper : toListarPassagemDTO(passagem)
+activate mapper
+mapper -> resDTO : create()
+activate resDTO
+deactivate resDTO
+return passagemDTO
+return listaPassagensDTO
+return listaPassagensDTO
+return listaPassagensDTO
+
+
+
+
+
+
+
+
+
+
+
+
+

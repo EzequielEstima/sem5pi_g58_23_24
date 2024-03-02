@@ -1,0 +1,49 @@
+autonumber
+
+participant EdificioRoute as route
+participant "controller: EdificioController" as ctrl
+participant "dto: ListarEdMinEMaxPisosDTO" as dto
+participant "service: EdificioService" as service
+participant "EdificioRepo" as edRepo
+participant "Edificio" as edificio
+participant "EdificioMap" as edificioMap
+
+
+
+[o-> route: GET(json)
+activate route
+route -> ctrl: listarEdificioMinEMaxPisos(Request, Response, Next)
+activate ctrl
+ctrl -> dto ** : create(json)
+ctrl -> service: listarEdificioMinEMaxPisos(listarEdMinEMaxPisosDTO) 
+activate service
+service -> edRepo: getAllEdificios()
+activate edRepo
+return listaEdificios
+service -> edificio :  verificaNumeroDePisosEstaDentroDoLimite(min,max)
+activate edificio
+return flag
+service -> edificioMap: toDTO(edificio)
+activate edificioMap
+return edificioDTO
+return resposta
+return resposta
+alt
+<-- route: Ok
+else "Erro"
+<-- route: Erro
+end alt
+
+
+
+
+
+
+
+
+
+
+
+
+
+

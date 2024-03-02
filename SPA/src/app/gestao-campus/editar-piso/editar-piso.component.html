@@ -1,0 +1,46 @@
+<html>
+  <body>
+    <div class="sidebar">
+      <app-sidebarGestaoCampus></app-sidebarGestaoCampus>
+    </div>
+    <div class="header">
+      <h1>Editar Piso</h1>
+    </div>
+    <form class="conteudo" [formGroup]="myForm">
+        <div class="input-field">
+          <select formControlName="codigo" id="codigo" (change)="listarNumeroPisos()" required>
+            <option value="" selected>Codigo Edificio*</option>
+            <option *ngFor="let option of listaCodigos" [value]="option">{{ option }}</option>
+          </select>
+          <span></span>
+        </div>
+      
+        <div class="input-field">
+          <select formControlName="numeroPiso" required>
+            <option value="" disable selected>Numero Piso*</option>
+            <option *ngFor="let option of listaNumeroPisos" [value]="option">{{ option }}</option>
+          </select>
+          <span></span>
+        </div>
+      
+        <div class="input-field">
+          <input type="number" formControlName="novoNumeroPiso" id="novoNumeroPiso" placeholder="Novo Numero do Piso" />
+          <span></span>
+        </div>
+      
+        <div class="input-field">
+          <input formControlName="descricaoPiso" id="descricaoPiso" placeholder="Nova Descrição do Piso" />
+          <span></span>
+        </div>
+      
+        <div class="button-submit">
+          <button type="button" class="add-button" (click)="editarPiso()">Editar Piso</button>
+        </div>
+      
+        <app-message></app-message>
+      </form>
+  </body>
+  
+</html>
+
+

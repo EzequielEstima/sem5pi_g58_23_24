@@ -1,0 +1,12 @@
+autonumber
+actor "Gestor de campus" as actor
+participant SistemaRobDroneGo as sistema <<System (C4)>>
+
+activate actor
+actor -> sistema: pretende carregar mapa e coloca o ficheiro com o mapa
+activate sistema
+alt
+actor <-- sistema: OK
+else "Erro"
+actor <-- sistema: Erro
+end alt

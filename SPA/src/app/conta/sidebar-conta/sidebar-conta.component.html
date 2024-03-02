@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+    <div class="sidebar">
+        <a routerLink="/conta">Home</a>
+        <div class="dropdown">
+            <a>Criar tarefa</a>
+            <div class="dropdown-content">
+                <a routerLink="/criarTarefaVigilancia">Vigilância</a>
+                <a routerLink="/criarTarefaPickUpDelivery">PickUp&Delivery</a>
+            </div>
+        </div>
+        <a routerLink="/alterarDadosUtente">Alterar Dados</a>
+        <a routerLink="/exportarDadosPessoais">Exportar Dados</a>
+        <a routerLink="/deleteUtente">Eliminar Conta</a>
+        <div class="logout">
+            <a (click)="logout()">Logout</a>
+        </div> 
+    </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+    <div class="sidebar">
+        <a routerLink="/gestaoCampus">Home</a>
+        <div class="dropdown">
+            <a>Edifício</a>
+            <div class="dropdown-content">
+                <a routerLink="/criarEdificio">Criar</a>
+                <a routerLink="/editarEdificio">Editar</a>
+                <a routerLink="/listarEdificios">Listar</a>
+                <a routerLink="/listarEdificioMinMaxPisos">Listar por numero pisos</a>
+                <a routerLink="/apagarEdificio">Apagar</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a >Piso</a>
+            <div class="dropdown-content">
+                <a routerLink="/criarPiso">Criar</a>
+                <a routerLink="/editarPiso">Editar</a>
+                <a routerLink="/listarPiso">Listar</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a >Elevador</a>
+            <div class="dropdown-content">
+                <a routerLink="/criarElevador">Criar</a>
+                <a routerLink="/editarElevador">Editar</a>
+                <a routerLink="/listarElevador">Listar</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a >Sala</a>
+            <div class="dropdown-content">
+                <a routerLink="/criarSala">Criar</a>
+                <a href="#">Editar</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a >Passagem</a>
+            <div class="dropdown-content">
+                <a routerLink="/criarPassagem">Criar</a>
+                <a routerLink="/editarPassagem">Editar</a>
+                <a routerLink="/listarPisoPassagem">Listar pisos com passagem</a>
+                <a routerLink="/listarPassagensPorEdificio">Listar passagem entre edifícios</a>
+            </div>
+        </div>
+        <a routerLink="/carregarMapa">Carregar Mapa</a>
+        <a routerLink="/visualizacao3D">Visualização 3D</a>
+        <div class="logout">
+            <a (click)="logout()">Logout</a>
+        </div>  
+    </div>
+</body>
+</html>

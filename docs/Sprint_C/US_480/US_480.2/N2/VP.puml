@@ -1,0 +1,7 @@
+autonumber
+
+participant "MDTarefas" as modulo <<Container (C4)>>
+
+[o-> modulo: GET /Tarefa/tarefasPendentes
+activate modulo
+return lista de tarefas pendentes

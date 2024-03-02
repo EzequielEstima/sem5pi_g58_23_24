@@ -1,0 +1,12 @@
+autonumber
+
+actor "Gestor de Tarefas" as actor
+participant SPA as fe <<Container (C4)>>
+participant MDTarefas as mdT <<Container (C4)>>
+
+actor -> fe: manda um pedido para o MDtarefas com o estado, id, codigoRobo
+activate fe
+fe	-> mdT: alterarEstadoDaTarefa(alterarEstadoDaTarefaDataModel)
+activate mdT
+return resposta
+return resposta

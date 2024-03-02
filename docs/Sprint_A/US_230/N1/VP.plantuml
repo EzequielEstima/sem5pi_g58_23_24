@@ -1,0 +1,12 @@
+autonumber
+actor "Ator" as actor
+participant SistemaRobDroneGo as sistema <<System (C4)>>
+
+activate actor
+actor -> sistema: Quer carregar mapa do piso e insere ficheiro JSON
+activate sistema
+alt
+actor <-- sistema: OK
+else "Erro"
+actor <-- sistema: Erro
+end alt

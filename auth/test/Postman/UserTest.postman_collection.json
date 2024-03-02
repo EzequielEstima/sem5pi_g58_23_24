@@ -1,0 +1,193 @@
+{
+	"info": {
+		"_postman_id": "eeb022e0-9566-41ef-b0a4-e5c10bb0b910",
+		"name": "UserTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "30695664"
+	},
+	"item": [
+		{
+			"name": "signupUtente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is as expected\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include('\"Conta criada com sucesso!\"');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "content",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Marco Antonio\",\r\n    \"email\": \"emailutenteTeste@isep.ipp.pt\",\r\n    \"telefone\": \"914231321\",\r\n    \"nif\": \"321123567\",\r\n    \"password\": \"Password10@\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:4500/api/user/signupUtente"
+			},
+			"response": []
+		},
+		{
+			"name": "aprovar utente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Resposta é a esperada\", function () {\r",
+							"    pm.expect(pm.response.text()).to.equal('\"Estado do utilizador alterado com sucesso!\"');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@isep.ipp.pt\",\n        \"role\": \"admin\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"header": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"emailutenteTeste@isep.ipp.pt\",\r\n    \"estado\": \"aceito\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:4500/api/user/approveOrReject"
+			},
+			"response": []
+		},
+		{
+			"name": "alterarDadosUtente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Resposta é a esperada\", function () {\r",
+							"    pm.expect(pm.response.json()).to.eql(\r",
+							"        {\r",
+							"            \"email\": \"emailutenteTeste@isep.ipp.pt\",\r",
+							"            \"name\": \"NovoNome\",\r",
+							"            \"telefone\": \"967890890\",\r",
+							"            \"nif\": \"888999555\"\r",
+							"        }\r",
+							"    );\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\":\"emailutenteTeste@isep.ipp.pt\",\n        \"role\": \"utente\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"header": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"NovoNome\",\r\n    \"telefone\": \"967890890\",\r\n    \"nif\": \"888999555\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:4500/api/user"
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteUtente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Resposta é a esperada\", function () {\r",
+							"    pm.expect(pm.response.text()).to.equal('\"Utilizador removido com sucesso\"');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"emailutenteTeste@isep.ipp.pt\",\n        \"role\": \"utente\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"header": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:4500/api/user/utente"
+			},
+			"response": []
+		}
+	]
+}

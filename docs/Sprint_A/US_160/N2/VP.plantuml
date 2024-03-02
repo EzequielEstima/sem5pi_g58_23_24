@@ -1,0 +1,15 @@
+autonumber
+
+participant FrontEnd as fe <<Container (C4)>>
+participant MDRoboIsep as md <<Container (C4)>>
+
+[o-> fe: pretende editar edificio e coloca a informação que quer alterar
+activate fe
+fe -> md: editarEdificio()
+activate md
+return resposta
+alt
+<-- fe: OK
+else "Erro"
+<-- fe: Erro
+end alt

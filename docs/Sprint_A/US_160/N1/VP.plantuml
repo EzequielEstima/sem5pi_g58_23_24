@@ -1,0 +1,12 @@
+autonumber
+actor "Ator" as actor
+participant SistemaRobDroneGo as sistema <<System (C4)>>
+
+activate actor
+actor -> sistema: pretende editar edificio e coloca a informação que quer alterar
+activate sistema
+alt
+actor <-- sistema: OK
+else "Erro"
+actor <-- sistema: Erro
+end alt

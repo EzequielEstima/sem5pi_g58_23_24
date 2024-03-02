@@ -1,0 +1,10 @@
+autonumber
+
+actor ator 
+participant "SistemaRobDroneGo" as sistema <<System (C4)>>
+
+ator -> sistema: recebe pedido de listagem de robots da frota
+activate sistema
+return lista de robots da frota
+
+ 

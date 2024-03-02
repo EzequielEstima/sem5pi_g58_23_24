@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+ 
+<html>
+<body>
+    <div class="sidebar">
+        <a routerLink="/gestaoFrota">Home</a>
+        <div class="dropdown">
+            <a>Tipo Robot</a>
+            <div class="dropdown-content">
+                <a routerLink="/criarTipoRobo">Criar</a>
+                <a routerLink="/apagarTipoRobo">Apagar</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a>Frota</a>
+            <div class="dropdown-content">
+                <a routerLink="/adicionarDispositivo">Adicionar robot</a>
+                <a routerLink="/listarDispositivosFrota">Consultar robots</a>
+                <a routerLink="/inibirDispositivo">Inibir robot</a>
+            </div>
+        </div>
+        <a routerLink="/visualizacao3D">Visualização 3D</a>
+        <div class="logout">
+            <a (click)="logout()">Logout</a>
+        </div>    
+    </div>
+</body>
+</html>

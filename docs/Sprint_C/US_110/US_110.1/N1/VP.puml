@@ -1,0 +1,8 @@
+autonumber
+
+actor "Utente" as ator
+participant "RobDroneGo" as system <<System (C4)>>
+
+ator -> system: Escolhe opção de exportar dados pessoais
+activate system
+return Ficheiro

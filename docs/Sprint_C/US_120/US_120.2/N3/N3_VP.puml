@@ -1,0 +1,42 @@
+autonumber
+
+participant routes as route
+participant "ImplControllers" as ctrl
+participant "ImplServices" as service
+participant "repos" as userRepo
+
+[o-> route: DELETE()
+activate route
+route -> ctrl: deleteUtente(Request, Response, Next)
+activate ctrl
+ctrl -> service: obterEmail(Request)
+activate service
+return email
+ctrl -> service: deleteUtente(email) 
+activate service
+service -> userRepo: findByEmail(email)
+activate userRepo
+return user
+service -> userRepo: delete(user)
+return resposta
+alt
+route <-- ctrl: Ok
+<-- route: Ok
+else "Erro"
+route <-- ctrl: Erro
+deactivate ctrl
+<-- route: Erro
+end alt
+deactivate route
+
+
+
+
+
+
+
+
+
+
+
+

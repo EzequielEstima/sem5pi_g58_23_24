@@ -1,0 +1,16 @@
+autonumber
+
+actor "Gestor de Frota" as actor
+participant SPA as fe <<Container (C4)>>
+participant MDRoboISEP as md <<Container (C4)>>
+
+actor -> fe: pede listagem de dispositivos da frota
+activate fe
+fe -> md: listarDispositivosFrota()
+activate md
+return resposta
+return resposta
+
+
+ 
+ 

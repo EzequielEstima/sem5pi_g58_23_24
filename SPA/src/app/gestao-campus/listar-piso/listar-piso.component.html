@@ -1,0 +1,77 @@
+<html>
+    <header>
+        <style>
+            th:first-of-type {
+            border-top-left-radius: 10px;
+            }
+            th:last-of-type {
+            border-top-right-radius: 10px;
+            }
+            tr:last-of-type td:first-of-type {
+            border-bottom-left-radius: 10px;
+            }
+            tr:last-of-type td:last-of-type {
+            border-bottom-right-radius: 10px;
+            }
+        </style>
+    </header>
+  <body>
+    <div class="sidebar">
+      <app-sidebarGestaoCampus></app-sidebarGestaoCampus>
+    </div>
+    
+    <div class="header">
+        <h1>Listar Pisos</h1>
+    </div>
+
+    <div class="conteudo">
+        <form [formGroup]="myForm">
+            <div class="input-field">
+              <select formControlName="codigo" id="codigo" (change)="listarPiso()" required>
+                <option value="" disabled selected>Codigo Edificio*</option>
+                <option *ngFor="let option of listaCodigos" [value]="option">{{ option }}</option>
+              </select>
+              <span></span>
+            </div>
+        </form>
+        <app-message></app-message>
+
+        <div *ngIf="listaPisos && listaPisos.length > 0">
+            <p-table [value]="listaPisos" [tableStyle]="{'border-collapse': 'collapse'}">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="
+                         padding: 12px;
+                         max-width: 10px;
+                         text-align: left;
+                         background-color: #3e3e3e;
+                         color: white;
+                        ">
+                            Número de Piso</th>
+                        <th style="
+                        padding: 12px;
+                        max-width: 60px;
+                        text-align: left;
+                        background-color: #3e3e3e;
+                        color: white;
+                       ">
+                            Descrição</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-piso let-i>
+                    <tr>
+                        <td style="max-width: 10px;border-bottom: 1px solid #000000;border-right: 1px solid #000000;padding: 8px;">
+                            {{ piso.numeroPiso || "-"}}</td>
+                        <td style="max-width: 50px;border-bottom: 1px solid #000000;border-left: 1px solid #000000;padding: 8px;overflow-wrap: break-word;">
+                            <span *ngIf="piso.descricaoPiso">{{ piso.descricaoPiso }}</span>
+                            <span *ngIf="!piso.descricaoPiso">-</span></td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+  </body>
+</html>
+
+
+

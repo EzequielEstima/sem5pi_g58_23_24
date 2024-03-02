@@ -1,0 +1,90 @@
+{
+    "codigoEdificio": "C",
+    "numeroPiso" : 1,
+    "elevador" : {
+        "xCoord" : 0,
+        "yCoord" : 12,
+        "orientacao": "Este"   
+    },
+    "salas": [{
+        "nome": "C101",
+        "abcissaA": 0,
+        "ordenadaA": 0,
+        "abcissaB": 5,
+        "ordenadaB": 3,
+        "abcissaPorta" : 6,
+        "ordenadaPorta" : 1,
+        "orientacaoPorta" : "Oeste"
+    },
+    {
+        "nome": "C102",
+        "abcissaA": 8,
+        "ordenadaA": 0,
+        "abcissaB": 11,
+        "ordenadaB": 3,
+        "abcissaPorta" : 8,
+        "ordenadaPorta" : 1,
+        "orientacaoPorta" : "Oeste"
+    },
+    {
+        "nome": "C103",
+        "abcissaA": 0,
+        "ordenadaA": 4,
+        "abcissaB": 5,
+        "ordenadaB": 7,
+        "abcissaPorta" : 6,
+        "ordenadaPorta" : 6,
+        "orientacaoPorta" : "Oeste"
+    },
+    {
+        "nome": "C104",
+        "abcissaA": 8,
+        "ordenadaA": 4,
+        "abcissaB": 11,
+        "ordenadaB": 7,
+        "abcissaPorta" : 8,
+        "ordenadaPorta" : 5,
+        "orientacaoPorta" : "Oeste"
+    },
+    {
+        "nome": "C105",
+        "abcissaA": 0,
+        "ordenadaA": 16,
+        "abcissaB": 5,
+        "ordenadaB": 19,
+        "abcissaPorta" : 6,
+        "ordenadaPorta" : 17,
+        "orientacaoPorta" : "Oeste"
+    },
+    {
+        "nome": "C106",
+        "abcissaA": 8,
+        "ordenadaA": 8,
+        "abcissaB": 11,
+        "ordenadaB": 11,
+        "abcissaPorta" : 8,
+        "ordenadaPorta" : 10,
+        "orientacaoPorta" : "Oeste"
+    },
+    {
+        "nome": "C108",
+        "abcissaA": 8,
+        "ordenadaA": 12,
+        "abcissaB": 11,
+        "ordenadaB": 15,
+        "abcissaPorta" : 8,
+        "ordenadaPorta" : 13,
+        "orientacaoPorta" : "Oeste"
+    },
+    {
+        "nome": "C110",
+        "abcissaA": 8,
+        "ordenadaA": 16,
+        "abcissaB": 11,
+        "ordenadaB": 19,
+        "abcissaPorta" : 8,
+        "ordenadaPorta" : 17,
+        "orientacaoPorta" : "Oeste"
+    }
+    ] 
+}

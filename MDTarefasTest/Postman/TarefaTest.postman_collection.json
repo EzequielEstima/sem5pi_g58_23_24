@@ -1,0 +1,613 @@
+{
+	"info": {
+		"_postman_id": "41afb7f9-098e-4e7b-9326-2c1c3d07c65e",
+		"name": "TarefaTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "30690787"
+	},
+	"item": [
+		{
+			"name": "ListarTarefasPendentesAntesCriarTarefa",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.environment.set(\"lengthPendentes\", jsonData.length);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de tarefas\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "http://localhost:5261/api/Tarefa/tarefasPendentes"
+			},
+			"response": []
+		},
+		{
+			"name": "ListarTarefasAntesCriarTarefa",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.environment.set(\"length\", jsonData.length);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de tarefas\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "http://localhost:5261/api/Tarefa"
+			},
+			"response": []
+		},
+		{
+			"name": "CriarTarefaVigilancia",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Informação retornada foi a esperada\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.environment.set(\"idVigilancia\", jsonData.id);\r",
+							"    pm.expect(jsonData).to.eql({\r",
+							"    \"tipoTarefa\": \"Vigilancia\",\r",
+							"    \"id\": pm.environment.get(\"idVigilancia\"),\r",
+							"    \"percursoString\": \"[celPiso(a1,10,5),celPiso(a1,11,5),celPiso(a1,12,5),celPiso(a1,13,5),celPiso(a1,14,5),celPiso(a1,15,5),celPiso(a1,16,5),celPiso(a1,17,5),celPiso(a1,18,5),celPiso(a1,18,6),celPiso(a1,18,7),celPiso(a1,18,8)]\",\r",
+							"    \"estadoString\": \"Pendente\",\r",
+							"    \"emailRequisitor\": \"default@email.com\",\r",
+							"    \"codDispositivo\": \"\",\r",
+							"    \"codConfirmacao\": null,\r",
+							"    \"descricaoEntrega\": null,\r",
+							"    \"nomePickUp\": null,\r",
+							"    \"numeroPickUp\": null,\r",
+							"    \"nomeDelivery\": null,\r",
+							"    \"numeroDelivery\": null,\r",
+							"    \"salaInicial\": null,\r",
+							"    \"salaFinal\": null,\r",
+							"    \"nomeVigilancia\": \"Cavaco Silva\",\r",
+							"    \"numeroVigilancia\": \"987654321\",\r",
+							"    \"codEdificio\": \"A\",\r",
+							"    \"numeroPiso\": 1\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"utente\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"tipoTarefa\": \"VIGILANCIA\",\r\n  \"nomeVigilancia\": \"Cavaco Silva\",\r\n  \"numeroVigilancia\": \"987654321\",\r\n  \"codEdificio\": \"A\",\r\n  \"numeroPiso\": 1\r\n}"
+				},
+				"url": "http://localhost:5261/api/Tarefa"
+			},
+			"response": []
+		},
+		{
+			"name": "CriarTarefaPickUpDelivery",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Informação retornada foi a esperada\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.environment.set(\"idPickUpDelivery\", jsonData.id);\r",
+							"    pm.expect(jsonData).to.eql({\r",
+							"    \"tipoTarefa\": \"PickUpDelivery\",\r",
+							"    \"id\": pm.environment.get(\"idPickUpDelivery\"),\r",
+							"    \"percursoString\": \"[celPiso(a2,6,4),celPiso(a2,6,5),celPiso(a2,6,6)]\",\r",
+							"    \"estadoString\": \"Pendente\",\r",
+							"    \"emailRequisitor\": \"default@email.com\",\r",
+							"    \"codDispositivo\": \"\",\r",
+							"    \"codConfirmacao\": \"1234\",\r",
+							"    \"descricaoEntrega\": \"DESC BOA\",\r",
+							"    \"nomePickUp\": \"ABC\",\r",
+							"    \"numeroPickUp\": \"123456789\",\r",
+							"    \"nomeDelivery\": \"ABC\",\r",
+							"    \"numeroDelivery\": \"123456789\",\r",
+							"    \"salaInicial\": \"A203\",\r",
+							"    \"salaFinal\": \"A202\",\r",
+							"    \"nomeVigilancia\": null,\r",
+							"    \"numeroVigilancia\": null,\r",
+							"    \"codEdificio\": null,\r",
+							"    \"numeroPiso\": null\r",
+							"});\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"utente\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"tipoTarefa\": \"PICKupDELIVERY\",\r\n  \"codConfirmacao\": \"1234\",\r\n  \"descricaoEntrega\": \"DESC BOA\",\r\n  \"nomePickUp\": \"ABC\",\r\n  \"numeroPickUp\": \"123456789\",\r\n  \"nomeDelivery\": \"ABC\",\r\n  \"numeroDelivery\": \"123456789\",\r\n  \"salaInicial\": \"A203\",\r\n  \"salaFinal\": \"A202\"\r\n}"
+				},
+				"url": "http://localhost:5261/api/Tarefa"
+			},
+			"response": []
+		},
+		{
+			"name": "ListarTarefasDepoisCriarTarefa",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"There is 2 more Tarefas in DB\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.equal(pm.environment.get(\"length\")+2)\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de tarefas\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "http://localhost:5261/api/Tarefa"
+			},
+			"response": []
+		},
+		{
+			"name": "ListarTarefasPendentesDepoisCriarTarefa",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"There is 2 more Tarefas in DB\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.equal(pm.environment.get(\"lengthPendentes\")+2)\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de tarefas\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "http://localhost:5261/api/Tarefa/tarefasPendentes"
+			},
+			"response": []
+		},
+		{
+			"name": "AlterarEstadoDaTarefa",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Informação retornada foi a esperada\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.eql({\r",
+							"        \"tipoTarefa\": \"Vigilancia\",\r",
+							"        \"id\": jsonData.id,\r",
+							"        \"percursoString\": \"[celPiso(a1,10,5),celPiso(a1,11,5),celPiso(a1,12,5),celPiso(a1,13,5),celPiso(a1,14,5),celPiso(a1,15,5),celPiso(a1,16,5),celPiso(a1,17,5),celPiso(a1,18,5),celPiso(a1,18,6),celPiso(a1,18,7),celPiso(a1,18,8)]\",\r",
+							"        \"estadoString\": \"Aceite\",\r",
+							"        \"emailRequisitor\": \"default@email.com\",\r",
+							"        \"codDispositivo\": \"Robo1\",\r",
+							"        \"codConfirmacao\": null,\r",
+							"        \"descricaoEntrega\": null,\r",
+							"        \"nomePickUp\": null,\r",
+							"        \"numeroPickUp\": null,\r",
+							"        \"nomeDelivery\": null,\r",
+							"        \"numeroDelivery\": null,\r",
+							"        \"salaInicial\": null,\r",
+							"        \"salaFinal\": null,\r",
+							"        \"nomeVigilancia\": \"Cavaco Silva\",\r",
+							"        \"numeroVigilancia\": \"987654321\",\r",
+							"        \"codEdificio\": \"A\",\r",
+							"        \"numeroPiso\": 1\r",
+							"    });\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de tarefas\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Id\" : \"{{idVigilancia}}\",\r\n  \"Estado\": \"Aceite\",\r\n  \"CodigoRobo\": \"Robo1\"\r\n}"
+				},
+				"url": "http://localhost:5261/api/Tarefa"
+			},
+			"response": []
+		},
+		{
+			"name": "ListarTarefasDepoisCriarTarefa",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Lista tem o estado da tarefa alterado and contains the expected object\", function () {\r",
+							"    var id = pm.environment.get(\"idVigilancia\").toLowerCase(); \r",
+							"    var expectedObject = {\r",
+							"        \"tipoTarefa\": \"Vigilancia\",\r",
+							"        \"id\": id,\r",
+							"        \"percursoString\": \"[celPiso(a1,10,5),celPiso(a1,11,5),celPiso(a1,12,5),celPiso(a1,13,5),celPiso(a1,14,5),celPiso(a1,15,5),celPiso(a1,16,5),celPiso(a1,17,5),celPiso(a1,18,5),celPiso(a1,18,6),celPiso(a1,18,7),celPiso(a1,18,8)]\",\r",
+							"        \"estadoString\": \"Aceite\",\r",
+							"        \"emailRequisitor\": \"default@email.com\",\r",
+							"        \"codDispositivo\": \"Robo1\",\r",
+							"        \"codConfirmacao\": null,\r",
+							"        \"descricaoEntrega\": null,\r",
+							"        \"nomePickUp\": null,\r",
+							"        \"numeroPickUp\": null,\r",
+							"        \"nomeDelivery\": null,\r",
+							"        \"numeroDelivery\": null,\r",
+							"        \"salaInicial\": null,\r",
+							"        \"salaFinal\": null,\r",
+							"        \"nomeVigilancia\": \"Cavaco Silva\",\r",
+							"        \"numeroVigilancia\": \"987654321\",\r",
+							"        \"codEdificio\": \"A\",\r",
+							"        \"numeroPiso\": 1\r",
+							"    };\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.deep.include(expectedObject);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de tarefas\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "http://localhost:5261/api/Tarefa"
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteVigilancia",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de tarefas\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5261/api/Tarefa?id={{idVigilancia}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5261",
+					"path": [
+						"api",
+						"Tarefa"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "{{idVigilancia}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeletePickUpDelivery",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de tarefas\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5261/api/Tarefa?id={{idPickUpDelivery}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5261",
+					"path": [
+						"api",
+						"Tarefa"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "{{idPickUpDelivery}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

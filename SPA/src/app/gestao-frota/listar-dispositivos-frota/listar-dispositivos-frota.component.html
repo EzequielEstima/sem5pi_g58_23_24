@@ -1,0 +1,100 @@
+<html>
+    <header>
+        <style>
+            th:first-of-type {
+            border-top-left-radius: 10px;
+            }
+            th:last-of-type {
+            border-top-right-radius: 10px;
+            }
+            tr:last-of-type td:first-of-type {
+            border-bottom-left-radius: 10px;
+            }
+            tr:last-of-type td:last-of-type {
+            border-bottom-right-radius: 10px;
+            }
+        </style>
+    </header>
+  <body>
+    <div class="sidebar">
+      <app-sidebar-frota></app-sidebar-frota>
+    </div>
+    
+    <div class="header">
+        <h1>Consultar robots da frota</h1>
+    </div>
+
+    <div class="conteudo">
+        <div *ngIf="listaDispositivos && listaDispositivos.length > 0">
+            <p-table [value]="listaDispositivos" [tableStyle]="{'border-collapse': 'collapse'}">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="
+                         padding: 12px;
+                         max-width: 10px;
+                         text-align: left;
+                         background-color: #3e3e3e;
+                         color: white;
+                        ">
+                            Código</th>
+                        <th style="
+                        padding: 12px;
+                        max-width: 60px;
+                        text-align: left;
+                        background-color: #3e3e3e;
+                        color: white;
+                        ">
+                            Nickname</th>
+                        <th style="
+                        padding: 12px;
+                        max-width: 60px;
+                        text-align: left;
+                        background-color: #3e3e3e;
+                        color: white;
+                        ">
+                            Número de Série</th>
+                        <th style="
+                        padding: 12px;
+                        max-width: 60px;
+                        text-align: left;
+                        background-color: #3e3e3e;
+                        color: white;
+                       ">
+                            Descrição</th>
+                        <th style="
+                        padding: 12px;
+                        max-width: 60px;
+                        text-align: left;
+                        background-color: #3e3e3e;
+                        color: white;
+                        ">
+                            Estado</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-dispositivo let-i>
+                    <tr>
+                        <td style="max-width: 10px; border-bottom: 1px solid #000000; border-right: 1px solid #000000;padding: 8px;">
+                            {{ dispositivo.codigo || "-"}}
+                        </td>
+                        <td style="max-width: 10px; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 8px;">
+                            {{ dispositivo.nickname || "-"}}
+                        </td>
+                        <td style="max-width: 10px; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;padding: 8px;">
+                            {{ dispositivo.numeroSerie || "-"}}
+                        </td>
+                        <td style="max-width: 50px; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 8px;overflow-wrap: break-word;">
+                            <span *ngIf="dispositivo.descricaoDispositivo">{{ dispositivo.descricaoDispositivo }}</span>
+                            <span *ngIf="!dispositivo.descricaoDispositivo">-</span>
+                        </td>
+                        <td style="max-width: 10px; border-bottom: 1px solid #000000; border-left: 1px solid #000000; padding: 8px;overflow-wrap: break-word;">
+                            <span *ngIf="dispositivo.estado">Activo</span>
+                            <span *ngIf="!dispositivo.estado">Inibido</span>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+        <app-message></app-message>
+    </div>
+  </body>
+</html>

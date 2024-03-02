@@ -1,0 +1,15 @@
+autonumber
+
+participant Frontend as fe <<Container (C4)>>
+participant MDRoboISEP as md <<Container (C4)>>
+
+[o-> fe: recebe pedido de listagem de robots da frota
+activate fe
+fe	-> md: listarDispositivosDaFrota()
+activate md
+return lista de dispositivos
+return lista de dispositivos
+
+
+ 
+ 

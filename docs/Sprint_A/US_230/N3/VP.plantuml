@@ -1,0 +1,53 @@
+autonumber
+
+participant RouteEdificio as route
+participant "carregarMapaDTO" as dto
+participant "controller: MapaController" as ctrl
+participant "service: MapaService" as service
+participant "repository: EdificioRepo" as edificioRepo
+participant "Mapa" as mapa
+participant "repository: SalaRepo" as salaRepo
+participant "repository: PassagemRepo" as passagemRepo
+participant "Piso" as piso
+participant "repository: MapaRepo" as mapaRepo
+participant "repository: PisoRepo" as pisoRepo
+
+[o-> route: POST(json)
+activate route
+route -> dto** : create(json)
+route -> ctrl: carregarMapa(carregarMapaDTO)
+activate ctrl
+ctrl -> service: carregarMapa(carregarMapaDTO) 
+activate service
+service -> edificioRepo: findByDomainId(codigoEdificio)
+activate edificioRepo
+return edificio
+service -> mapa ** : create()
+service -> mapa: carregarMapaComBermas()
+activate mapa
+deactivate mapa
+service -> mapa: criarPontosElevador(x,y,orientacao)
+activate mapa
+deactivate mapa
+service -> salaRepo: findSalasByPiso(idPiso)
+activate salaRepo
+return listaSalas
+service -> mapa: carregarSalaMapa(salaInfo)
+activate mapa
+deactivate mapa
+service -> passagemRepo: listarPassagensComUmPiso(idPiso)
+activate passagemRepo
+return listaPassagens
+service -> mapa : carregarPassagemMapa(passagemInfo)
+activate mapa
+deactivate mapa
+service -> piso : adicionarMapa(mapa)
+activate piso
+deactivate piso
+service -> mapaRepo: save(mapa)
+activate mapaRepo
+deactivate mapaRepo
+service -> pisoRepo : save(piso)
+activate pisoRepo
+deactivate pisoRepo
+return ok

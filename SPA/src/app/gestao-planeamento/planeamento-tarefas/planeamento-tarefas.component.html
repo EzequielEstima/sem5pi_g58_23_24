@@ -1,0 +1,112 @@
+<html>
+
+<body>
+  <div class="sidebar">
+    <app-sidebar-gestao-planeamento></app-sidebar-gestao-planeamento>
+  </div>
+  <div class="header">
+    <h1>Planear Tarefas</h1>
+  </div>
+
+  
+
+  <div class="conteudo">
+
+    <div class="button-submit">
+      <button type="button" class="add-button" (click)="carregarMapa();" style="margin-right: 10px;">Carregar</button>
+      <button type="button" class="add-button" (click)="flag=true" >Planear</button>
+    </div>
+
+    
+    <div *ngIf="flag">
+      <div class="input-field">
+        <select id="algoritmo" name="algoritmo" #algoritmo required (change)="planearTarefas(+algoritmo.value)">
+          <option value="" disabled selected>Algoritmo *</option>
+          <option value="1">Gerador de todas as soluções</option>
+          <option value="0">Genético</option>
+        </select>
+      </div>
+    </div>
+  
+    <div *ngIf="rotas && rotas.length > 0">
+        <div *ngFor="let rota of rotas">  
+            <div class="nomeRobo">Robot: {{rota.codDispositivo}}</div>
+            <table>
+                  <tr>
+                      <th style="
+                      padding: 12px;
+                      max-width: 100px;
+                      text-align: left;
+                      background-color: #3e3e3e;
+                      color: white;
+                      ">
+                          Id Tarefa</th>
+                      <th style="
+                      padding: 12px;
+                      max-width: 80px;
+                      text-align: left;
+                      background-color: #3e3e3e;
+                      color: white;
+                      ">
+                          Tipo de Tarefa</th>
+                      <th style="
+                      padding: 12px;
+                      max-width: 80px;
+                      text-align: left;
+                      background-color: #3e3e3e;
+                      color: white;
+                      ">
+                          Sala Inicial - SalaFinal</th>
+                      <th style="
+                      padding: 12px;
+                      max-width: 60px;
+                      text-align: left;
+                      background-color: #3e3e3e;
+                      color: white;
+                      ">
+                          Edificio - Piso</th>
+                      <th style="
+                      padding: 12px;
+                      max-width: 80px;
+                      text-align: left;
+                      background-color: #3e3e3e;
+                      color: white;
+                      ">
+                          Email do Requisitador</th>
+                      <th style="
+                      padding: 12px;
+                      max-width: 60px;
+                      text-align: left;
+                      background-color: #3e3e3e;
+                      color: white;
+                      ">
+                          Visualização 3D</th>
+                          
+                  </tr>
+                  <tr *ngFor="let tarefa of toArray(rota.tarefas)"> 
+                      <td style="max-width: 100px;border-bottom: 1px solid #000000;border-right: 1px solid #000000;padding: 8px;overflow-wrap: break-word;">
+                          {{ tarefa.id }}</td>
+                      <td style="max-width: 100px;border-bottom: 1px solid #000000;border-left: 1px solid #000000;padding: 8px;overflow-wrap: break-word;">
+                          {{ tarefa.tipoTarefa }}</td>
+                      <td style="max-width: 80px;border-bottom: 1px solid #000000;border-left: 1px solid #000000;padding: 8px;overflow-wrap: break-word;">
+                        <span *ngIf="tarefa.salaFinal">{{tarefa.salaInicial}} - {{tarefa.salaFinal}}</span>
+                        <span *ngIf="!tarefa.salaFinal">-</span></td>
+                      <td style="max-width: 60px;border-bottom: 1px solid #000000;border-left: 1px solid #000000;padding: 8px;overflow-wrap: break-word;">
+                        <span *ngIf="tarefa.codEdificio">{{ tarefa.codEdificio}} - {{tarefa.numeroPiso}}</span>
+                        <span *ngIf="!tarefa.codEdificio">-</span></td>
+                      <td style="max-width: 80px;border-bottom: 1px solid #000000;border-left: 1px solid #000000;padding: 8px;overflow-wrap: break-word;">
+                        {{tarefa.emailRequisitor}}</td>             
+                      <td style="max-width: 60px;border-bottom: 1px solid #000000;border-left: 1px solid #000000;padding: 8px;overflow-wrap: break-word; text-align: center;">
+                        <button type="button" class="add-button" (click)="v3D(tarefa.id)">Visualização 3D</button>
+                      </td>     
+                  </tr>
+              </table>
+        </div>
+  </div>
+
+  <div class="app-message"> 
+    <app-message></app-message>
+  </div>
+  </div>
+</body>
+</html>

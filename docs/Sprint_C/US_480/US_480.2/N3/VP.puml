@@ -1,0 +1,24 @@
+autonumber
+ 
+
+participant "Controller" as ctrl
+participant "Service" as service
+participant "Repos" as repo
+participant "Mapper" as Mapper
+participant "DTO" as DTO
+
+
+
+[o-> ctrl: GET()
+activate ctrl
+ctrl -> service: listarTarefasPendentes() 
+activate service
+service -> repo : GetTarefasPendentesAsync()
+activate repo
+return listarTarefas
+service -> Mapper : toDTO(tarefa)
+activate Mapper
+Mapper -> DTO **: create
+return tarefaDTO
+return resposta
+return resposta

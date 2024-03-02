@@ -1,0 +1,69 @@
+autonumber
+
+participant "route: \n ElevadorRoute" as route
+participant "dto: \n ElevadorDTO" as dto
+participant "controller: \n ElevadorController" as ctrl
+participant "service: \n ElevadorService" as service
+participant "repo: \n EdificioRepo" as edRepo
+participant "domain: \n Edificio" as edificio
+participant "repo: \n ElevadorRepo" as eleRepo
+participant "domain: \n Elevador" as elevador
+
+[o-> route: PUT(json)
+activate route
+route -> dto ** : create(json)
+route -> ctrl: editarElevador(req, res, next)
+activate ctrl
+ctrl -> service: editarElevador(elevadorDTO) 
+activate service
+service -> edRepo: findByDomain(codEdificio)
+activate edRepo
+return edificio
+service -> edificio: returnElevador()
+activate edificio
+return elevador
+
+service -> edificio : pisosCorrespondentes(pisosServidos)
+activate edificio
+return pisos
+
+service -> elevador: atualizarPisos(newPisos)
+activate elevador
+deactivate elevador
+
+service -> elevador: atualizarMarca(newMarca)
+activate elevador
+deactivate elevador
+
+service -> elevador: atualizarModelo(newModelo)
+activate elevador
+deactivate elevador
+
+service -> elevador: atualizarNumeroSerie(newNumeroSerie)
+activate elevador
+deactivate elevador
+
+service -> elevador: atualizarDescricao(newDescricao)
+activate elevador
+deactivate elevador
+
+service -> eleRepo: save(elevador)
+activate eleRepo
+deactivate eleRepo
+
+return resposta
+return resposta
+return reposta
+
+
+
+
+
+
+
+
+
+
+
+
+

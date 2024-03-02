@@ -1,0 +1,36 @@
+autonumber
+
+actor "Gestor de Tarefas" as actor
+participant "aprovar-tarefa" as component
+participant "serviceInfo" as serviceInfo
+participant "dataModel" as dataModel
+
+
+actor -> component: quero alterar o estado de uma tarefa
+activate component
+component -> serviceInfo: getTarefasPendentes()
+activate serviceInfo
+serviceInfo ->o]: GET GetTarefasPendentes()
+serviceInfo<-- : resposta
+return resposta
+component -> actor: demonstra lista de tarefas pendentes
+actor -> component: escolhe tarefa a alterar
+alt aprovar
+component -> serviceInfo: listarCodigoDosDispositivosDaFrotaPorTarefa()
+activate serviceInfo
+serviceInfo ->o]: GET listarCodigoDosDispositivosDaFrotaPorTarefa()
+serviceInfo<-- : resposta
+return resposta
+component -> actor: pede para escolher um robo
+actor -> component: escolhe um robo
+end
+component -> serviceInfo: alterarEstadoDaTarefa(idTarefa, CodigoRobo, Estado)
+activate serviceInfo
+serviceInfo -> dataModel **: create(idTarefa, CodigoRobo, Estado)
+serviceInfo ->o]: PUT AlterarEstadoDaTarefa(alterarEstadoDaTarefa)
+return resposta
+return resposta
+
+
+
+ 

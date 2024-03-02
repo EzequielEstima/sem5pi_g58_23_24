@@ -1,0 +1,55 @@
+autonumber
+
+participant dispositivoRoute as route
+participant "controller: DispositivoController" as ctrl
+participant "dto: AdicionarRoboAFrota" as dto
+participant "service: DispositivoService" as service
+participant "TipoDispositivoRepo" as tipoRepo
+participant "DispositivoRepo" as disRepo
+participant "Dispositivo" as dispositivo
+participant "DispositivoMap" as disMap
+
+[o-> route: Post(json)
+activate route
+route -> ctrl: adicionarDispositivoAFrota(Request, Response, Next)
+activate ctrl
+ctrl -> dto ** : create(json)
+ctrl -> service: adicionarDispositivoAFrota(listarEdMinEMaxPisosDTO) 
+activate service
+service -> tipoRepo: findByDomainId(tipoDispositivo)
+activate tipoRepo
+return tipoDispositivo
+service -> disRepo: findByDomainId(codigo)
+activate disRepo
+return dispositivo
+service -> disRepo: findByNickname(nickname)
+activate disRepo
+return dispositivo
+service -> disRepo: findByNumeroSerie(nickname)
+activate disRepo
+return listaDispositivo
+service -> dispositivo**: create(numeroDeSerie, tipoDispositivo, descricaoDispositivo, nickname, codigo, estadoDispositivo)
+service -> disMap: toDTO(dispositivo)
+activate disMap
+return dispositivoDTO
+return resposta
+return resposta
+alt
+<-- route: Ok
+else "Erro"
+<-- route: Erro
+end alt
+
+
+
+
+
+
+
+
+
+
+
+
+
+

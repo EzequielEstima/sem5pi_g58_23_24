@@ -1,0 +1,12 @@
+autonumber
+
+participant MDRoboISEP as md <<Container (C4)>>
+
+[o-> md: criar tipo de dispositivo e insere a informação(tipo de tarefa, modelo, marca)
+activate md
+
+alt
+<-- md: OK
+else "Erro"
+<-- md: Erro
+end alt

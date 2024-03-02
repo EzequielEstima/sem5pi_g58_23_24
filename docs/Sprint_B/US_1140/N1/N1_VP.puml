@@ -1,0 +1,10 @@
+autonumber
+
+actor "Gestor de campus" as actor
+participant "SistemaRobDroneGo" as sistema <<System (C4)>>
+
+actor -> sistema: seleciona o edifício e pede a listagem dos elevadores
+activate sistema
+return resposta
+
+ 

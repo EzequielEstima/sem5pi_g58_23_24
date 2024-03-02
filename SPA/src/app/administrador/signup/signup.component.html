@@ -1,0 +1,58 @@
+<html>
+
+<body>
+    <div class="sidebar">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="header">
+        <h1>Registar Utilizador</h1>
+    </div>
+    <div class="conteudo">
+
+        <div class="input-field">
+            <input name="name" #name placeholder="Nome do Utilizador *" />
+            <span></span>
+        </div>
+
+        <div class="input-field">
+            <input name="password" #password placeholder="Password do Utilizador *" />
+            <span></span>
+        </div>
+
+        <div class="input-field">
+            <input name="email" #email placeholder="Email do Utilizador *" />
+            <span></span>
+        </div>
+
+        <div class="input-field">
+            <input name="telefone" #telefone placeholder="Telefone do Utilizador *" />
+            <span></span>
+        </div>
+
+        <div class="input-field">
+            <select [(ngModel)]="selectedRole" name="role" #role>
+                <option value="" disabled selected>Role do Utilizador *</option>
+                <option value="gestor de campus">Gestor de Campus</option>
+                <option value="gestor de frota">Gestor de Frota</option>
+                <option value="gestor de tarefas">Gestor de Tarefas</option>
+                <option value="utente">Utente</option>
+                <option value="admin">Administrador</option>
+            </select>
+            <span></span>
+        </div>
+
+        <div class="input-field" *ngIf="selectedRole === 'utente'">
+            <input name="nif" #nif placeholder="Numero de Contribuinte do Utilizador" (change)="changeNif(nif.value)" />
+            <span></span>
+        </div>
+
+        <div class="button-submit">
+            <button type="button" class="add-button"
+                (click)=" add(name.value, email.value, telefone.value, password.value, role.value)">Adicionar
+                Utilizador</button>
+        </div>
+        <app-message></app-message>
+    </div>
+</body>
+
+</html>

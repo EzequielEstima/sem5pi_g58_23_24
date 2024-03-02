@@ -1,0 +1,9 @@
+@startuml 
+autonumber
+
+actor ator
+participant "RobDroneGo" as system <<System (C4)>>
+
+ator-> system: Escolhe o método de visualização 3D, escolhe o edifício e o piso
+activate system
+return visualização 3D do piso escolhido

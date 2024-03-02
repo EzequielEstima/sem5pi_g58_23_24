@@ -1,0 +1,77 @@
+{
+    "codigoEdificio": "D",
+    "numeroPiso" : 2,
+    "elevador" : {
+        "xCoord" :0,
+        "yCoord" : 0,
+        "orientacao": "Este"   
+    },
+    "salas": [{
+        "nome": "D201",
+        "abcissaA": 0,
+        "ordenadaA": 2,
+        "abcissaB": 3,
+        "ordenadaB": 5,
+        "abcissaPorta" : 4,
+        "ordenadaPorta" : 4,
+        "orientacaoPorta" : "Oeste"
+    },
+    {
+        "nome": "D202",
+        "abcissaA": 6,
+        "ordenadaA": 2,
+        "abcissaB": 11,
+        "ordenadaB": 12,
+        "abcissaPorta" : 6,
+        "ordenadaPorta" : 10,
+        "orientacaoPorta" : "Oeste"
+    },
+    {
+        "nome": "D203",
+        "abcissaA": 0,
+        "ordenadaA": 6,
+        "abcissaB": 3,
+        "ordenadaB": 12,
+        "abcissaPorta" : 4,
+        "ordenadaPorta" : 10,
+        "orientacaoPorta" : "Oeste"
+    },
+    {
+        "nome": "D204",
+        "abcissaA": 7,
+        "ordenadaA": 13,
+        "abcissaB": 11,
+        "ordenadaB": 16,
+        "abcissaPorta" : 7,
+        "ordenadaPorta" : 14,
+        "orientacaoPorta" : "Oeste"
+    },
+    {
+        "nome": "D205",
+        "abcissaA": 0,
+        "ordenadaA": 13,
+        "abcissaB": 3,
+        "ordenadaB": 19,
+        "abcissaPorta" : 4,
+        "ordenadaPorta" : 14,
+        "orientacaoPorta" : "Oeste"
+    },
+    {
+        "nome": "D206",
+        "abcissaA": 4,
+        "ordenadaA": 17,
+        "abcissaB": 11,
+        "ordenadaB": 19,
+        "abcissaPorta" : 5,
+        "ordenadaPorta" : 17,
+        "orientacaoPorta" : "Norte"
+    }
+    ],
+    "passagens": [{
+        "id": 54,
+        "abcissa": 12,
+        "ordenada": 0,
+        "orientacao": "Oeste"
+    }
+    ] 
+}

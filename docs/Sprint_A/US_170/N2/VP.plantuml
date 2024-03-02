@@ -1,0 +1,11 @@
+autonumber
+
+participant MD as md <<Container (C4)>>
+
+[o-> md: pede para listar todos os edificios
+activate md
+alt
+<-- md: lista de edificios
+else "Erro"
+<-- md: Erro
+end alt

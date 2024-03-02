@@ -1,0 +1,16 @@
+autonumber
+
+actor "gestor de campus" as ator
+participant "component: editar-edificio" as componente
+participant "infoService" as infoService
+participant "dataModel" as dataModel
+
+ator -> componente: pretende carregar mapa e coloca o ficheiro com o mapa
+activate componente
+componente -> infoService: carregarMapa(mapa)
+activate infoService
+infoService -> dataModel**: create()
+infoService ->o] : PATCH: /edificio
+infoService<-- : 200
+return resposta
+return resposta

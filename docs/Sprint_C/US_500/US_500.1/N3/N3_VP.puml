@@ -1,0 +1,19 @@
+autonumber
+
+actor "Gestor de Tarefas" as actor
+participant "aprovar-tarefa" as component
+participant "serviceInfo" as serviceInfo
+participant "dataModel" as dataModel
+
+
+actor -> component: quero alterar o estado de uma tarefa
+activate component
+component -> serviceInfo: planearTarefas(algoritmo)
+activate serviceInfo
+serviceInfo ->o]: GET carregarTarefasNoPlaneamento(algoritmo)
+serviceInfo<-- : resposta
+return resposta
+component -> dataModel**: create
+return: lista de execução das tarefas
+
+ 

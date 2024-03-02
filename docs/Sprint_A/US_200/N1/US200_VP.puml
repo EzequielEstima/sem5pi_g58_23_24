@@ -1,0 +1,12 @@
+autonumber
+
+actor ator 
+participant RobDroneGo as sistema <<System (C4)>>
+
+
+ator -> sistema: editar a informação do piso e insere a informação para atualizar
+activate sistema
+return resposta
+
+
+ 

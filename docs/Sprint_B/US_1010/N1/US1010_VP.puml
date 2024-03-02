@@ -1,0 +1,12 @@
+autonumber
+
+actor "Gestor de Frota" as ator
+participant RobDroneGo as sistema <<System (C4)>>
+
+
+ator -> sistema: Adicionar um novo robot à frota e insere a informação (codigo, nickname, IdTipoDispositivo,numeroSerie ,descrição)
+activate sistema
+return resposta
+
+
+ 

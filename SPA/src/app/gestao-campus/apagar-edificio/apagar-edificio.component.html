@@ -1,0 +1,24 @@
+<html>
+  <body>
+    <div class="sidebar">
+      <app-sidebarGestaoCampus></app-sidebarGestaoCampus>
+    </div>
+    <div class = "header">
+        <h1>Apagar Edifício</h1>
+    </div>
+    <div class="conteudo">
+      <div class = "input-field">
+        <input name="codigo" #codigo placeholder="Código do Edifício *"/>
+        <span></span>
+      </div>
+
+      <div class = "button-submit">
+        <button type="button" class="add-button" (click)="delete(codigo.value);">Apagar Edificio</button>
+      </div>
+      <app-message></app-message>
+    </div>
+  </body>
+  
+</html>
+
+

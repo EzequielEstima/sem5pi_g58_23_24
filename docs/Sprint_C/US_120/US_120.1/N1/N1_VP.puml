@@ -1,0 +1,9 @@
+autonumber
+
+actor "Utente" as ator
+participant RobDroneGo as sistema <<System (C4)>>
+
+
+ator -> sistema:  pede para os seu dados serem eliminados
+activate sistema
+return resposta

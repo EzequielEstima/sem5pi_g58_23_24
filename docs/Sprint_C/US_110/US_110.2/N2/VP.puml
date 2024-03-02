@@ -1,0 +1,7 @@
+autonumber
+
+participant "Auth" as modulo <<Container (C4)>>
+
+[o-> modulo: GET /utente
+activate modulo
+return dados pessoais em formato JSON

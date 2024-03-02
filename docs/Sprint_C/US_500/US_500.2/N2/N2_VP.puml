@@ -1,0 +1,16 @@
+autonumber
+
+actor "Gestor de Tarefas" as actor
+participant SPA as fe <<Container (C4)>>
+participant MDTarefas as mdT <<Container (C4)>>
+participant Planeamento  as planeamento <<Container (C4)>>
+
+actor -> fe: Manda um pedido para o MDtarefas com o algoritmo que deseja usar
+activate fe
+fe	-> mdT: carregarTarefasNoPlaneamento(algoritmo)
+activate mdT
+mdT -> planeamento: tempo_handler(tarefas)
+activate planeamento
+return resposta
+return resposta
+return resposta

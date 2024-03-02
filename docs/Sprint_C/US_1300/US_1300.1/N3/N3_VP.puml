@@ -1,0 +1,31 @@
+autonumber
+
+title <<Container (C4)>> SPA
+
+actor "Utilizador" as user
+participant "Component" as component
+participant "ServiceInfo" as service
+participant "DataModel" as dataModel
+
+
+
+user -> component: insere o email e password
+activate component
+component -> service: login(email, password) 
+activate service
+service ->o] : POST login(loginInfo)
+service <-- : resposta
+return resposta
+return resposta
+
+
+
+
+
+
+
+
+
+
+
+

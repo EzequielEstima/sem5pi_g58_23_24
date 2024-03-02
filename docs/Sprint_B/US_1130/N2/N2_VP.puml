@@ -1,0 +1,16 @@
+autonumber
+
+actor "Gestor de Campus" as actor
+participant SPA as fe <<Container (C4)>>
+participant MDRoboISEP as md <<Container (C4)>>
+
+actor -> fe: seleciona o edifício e introduz pisos servidos, \nmarca, modelo, numero de série e descrição
+activate fe
+fe	-> md: criarElevador(elevadorDataModel)
+activate md
+return resposta
+return resposta
+
+
+ 
+ 

@@ -1,0 +1,15 @@
+autonumber
+
+participant Frontend as fe <<Container (C4)>>
+participant MDRoboISEP as md <<Container (C4)>>
+
+[o-> fe: adicionar um novo robot à frota e insere a informação (codigo, nickname, IdTipoDispositivo)
+activate fe
+fe	-> md: adicionarDispositivoAFrota(json)
+activate md
+return resposta
+return resposta
+
+
+
+ 

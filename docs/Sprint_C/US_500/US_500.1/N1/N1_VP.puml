@@ -1,0 +1,10 @@
+autonumber
+
+actor "Gestor de tarefas" as act 
+participant "SistemaRobDroneGo" as sistema <<System (C4)>>
+
+act -> sistema:  Pede para ser apresentada a lista de execução de tarefas de acordo com um algoritmo
+activate sistema
+return resposta
+
+ 

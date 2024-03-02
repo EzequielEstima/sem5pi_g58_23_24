@@ -1,0 +1,12 @@
+autonumber
+
+actor "Gestor de Campus" as ator
+participant RobDroneGo as sistema <<System (C4)>>
+
+
+ator -> sistema: quer listar Edifícios com min e max pisos e introduz dados
+activate sistema
+return resposta
+
+
+ 

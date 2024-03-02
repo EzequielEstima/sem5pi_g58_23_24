@@ -1,0 +1,10 @@
+autonumber
+
+actor "Utente" as act 
+participant "SistemaRobDroneGo" as sistema <<System (C4)>>
+
+act -> sistema: dados pessoais a serem alterados
+activate sistema
+return resposta
+
+ 

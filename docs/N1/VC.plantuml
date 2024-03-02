@@ -1,0 +1,116 @@
+@startuml
+left to right direction
+actor "Gestor de Frota" as frota
+actor "Gestor de Campus" as campus
+actor "Administrador de Sistema" as admin
+actor "Gestor de tarefas" as tarefa
+actor "Ator" as ator
+usecase "Upload mapa do campus" as US130
+usecase "Criar Edificio" as UC150
+usecase "Editar Edifício" as UC160
+usecase "Listar todos os Edifícios" as UC170
+usecase "Listar Edifícios com min e max de pisos" as UC180
+usecase "Criar Piso de um Edificio" as UC190
+usecase "Editar Piso" as UC200
+usecase "Listar todos os Pisos de um Edificio" as UC210
+usecase "Listar Pisos de Edifício com passagens para outros edifícios"  as UC220
+usecase "Carregar Mapa de Piso" as UC230
+usecase "Criar Passagem entre Edifícios" as UC240
+usecase "Editar passagem entre ediifícios" as UC250
+usecase "Listar passagens entre 2 edifícios" as UC260
+usecase "Criar Elevador de um Edifício" as UC270
+usecase "Editar Elevador de um Edifício" as UC280
+usecase "Listar Elevadores de um Edifício" as UC290
+usecase "Listar pisos de edifícios servidos por elevador" as UC300
+usecase "Criar Sala de um Piso" as UC310
+
+usecase "Adicionar novo tipo de robot" as UC350
+usecase "Adicionar novo robot à frota" as UC360
+usecase "Inibir um robot" as UC370
+usecase "Consultar todos os robots de frota" as UC380
+usecase "Pesquisar todos os robots da frota por designação ou tarefa" as UC390
+
+usecase "Deployment de um dos módulos do RFP" as UC640
+usecase "Apenas os clientes da rede interna do DEI possam aceder" as UC650
+usecase "Apenas os clientes definidos num ficheiro possam aceder" as UC660
+usecase "Identificar e quantificar os riscos envolvidos da solução" as UC670
+usecase "Definir MBCO" as UC800
+usecase "Proposta RPO e WRT" as UC810
+usecase "Definir uma pasta pública" as UC820
+usecase "Obter os utilizadores com mais do que 3 acessos incorretos" as UC830
+
+usecase "Obter caminho entre dois edifícios" as UC1220
+usecase "Obter caminho entre dois edifício otimizando um dado critério" as UC510
+usecase "Análise de complexidade" as UC515
+
+usecase "Relatório RGPD" as UC90
+
+usecase "Pipeline de build contínuo" as UC610
+usecase "Deployment automático na cloud" as UC620
+usecase "Deployment num ambiente cloud" as UC630
+
+usecase "Menu com funcionalidades" as UC535
+usecase "Partilha de informação dos robots entre os módulos" as UC700
+usecase "Partilha de informação dos edificios, pisos, passagens, elevadores e mapas entre os módulos" as UC710
+usecase "Partilha de informação dos percursos entre os módulos" as UC730
+
+usecase "Informação do mapa do piso complementado com o módulo de gestão de campus" as UC601
+usecase "Informação do mapa do piso complementado com texturas e modelos" as UC602
+usecase "Visualizar em 3D o mapa do piso" as UC603
+usecase "Visualizar uma interface para selecionar o edifício e piso" as UC604
+usecase "Importar um modelo 3D de um robot e visualizar no mapa do piso" as UC605
+usecase "Permitir a navegação 3D interativo no mapa do piso" as UC606
+
+campus --> US130
+campus --> UC150
+campus --> UC160
+campus --> UC170
+campus --> UC180
+campus --> UC190
+campus --> UC200
+campus --> UC210
+campus --> UC220
+campus --> UC230
+campus --> UC240
+campus --> UC250
+campus --> UC260
+campus --> UC270
+campus --> UC280
+campus --> UC290
+campus --> UC300
+campus --> UC310
+
+frota --> UC350
+frota --> UC360
+frota --> UC370
+frota --> UC380
+frota --> UC390
+
+admin --> UC640
+admin --> UC650
+admin --> UC660
+admin --> UC670
+admin --> UC800
+admin --> UC810
+admin --> UC820
+admin --> UC830
+
+tarefa --> UC1220
+tarefa --> UC510
+tarefa --> UC515
+
+ator --> UC90
+ator --> UC610
+ator --> UC620
+ator --> UC630
+ator --> UC535
+ator --> UC700
+ator --> UC710
+ator --> UC730
+ator --> UC601
+ator --> UC602
+ator --> UC603
+ator --> UC604
+ator --> UC605
+ator --> UC606
+@enduml

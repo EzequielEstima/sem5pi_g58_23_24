@@ -1,0 +1,44 @@
+autonumber
+
+participant "route: \n ElevadorRoute" as route
+participant "controller: \n ElevadorController" as ctrl
+participant "service: \n ElevadorService" as service
+participant "repo: \n EdificioRepo" as edRepo
+participant "domain: \n Edificio" as edificio
+participant "map: \n ElevadorMapper" as mapper
+participant "dto: \n ElevadorDTO" as resDTO
+
+[o-> route: GET(json)
+activate route
+route -> ctrl: listarElevadoresDoEdificio(req, res, next)
+activate ctrl
+ctrl -> service: listarElevadoresDoEdificio(codigoEdificio) 
+activate service
+service -> edRepo: findByDomain(codigoEdificio)
+activate edRepo
+return edificio
+service -> edificio: returnElevador()
+activate edificio
+return elevador
+service -> mapper : toDTO(elevador)
+activate mapper
+mapper -> resDTO : create()
+activate resDTO
+deactivate resDTO
+return elevadorDTO
+return elevadorDTO
+return elevadorDTO
+return elevadorDTO
+
+
+
+
+
+
+
+
+
+
+
+
+

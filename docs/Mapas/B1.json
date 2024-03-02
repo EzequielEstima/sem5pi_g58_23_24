@@ -1,0 +1,90 @@
+{
+    "codigoEdificio": "B",
+    "numeroPiso" : 1,
+    "elevador" : {
+        "xCoord" :21,
+        "yCoord" : 7,
+        "orientacao": "Oeste"   
+    },
+    "salas": [{
+        "nome": "B101",
+        "abcissaA": 0,
+        "ordenadaA": 0,
+        "abcissaB": 3,
+        "ordenadaB": 3,
+        "abcissaPorta" : 2,
+        "ordenadaPorta" : 4,
+        "orientacaoPorta" : "Norte"
+    },
+    {
+        "nome": "B102",
+        "abcissaA": 0,
+        "ordenadaA": 6,
+        "abcissaB": 3,
+        "ordenadaB": 9,
+        "abcissaPorta" : 2,
+        "ordenadaPorta" : 6,
+        "orientacaoPorta" : "Norte"
+    },
+    {
+        "nome": "B103",
+        "abcissaA": 4,
+        "ordenadaA": 0,
+        "abcissaB": 12,
+        "ordenadaB": 3,
+        "abcissaPorta" : 6,
+        "ordenadaPorta" : 4,
+        "orientacaoPorta" : "Norte"
+    },
+    {
+        "nome": "B104",
+        "abcissaA": 6,
+        "ordenadaA": 6,
+        "abcissaB": 9,
+        "ordenadaB": 9,
+        "abcissaPorta" : 6,
+        "ordenadaPorta" : 7,
+        "orientacaoPorta" : "Oeste"
+    },
+    {
+        "nome": "B105",
+        "abcissaA": 13,
+        "ordenadaA": 0,
+        "abcissaB": 18,
+        "ordenadaB": 3,
+        "abcissaPorta" : 14,
+        "ordenadaPorta" : 4,
+        "orientacaoPorta" : "Norte"
+    },
+    {
+        "nome": "B106",
+        "abcissaA": 10,
+        "ordenadaA": 6,
+        "abcissaB": 18,
+        "ordenadaB": 9,
+        "abcissaPorta" : 16,
+        "ordenadaPorta" : 6,
+        "orientacaoPorta" : "Norte"
+    },
+    {
+        "nome": "B106B",
+        "abcissaA": 19,
+        "ordenadaA": 8,
+        "abcissaB": 21,
+        "ordenadaB": 9,
+        "abcissaPorta" : 20,
+        "ordenadaPorta" : 8,
+        "orientacaoPorta" : "Norte"
+    },
+    {
+        "nome": "B107",
+        "abcissaA": 19,
+        "ordenadaA": 0,
+        "abcissaB": 21,
+        "ordenadaB": 3,
+        "abcissaPorta" : 20,
+        "ordenadaPorta" : 4,
+        "orientacaoPorta" : "Norte"
+    }
+    ] 
+}

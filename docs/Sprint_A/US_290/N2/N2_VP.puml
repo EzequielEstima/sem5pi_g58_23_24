@@ -1,0 +1,15 @@
+autonumber
+
+participant Frontend as fe <<Container (C4)>>
+participant MDRoboISEP as md <<Container (C4)>>
+
+[o-> fe: recebe código do edifício
+activate fe
+fe	-> md: listarElevadoresDoEdificio(json)
+activate md
+return lista de elevadores
+return lista de elevadores
+
+
+ 
+ 

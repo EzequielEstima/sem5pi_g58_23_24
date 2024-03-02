@@ -1,0 +1,41 @@
+autonumber
+
+title <<Container (C4)>> MDTarefas
+
+participant "Router" as router
+participant "Controller" as ctrl
+participant "Service" as service
+participant "Model" as domain
+participant "Repository" as repo
+
+
+[o-> router: PUT(json)
+activate router
+router -> ctrl : alterarDadosUser(req, res, next)
+activate ctrl
+ctrl -> service: alterarDadosUser(updateUserDTO) 
+activate service
+service -> repo : getById(email)
+activate repo
+return user
+service -> domain : updateDados(newDados)
+activate domain
+deactivate domain
+service -> repo : save(user)
+activate repo
+deactivate repo
+return resposta
+return resposta
+return resposta
+
+
+
+
+
+
+
+
+
+
+
+

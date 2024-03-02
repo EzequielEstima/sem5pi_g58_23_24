@@ -1,0 +1,16 @@
+autonumber
+
+actor "Gestor de Campus" as actor
+participant SPA as fe <<Container (C4)>>
+participant MDRoboISEP as md <<Container (C4)>>
+
+actor -> fe: seleciona o edifício e pede a listagem dos elevadores
+activate fe
+fe	-> md: listarElevadores(codigoEdificio)
+activate md
+return resposta
+return resposta
+
+
+ 
+ 

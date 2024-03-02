@@ -1,0 +1,17 @@
+autonumber
+
+actor "Utilizador" as actor
+participant SPA as fe <<Container (C4)>>
+participant Auth as auth <<Container (C4)>>
+
+
+actor -> fe: informação de login
+activate fe
+fe	-> auth : login(email, password)
+activate auth
+return resposta
+return resposta
+
+
+ 
+ 

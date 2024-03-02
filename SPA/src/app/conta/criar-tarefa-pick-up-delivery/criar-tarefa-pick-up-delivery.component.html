@@ -1,0 +1,50 @@
+<html>
+    <body>
+        <div class="sidebar">
+            <app-sidebar-conta></app-sidebar-conta>
+        </div>
+        <div class="header">
+            <h1>Criar tarefa PickUp&Delivery</h1>
+        </div>
+        <form class="conteudo" [formGroup]="myForm">
+            <div class = "input-field"> 
+                <input formControlName="codConf" name="codConf" #codConf placeholder="Código de confirmação*" required />
+            </div>
+
+            <div class = "input-field"> 
+                <input formControlName="desc" name="desc" #desc placeholder="Descrição*" required/>
+            </div>
+
+            <div class = "input-field">
+                <input formControlName="nomePickUp" name="nomePickUp" #nomePickUp placeholder="Nome do contacto de pickup*" required/>
+            </div>
+
+            <div class = "input-field">
+                <input formControlName="numeroPickUp" name="numeroPickUp" #numeroPickUp placeholder="Número de telefone do contacto de pickup*" required/>
+            </div>
+
+            <div class = "input-field">
+                <input formControlName="nomeDelivery" name="nomeDelivery" #nomeDelivery placeholder="Nome do contacto de delivery*" required/>
+            </div>
+
+            <div class = "input-field">
+                <input formControlName="numeroDelivery" name="numeroDelivery" #numeroDelivery placeholder="Número de telefone do contacto de delivery*" required/>
+            </div>
+
+            <div class = "input-field">
+                <input formControlName="salaInicial" name="salaInicial" #salaInicial placeholder="Sala inicial*" required/>
+            </div>
+
+            <div class = "input-field">
+                <input formControlName="salaFinal" name="salaFinal" #salaFinal placeholder="Sala final*" required/>
+            </div>
+            <div class = "button-submit">
+                <button type="button" class="add-button" (click) = "criarTarefaPickUpDelivery()"> Criar</button>
+            </div>
+
+            <app-message></app-message>
+        </form>
+    </body>
+</html>
+
+

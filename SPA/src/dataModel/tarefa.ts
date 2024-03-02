@@ -1,0 +1,20 @@
+export default interface Tarefa {
+    tipoTarefa: string,
+    id: string,
+    percursoString: string,
+    estadoString: string,
+    emailRequisitor: string,
+    codDispositivo: string,
+    codConfirmacao: string ,
+    descricaoEntrega: string,
+    nomePickUp: string,
+    numeroPickUp: string,
+    nomeDelivery: string,
+    numeroDelivery: string,
+    salaInicial: string,
+    salaFinal: string,
+    nomeVigilancia: string,
+    numeroVigilancia: string,
+    codEdificio: string,
+    numeroPiso: number
+}

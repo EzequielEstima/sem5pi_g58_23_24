@@ -1,0 +1,10 @@
+autonumber
+
+actor "Utilizador" as act 
+participant "SistemaRobDroneGo" as sistema <<System (C4)>>
+
+act -> sistema: informação de login
+activate sistema
+return resposta
+
+ 

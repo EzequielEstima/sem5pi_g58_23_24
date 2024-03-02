@@ -1,0 +1,12 @@
+autonumber
+actor "Gestor de campus" as actor
+participant SistemaRobDroneGo as sistema <<System (C4)>>
+
+activate actor
+actor -> sistema: pede para listar todos os edificios
+activate sistema
+alt
+actor <-- sistema: lista de edificios
+else "Erro"
+actor <-- sistema: Erro
+end alt

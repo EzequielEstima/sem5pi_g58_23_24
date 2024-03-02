@@ -1,0 +1,57 @@
+{
+    "codigoEdificio": "C",
+    "numeroPiso" : 4,
+    "elevador" : {
+        "xCoord" : 0,
+        "yCoord" : 12,
+        "orientacao": "Este"   
+    },
+    "salas": [{
+        "nome": "C401",
+        "abcissaA": 0,
+        "ordenadaA": 0,
+        "abcissaB": 5,
+        "ordenadaB": 7,
+        "abcissaPorta" : 6,
+        "ordenadaPorta" : 7,
+        "orientacaoPorta" : "Oeste"
+    },
+    {
+        "nome": "C402",
+        "abcissaA": 6,
+        "ordenadaA": 0,
+        "abcissaB": 11,
+        "ordenadaB": 5,
+        "abcissaPorta" : 10,
+        "ordenadaPorta" : 6,
+        "orientacaoPorta" : "Norte"
+    },
+    {
+        "nome": "C403",
+        "abcissaA": 0,
+        "ordenadaA": 14,
+        "abcissaB": 11,
+        "ordenadaB": 19,
+        "abcissaPorta" : 5,
+        "ordenadaPorta" : 14,
+        "orientacaoPorta" : "Norte"
+    },
+    {
+        "nome": "C404",
+        "abcissaA": 8,
+        "ordenadaA": 8,
+        "abcissaB": 11,
+        "ordenadaB": 11,
+        "abcissaPorta" : 10,
+        "ordenadaPorta" : 12,
+        "orientacaoPorta" : "Norte"
+    }
+    ],
+    "passagens": [{
+        "id": 53,
+        "abcissa": 0,
+        "ordenada": 8,
+        "orientacao": "Oeste"
+    }
+    ]
+}

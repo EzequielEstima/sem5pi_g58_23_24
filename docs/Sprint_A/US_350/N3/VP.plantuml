@@ -1,0 +1,38 @@
+autonumber
+
+participant RouteTipoDispositivo as route
+participant "dto: TipoDispositivoDTO" as dto
+participant "controller: TipoDispositivoController" as ctrl
+participant "service: TipoDispositivoService" as service
+participant "repository: TipoDispositivoRepo" as repo
+participant "TipoDispositivo" as td
+
+[o-> route: POST(json)
+activate route
+route -> dto ** : create(json)
+route -> ctrl: criarTipoDispositivo(tipoDispositivoDTO)
+activate ctrl
+ctrl -> service: criarTipoDispositivo(tipoDispositivoDTO) 
+activate service
+service -> repo: getMaxId(codigo)
+activate repo
+return number
+service -> td** : create()
+service -> repo: save(tipoDispositivo)
+activate repo
+deactivate repo
+return ok
+return ok
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,46 @@
+<html>
+  <body>
+    <div class="sidebar">
+      <app-sidebarGestaoCampus></app-sidebarGestaoCampus>
+    </div>
+    <div class="conteudo">
+      <div class="input-field">
+        <select id="codigo" name="codigoEdificioA" #codigoEdificioA required>
+          <option value="" disabled selected>Codigo Edificio *</option>
+          <option *ngFor="let option of listaCodigos" [value]="option">{{ option }}</option>
+        </select>
+        <span></span>
+      </div>
+
+      <div class="input-field">
+        <select id="codigo" name="codigoEdificioB" #codigoEdificioB required>
+          <option value="" disabled selected>Codigo Edificio *</option>
+          <option *ngFor="let option of listaCodigos" [value]="option">{{ option }}</option>
+        </select>
+        <span></span>
+      </div>
+
+      <div class="input-field">
+        <input type="number" name="id" #id placeholder="ID da Passagem *" min="0" required/>
+        <span></span>
+      </div>
+
+      <div class = "input-field">
+        <input type="number" name="numeroPisoA" #numeroPisoA placeholder="Numero do Piso A *" required/>
+        <span></span>
+      </div>
+      
+      <div class = "input-field">
+        <input type="number" name="numeroPisoB" #numeroPisoB placeholder="Numero do Piso B *" required/>
+        <span></span>
+      </div>
+
+      <div class = "button-submit">
+        <button type="button" class="add-button" (click)="add(+id.value, codigoEdificioA.value, codigoEdificioB.value, +numeroPisoA.value, +numeroPisoB.value);">Criar Passagem</button>
+      </div>
+      
+      <app-message></app-message>
+    </div>
+  </body>
+  
+</html>

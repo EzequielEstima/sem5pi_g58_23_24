@@ -1,0 +1,10 @@
+autonumber
+
+actor "Gestor de Frota" as act
+participant "SistemaRobDroneGo" as sistema <<System (C4)>>
+
+act -> sistema: pede listagem de dispositivos da frota
+activate sistema
+return resposta
+
+ 

@@ -1,0 +1,20 @@
+autonumber
+
+actor "Potencial utente" as ator
+participant "signup-utente" as component
+participant "serviceInfo" as serviceInfo
+participant "dataModel" as dataModel
+
+
+ator -> component: pede para registar e insere os dados(nome, password, email, telefone, numero contribuinte)
+activate component
+component -> serviceInfo: signupUtente(nome, password, email, telefone, numero contribuinte)
+activate serviceInfo
+serviceInfo ->o]: POST sighupUtente(user)
+serviceInfo<-- : resposta
+return resposta
+return resposta
+
+
+
+ 

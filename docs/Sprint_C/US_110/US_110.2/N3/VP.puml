@@ -1,0 +1,29 @@
+autonumber
+
+participant "Route" as Route
+participant "Controller" as Controller
+participant "Service" as Service
+participant "Repository" as Repo
+
+[o-> Route: GET: /utente
+activate Route
+Route -> Controller: exportarDadosPessoais()
+activate Service
+Controller -> Service: exportarDadosPessoais(email)
+activate Service
+Service -> Repo: findByEmail(email)
+activate Repo
+return user
+Service -> User : returnName()
+activate User
+return name
+Service -> User : returnTelefone()
+activate User
+return telefone
+Service -> User : returnNif()
+activate User
+return nif
+Service -> DTO** : create
+return DTO
+return DTO
+return DTO

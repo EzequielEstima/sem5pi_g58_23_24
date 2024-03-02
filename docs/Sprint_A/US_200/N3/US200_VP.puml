@@ -1,0 +1,61 @@
+autonumber
+
+participant PisoRoute as route
+participant "controller: PisoController" as ctrl
+participant "dto: EditarPisoDTO" as dto
+participant "service: PisoService" as service
+participant "EdificioRepo" as edRepo
+participant "Edificio" as edificio
+participant "Piso" as piso
+participant "PisoRepo" as pisoRepo
+participant "PisoMap" as pisoMap
+
+
+[o-> route: PUT(json)
+activate route
+route -> ctrl: editarPiso(Request, Response, Next)
+activate ctrl
+ctrl -> dto ** : create(json)
+ctrl -> service: editarPiso(editarPisoDTO) 
+activate service
+service -> edRepo: findByDomain(codigoEdificio)
+activate edRepo
+return edificio
+service -> edificio : verificaSePisoJaExiste(novoNumeroPiso)
+activate edificio
+return boolean
+service -> edificio : pisosCorrespondentes(numeroPiso)
+activate edificio
+return piso
+service -> piso : atualizarNumeroPiso(novoNumeroPiso)
+activate piso
+return result
+service -> piso : atualizarDescricaoPiso(descricaoPiso)
+activate piso
+return result
+service -> pisoRepo: save(piso)
+service -> pisoMap: toDTO(piso)
+activate pisoMap
+return pisoDTO
+return resposta
+alt
+route <-- ctrl: Ok
+<-- route: Ok
+else "Erro"
+route <-- ctrl: Erro
+deactivate ctrl
+<-- route: Erro
+end alt
+deactivate route
+
+
+
+
+
+
+
+
+
+
+
+

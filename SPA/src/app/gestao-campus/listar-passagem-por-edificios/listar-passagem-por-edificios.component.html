@@ -1,0 +1,114 @@
+<html>
+    <header>
+        <style>
+            th:first-of-type {
+            border-top-left-radius: 10px;
+            }
+            th:last-of-type {
+            border-top-right-radius: 10px;
+            }
+            tr:last-of-type td:first-of-type {
+            border-bottom-left-radius: 10px;
+            }
+            tr:last-of-type td:last-of-type {
+            border-bottom-right-radius: 10px;
+            }
+        </style>
+    </header>
+  <body>
+    <div class="sidebar">
+      <app-sidebarGestaoCampus></app-sidebarGestaoCampus>
+    </div>
+    
+    <div class="header">
+        <h1>Listar passagens por par de edifícios</h1>
+    </div>
+
+    <div class="conteudo">
+        <form [formGroup]="myForm">
+            <div class="input-field">
+
+              <select formControlName="cod1" id="cod1" required>
+                <option value="" disabled selected>Codigo Edificio1*</option>
+                <option *ngFor="let option of listaCodigosEd" [value]="option">{{ option }}</option>
+              </select>
+              
+              <select formControlName="cod2" id="cod2" required>
+                <option value="" disabled selected>Codigo Edificio2*</option>
+                <option *ngFor="let option of listaCodigosEd" [value]="option">{{ option }}</option>
+              </select>
+            
+            </div>
+        </form>
+        <div class = "button-submit">
+            <button type="button" class="add-button" (click)="listarPassagensPorEdificios();">Listar</button>
+        </div>
+        <app-message></app-message>
+
+        <div *ngIf="listaPassagens && listaPassagens.length > 0">
+            <p-table [value]="listaPassagens" [tableStyle]="{'border-collapse': 'collapse'}">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="
+                         padding: 12px;
+                         text-align: left;
+                         background-color: #3e3e3e;
+                         color: white;
+                        ">
+                            Id Passagem</th>
+                        <th style="
+                        padding: 12px;
+                        text-align: left;
+                        background-color: #3e3e3e;
+                        color: white;
+                       ">
+                            Id Piso1</th>
+                        <th style="
+                        padding: 12px;
+                        text-align: left;
+                        background-color: #3e3e3e;
+                        color: white;
+                        ">
+                            Nº Piso1</th>
+                        <th style="
+                        padding: 12px;
+                        text-align: left;
+                        background-color: #3e3e3e;
+                        color: white;
+                        ">
+                            Id Piso2</th>
+                        <th style="
+                        padding: 12px;
+                        text-align: left;
+                        background-color: #3e3e3e;
+                        color: white;
+                        ">
+                            Nº Piso2</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-passagem let-i>
+                    <tr>
+                        <td style="border-bottom: 1px solid #000000;border-right: 1px solid #000000;padding: 8px;">
+                            {{ passagem.id }}
+                        </td>
+                        <td style="border-bottom: 1px solid #000000;border-left: 1px solid #000000;padding: 8px;overflow-wrap: break-word;">
+                            {{ passagem.idPisoA }}
+                        </td>
+                        <td style="border-bottom: 1px solid #000000;border-left: 1px solid #000000;padding: 8px;overflow-wrap: break-word;">
+                            {{ passagem.numeroPisoA }}
+                        </td>
+                        <td style="border-bottom: 1px solid #000000;border-left: 1px solid #000000;padding: 8px;overflow-wrap: break-word;">
+                            {{ passagem.idPisoB }}
+                        </td>
+                        <td style="border-bottom: 1px solid #000000;border-left: 1px solid #000000;padding: 8px;overflow-wrap: break-word;">
+                            {{ passagem.numeroPisoB }}
+                        </td>      
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+  </body>
+</html>
+
+

@@ -1,0 +1,20 @@
+autonumber
+
+actor "Gestor de Campus" as actor
+participant Component as comp
+participant ServiceInfo as servInf
+participant DataModel as dm
+
+
+actor -> comp: seleciona o edifício e introduz pisos servidos, \nmarca, modelo, numero de série e descrição
+activate comp
+comp -> servInf: criarElevador(edificio, pisosServidos, \nmarca, modelo, numeroSerie, descricao)
+activate servInf
+servInf -> dm **: create(edificio, pisosServidos, marca, \nmodelo, numeroSerie, descricao)
+servInf ->o] : POST criarElevador(elevadorDataModel)
+servInf <-- : resposta
+return resposta
+return resposta
+
+
+

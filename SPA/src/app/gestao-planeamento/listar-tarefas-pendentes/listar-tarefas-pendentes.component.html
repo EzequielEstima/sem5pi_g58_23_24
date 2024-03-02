@@ -1,0 +1,87 @@
+<html>
+
+<body>
+  <div class="sidebar">
+    <app-sidebar-gestao-planeamento></app-sidebar-gestao-planeamento>
+  </div>
+  <div class="header">
+    <h1>Tarefas Pendentes</h1>
+  </div>
+  <div class="conteudo">
+    <div *ngIf="listaTarefas && listaTarefas.length > 0">
+      <p-table [value]="listaTarefas" [tableStyle]="{'border-collapse': 'collapse'}">
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="
+                padding: 12px;
+                max-width: 100px;
+                text-align: left;
+                background-color: #3e3e3e;
+                color: white;
+                ">
+                    Id Tarefa</th>
+                <th style="
+                padding: 12px;
+                max-width: 80px;
+                text-align: left;
+                background-color: #3e3e3e;
+                color: white;
+              ">
+                    Tipo de Tarefa</th>
+                <th style="
+                padding: 12px;
+                max-width: 80px;
+                text-align: left;
+                background-color: #3e3e3e;
+                color: white;
+                ">
+                    Sala Inicial - SalaFinal</th>
+                <th style="
+                padding: 12px;
+                max-width: 60px;
+                text-align: left;
+                background-color: #3e3e3e;
+                color: white;
+                ">
+                    Edificio - Piso</th>
+                <th style="
+                padding: 12px;
+                max-width: 80px;
+                text-align: left;
+                background-color: #3e3e3e;
+                color: white;
+                ">
+                    Email do Requisitador</th>
+                <th style="
+                max-width: 60px;
+                text-align: left;
+                background-color: #3e3e3e;
+                color: white;
+                ">  
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-tarefa let-i>
+            <tr>
+                <td style="max-width: 100px;border-bottom: 1px solid #000000;border-right: 1px solid #000000;padding: 8px;overflow-wrap: break-word;">
+                    {{ tarefa.id }}</td>
+                <td style="max-width: 100px;border-bottom: 1px solid #000000;border-left: 1px solid #000000;padding: 8px;overflow-wrap: break-word;">
+                    {{ tarefa.tipoTarefa }}</td>
+                <td style="max-width: 80px;border-bottom: 1px solid #000000;border-left: 1px solid #000000;padding: 8px;overflow-wrap: break-word;">
+                  <span *ngIf="tarefa.salaFinal">{{tarefa.salaInicial}} - {{tarefa.salaFinal}}</span>
+                  <span *ngIf="!tarefa.salaFinal">-</span></td>
+                <td style="max-width: 60px;border-bottom: 1px solid #000000;border-left: 1px solid #000000;padding: 8px;overflow-wrap: break-word;">
+                  <span *ngIf="tarefa.codEdificio">{{ tarefa.codEdificio}} - {{tarefa.numeroPiso}}</span>
+                  <span *ngIf="!tarefa.codEdificio">-</span></td>
+                <td style="max-width: 80px;border-bottom: 1px solid #000000;border-left: 1px solid #000000;padding: 8px;overflow-wrap: break-word;">
+                  {{tarefa.emailRequisitor}}</td>             
+            </tr>
+        </ng-template>
+    </p-table>
+  </div>
+
+  <div class="app-message"> 
+    <app-message></app-message>
+  </div>
+  </div>
+</body>
+</html>

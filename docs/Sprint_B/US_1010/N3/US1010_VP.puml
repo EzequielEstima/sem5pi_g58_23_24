@@ -1,0 +1,18 @@
+autonumber
+
+actor "Gestor de Frota" as ator
+participant "adicionar-dispositivo" as component
+participant "serviceInfo" as serviceInfo
+participant "dataModel" as dataModel
+
+
+ator -> component: Adicionar um novo robot à frota e insere a informação (codigo, nickname, IdTipoDispositivo, numeroSerie, descrição)
+activate component
+component -> serviceInfo: adicionarDispositivoAFrota(codigo,numeroPiso,descricao)
+activate serviceInfo
+serviceInfo -> dataModel **: create(codigo,numeroPiso,descricao)
+serviceInfo ->o]: POST adicionarDispositivoAFrota(piso)
+serviceInfo<-- : resposta
+return resposta
+return resposta
+ 

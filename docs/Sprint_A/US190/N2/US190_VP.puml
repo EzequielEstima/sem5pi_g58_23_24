@@ -1,0 +1,15 @@
+autonumber
+
+participant Frontend as fe <<Container (C4)>>
+participant MDRoboISEP as md <<Container (C4)>>
+
+[o-> fe: criar piso e insere a informação (codigo, nPiso, descricao)
+activate fe
+fe	-> md: criarPiso(json)
+activate md
+return resposta
+return resposta
+
+
+
+ 

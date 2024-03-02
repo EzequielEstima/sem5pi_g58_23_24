@@ -1,0 +1,45 @@
+<html>
+
+<body>
+  <div class="sidebar">
+    <app-sidebarGestaoCampus></app-sidebarGestaoCampus>
+  </div>
+  <div class="header">
+    <h1>Criar Edifício</h1>
+  </div>
+  <div class="conteudo">
+    <div class="input-field">
+      <input name="codigo" #codigo placeholder="Código do Edifício *" />
+      <span></span>
+    </div>
+
+    <div class="input-field">
+      <input name="nomeEdificio" #nomeEdificio placeholder="Nome do Edifício" />
+      <span></span>
+    </div>
+
+    <div class="input-field">
+      <input name="descricaoEdificio" #descricaoEdificio placeholder="Descrição do Edifício" />
+      <span></span>
+    </div>
+
+    <div class="input-field">
+      <input name="dimensaoX" #dimensaoX placeholder="Dimensão em X *" />
+      <span></span>
+    </div>
+
+    <div class="input-field">
+      <input name="dimensaoY" #dimensaoY placeholder="Dimensão em Y *" />
+      <span></span>
+    </div>
+
+    <div class="button-submit">
+      <button type="button" class="add-button"
+        (click)="add(codigo.value, dimensaoX.value, dimensaoY.value, nomeEdificio.value,descricaoEdificio.value);">Criar
+        Edificio</button>
+    </div>
+    <app-message></app-message>
+  </div>
+</body>
+
+</html>

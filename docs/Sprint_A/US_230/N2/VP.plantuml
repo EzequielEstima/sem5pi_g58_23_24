@@ -1,0 +1,10 @@
+autonumber
+
+participant FrontEnd as fe <<Container (C4)>>
+participant MDRoboISEP as md <<Container (C4)>>
+[o-> fe: carregar mapa e insere a informação em JSON
+activate fe
+fe -> md: carregarMapa(json)
+activate md
+return resposta
+<-- fe : resposta

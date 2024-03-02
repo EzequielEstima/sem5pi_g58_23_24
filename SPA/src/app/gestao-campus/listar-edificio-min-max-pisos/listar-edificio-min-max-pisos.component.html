@@ -1,0 +1,107 @@
+<html>
+    <header>
+        <style>
+            th:first-of-type {
+            border-top-left-radius: 10px;
+            }
+            th:last-of-type {
+            border-top-right-radius: 10px;
+            }
+            tr:last-of-type td:first-of-type {
+            border-bottom-left-radius: 10px;
+            }
+            tr:last-of-type td:last-of-type {
+            border-bottom-right-radius: 10px;
+            }
+        </style>
+    </header>
+  <body>
+    <div class="sidebar">
+      <app-sidebarGestaoCampus></app-sidebarGestaoCampus>
+    </div>
+    
+    <div class="header">
+        <h1>Listar edifício com mínimo e máximo de pisos</h1>
+    </div>
+
+    <div class="conteudo">
+        
+        <div class = "input-field">
+            <input type="number" name="minPiso" #minPiso placeholder="Numero mínimo pisos*" required/>
+            <span></span>
+          
+            <input type="number" name="maxPiso" #maxPiso placeholder="Numero máximo pisos*" required/>
+            <span></span>
+        </div>
+
+        <div class = "button-submit">
+            <button type="button" class="add-button" (click)="listarEdificioMinMaxPisos(minPiso.value, maxPiso.value);">Listar</button>
+        </div>
+        <app-message></app-message>
+
+        <div *ngIf="listaEdificios && listaEdificios.length > 0">
+            <p-table [value]="listaEdificios" [tableStyle]="{'border-collapse': 'collapse'}">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="
+                         padding: 12px;
+                         text-align: left;
+                         background-color: #3e3e3e;
+                         color: white;
+                        ">
+                            Codigo</th>
+                        <th style="
+                        padding: 12px;
+                        text-align: left;
+                        background-color: #3e3e3e;
+                        color: white;
+                       ">
+                            Nome</th>
+                        <th style="
+                        padding: 12px;
+                        text-align: left;
+                        background-color: #3e3e3e;
+                        color: white;
+                        ">
+                            Descrição</th>
+                        <th style="
+                        padding: 12px;
+                        text-align: left;
+                        background-color: #3e3e3e;
+                        color: white;
+                        ">
+                            Dimensão em X</th>
+                        <th style="
+                        padding: 12px;
+                        text-align: left;
+                        background-color: #3e3e3e;
+                        color: white;
+                        ">
+                            Dimensão em Y</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-edificio let-i>
+                    <tr>
+                        <td style="border-bottom: 1px solid #000000;border-right: 1px solid #000000;padding: 8px;">
+                            {{ edificio.codigo || "-"}}</td>
+                        <td style="border-bottom: 1px solid #000000;border-left: 1px solid #000000;padding: 8px;overflow-wrap: break-word;">
+                            <span *ngIf="edificio.nome">{{ edificio.nome }}</span>
+                            <span *ngIf="!edificio.nome">-</span></td>
+                        <td style="border-bottom: 1px solid #000000;border-left: 1px solid #000000;padding: 8px;overflow-wrap: break-word;">
+                            <span *ngIf="edificio.descricao">{{ edificio.descricao }}</span>
+                            <span *ngIf="!edificio.descricao">-</span></td>
+                        <td style="border-bottom: 1px solid #000000;border-left: 1px solid #000000;padding: 8px;overflow-wrap: break-word;">
+                           {{ edificio.dimensaoX }}
+                            </td>
+                        <td style="border-bottom: 1px solid #000000;border-left: 1px solid #000000;padding: 8px;overflow-wrap: break-word;">
+                            {{ edificio.dimensaoY }}</td>
+                                    
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+  </body>
+</html>
+
+

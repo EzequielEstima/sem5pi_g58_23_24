@@ -1,0 +1,797 @@
+{
+	"info": {
+		"_postman_id": "90faf65f-254b-426f-8347-eaa2af3281d6",
+		"name": "MapaTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "30690787"
+	},
+	"item": [
+		{
+			"name": "CriarEdificioA",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"Informação returnada foi a esperada\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.eql({\r",
+							"    \"codigo\": \"Teste\",\r",
+							"    \"nome\": \"EdificioTest\",\r",
+							"    \"descricao\": \"EdificioTest\",\r",
+							"    \"dimensaoX\": 5,\r",
+							"    \"dimensaoY\": 5\r",
+							"});\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codigo\": \"Teste\",\r\n    \"nome\": \"EdificioTest\",\r\n    \"descricao\": \"EdificioTest\",\r\n    \"dimensaoX\": \"5\",\r\n    \"dimensaoY\": \"5\"\r\n}"
+				},
+				"url": "http://localhost:4000/api/edificio"
+			},
+			"response": []
+		},
+		{
+			"name": "CriarEdificioB",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"Informação returnada foi a esperada\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.eql({\r",
+							"    \"codigo\": \"Test1\",\r",
+							"    \"nome\": \"EdificioTest\",\r",
+							"    \"descricao\": \"EdificioTest\",\r",
+							"    \"dimensaoX\": 4,\r",
+							"    \"dimensaoY\": 4\r",
+							"});\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codigo\": \"Test1\",\r\n    \"nome\": \"EdificioTest\",\r\n    \"descricao\": \"EdificioTest\",\r\n    \"dimensaoX\": \"4\",\r\n    \"dimensaoY\": \"4\"\r\n}"
+				},
+				"url": "http://localhost:4000/api/edificio"
+			},
+			"response": []
+		},
+		{
+			"name": "CriarUmPisoEmEdificioA",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"Informação returnada foi a esperada\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.eql({\r",
+							"    \"codigo\": \"Teste\",\r",
+							"    \"numeroPiso\": 1,\r",
+							"    \"descricaoPiso\": \"Piso 1\"\r",
+							"});\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codigo\": \"Teste\",\r\n\t\"numeroPiso\": 1,\r\n\t\"descricaoPiso\": \"Piso 1\"\r\n}"
+				},
+				"url": "http://localhost:4000/api/piso"
+			},
+			"response": []
+		},
+		{
+			"name": "CriarUmPisoEmEdificioA",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"Informação returnada foi a esperada\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.eql({\r",
+							"    \"codigo\": \"Teste\",\r",
+							"    \"numeroPiso\": 2,\r",
+							"    \"descricaoPiso\": \"Piso 2\"\r",
+							"});\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codigo\": \"Teste\",\r\n\t\"numeroPiso\": 2,\r\n\t\"descricaoPiso\": \"Piso 2\"\r\n}"
+				},
+				"url": "http://localhost:4000/api/piso"
+			},
+			"response": []
+		},
+		{
+			"name": "CriarUmPisoEmEdificioB",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"Informação returnada foi a esperada\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.eql({\r",
+							"    \"codigo\": \"Test1\",\r",
+							"    \"numeroPiso\": 1,\r",
+							"    \"descricaoPiso\": \"Piso 1\"\r",
+							"});\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codigo\": \"Test1\",\r\n\t\"numeroPiso\": 1,\r\n\t\"descricaoPiso\": \"Piso 1\"\r\n}"
+				},
+				"url": "http://localhost:4000/api/piso"
+			},
+			"response": []
+		},
+		{
+			"name": "CriarSala",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Informação returnada foi a esperada\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.eql({\r",
+							"    \"id\":\"B300\",\r",
+							"    \"codigoEdificio\": \"Teste\",\r",
+							"    \"numeroPiso\": 1,\r",
+							"    \"descricao\":\"Sala B300 - Laboratorio\",\r",
+							"    \"categoria\":\"Laboratorio\"\r",
+							"});\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"B300\",\r\n    \"codigoEdificio\": \"Teste\",\r\n    \"numeroPiso\": 1,\r\n    \"descricao\":\"Sala B300 - Laboratorio\",\r\n    \"categoria\":\"Laboratorio\"\r\n}"
+				},
+				"url": "http://localhost:4000/api/sala"
+			},
+			"response": []
+		},
+		{
+			"name": "CriarPassagem",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Informação returnada foi a esperada\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.eql({\r",
+							"    \"id\": 500,\r",
+							"    \"codigoEdificioA\": \"Teste\",\r",
+							"    \"codigoEdificioB\": \"Test1\",\r",
+							"    \"numeroPisoA\": 1,\r",
+							"    \"numeroPisoB\": 1\r",
+							"});\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 500,\r\n    \"codigoEdificioA\": \"Teste\",\r\n    \"codigoEdificioB\": \"Test1\",\r\n    \"numeroPisoA\": 1 ,\r\n    \"numeroPisoB\": 1\r\n}"
+				},
+				"url": "http://localhost:4000/api/passagem"
+			},
+			"response": []
+		},
+		{
+			"name": "CriarElevador",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"Informação retornada foi a esperada\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.eql({\r",
+							"    \"edificio\": \"Teste\",\r",
+							"    \"pisosServidos\": [1,2],\r",
+							"    \"marca\": \"marca\",\r",
+							"    \"modelo\": \"modelo\",\r",
+							"    \"numeroSerie\": \"numeroSerie\",\r",
+							"    \"descricao\": \"descricao\"\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"edificio\": \"Teste\",\r\n    \"pisosServidos\": [1,2],\r\n    \"marca\": \"marca\",\r\n    \"modelo\": \"modelo\",\r\n    \"numeroSerie\": \"numeroSerie\",\r\n    \"descricao\": \"descricao\" \r\n}"
+				},
+				"url": "http://localhost:4000/api/elevador"
+			},
+			"response": []
+		},
+		{
+			"name": "CarregarMapa",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"pm.test(\"Informação retornada foi a esperada\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.eql({",
+							"        \"codigoEdificio\": \"Teste\",",
+							"        \"numeroPiso\" : 1,",
+							"        \"passagens\" : [{",
+							"                \"id\": 500,",
+							"                \"abcissa\": 5,",
+							"                \"ordenada\": 3,",
+							"                \"orientacao\": \"Oeste\"",
+							"        }],",
+							"        \"elevador\" : {",
+							"            \"xCoord\" : 3,",
+							"            \"yCoord\" : 3,",
+							"            \"orientacao\": \"Norte\"   ",
+							"        },",
+							"        \"salas\": [{",
+							"            \"nome\": \"B300\",",
+							"            \"abcissaA\": 0,",
+							"            \"ordenadaA\": 0,",
+							"            \"abcissaB\": 2,",
+							"            \"ordenadaB\": 2,",
+							"            \"abcissaPorta\" : 1,",
+							"            \"ordenadaPorta\" : 0,",
+							"            \"orientacaoPorta\" : \"Norte\"",
+							"        }]",
+							"    });            ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n            \"codigoEdificio\": \"Teste\",\n            \"numeroPiso\" : 1,\n            \"passagens\" : [{\n                \"id\": 500,\n                \"abcissa\": 5,\n                \"ordenada\": 3,\n                \"orientacao\": \"Oeste\"\n            }],\n            \"elevador\" : {\n                \"xCoord\" : 3,\n                \"yCoord\" : 3,\n                \"orientacao\": \"Norte\"   \n            },\n            \"salas\": [{\n                \"nome\": \"B300\",\n                \"abcissaA\": 0,\n                \"ordenadaA\": 0,\n                \"abcissaB\": 2,\n                \"ordenadaB\": 2,\n                \"abcissaPorta\" : 1,\n                \"ordenadaPorta\" : 0,\n                \"orientacaoPorta\" : \"Norte\"\n            }]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:4000/api/mapa"
+			},
+			"response": []
+		},
+		{
+			"name": "ExportarMapa",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Resposta retorna o esperado\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.eql({",
+							"    \"texturaChao\": \"assets/ground.jpg\",",
+							"    \"texturaParede\": \"assets/wall.jpg\",",
+							"    \"modeloPorta\": \"assets/door.glb\",",
+							"    \"modeloElevador\": \"assets/elevator.glb\",",
+							"    \"codigoEdificio\": \"Teste\",",
+							"    \"numeroPiso\": 1,",
+							"    \"matriz\": [",
+							"        [",
+							"            \"NorteOeste\",",
+							"            \"PortaNorte\",",
+							"            \"Norte\",",
+							"            \"NorteOeste\",",
+							"            \"Norte\",",
+							"            \"Oeste\"",
+							"        ],",
+							"        [",
+							"            \"Oeste\",",
+							"            \" \",",
+							"            \" \",",
+							"            \"Oeste\",",
+							"            \" \",",
+							"            \"Oeste\"",
+							"        ],",
+							"        [",
+							"            \"Oeste\",",
+							"            \" \",",
+							"            \" \",",
+							"            \"Oeste\",",
+							"            \" \",",
+							"            \"Oeste\"",
+							"        ],",
+							"        [",
+							"            \"NorteOeste\",",
+							"            \"Norte\",",
+							"            \"Norte\",",
+							"            \"Elevador\",",
+							"            \" \",",
+							"            \"Passagem\"",
+							"        ],",
+							"        [",
+							"            \"Oeste\",",
+							"            \" \",",
+							"            \" \",",
+							"            \" \",",
+							"            \" \",",
+							"            \"Passagem\"",
+							"        ],",
+							"        [",
+							"            \"Norte\",",
+							"            \"Norte\",",
+							"            \"Norte\",",
+							"            \"Norte\",",
+							"            \"Norte\",",
+							"            \" \"",
+							"        ]",
+							"    ],",
+							"    \"elevador\": {",
+							"        \"xCoord\": 3,",
+							"        \"yCoord\": 3,",
+							"        \"orientacao\": \"Norte\"",
+							"    },",
+							"    \"passagens\": [",
+							"        {",
+							"            \"id\": 500,",
+							"            \"abcissaA\": 3,",
+							"            \"ordenadaA\": 5,",
+							"            \"abcissaB\": 4,",
+							"            \"ordenadaB\": 5,",
+							"            \"orientacao\": \"Oeste\"",
+							"        }",
+							"    ],",
+							"    \"salas\": [",
+							"        {",
+							"            \"nome\": \"B300\",",
+							"            \"abcissaA\": 0,",
+							"            \"ordenadaA\": 0,",
+							"            \"abcissaB\": 2,",
+							"            \"ordenadaB\": 2,",
+							"            \"abcissaPorta\": 0,",
+							"            \"ordenadaPorta\": 1,",
+							"            \"orientacaoPorta\": \"Norte\"",
+							"        }",
+							"    ],",
+							"    \"posicaoInicialRobo\": {",
+							"        \"x\": 1,",
+							"        \"y\": 4",
+							"    }",
+							"});",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/mapa?codEdificio=Teste&numPiso=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"mapa"
+					],
+					"query": [
+						{
+							"key": "codEdificio",
+							"value": "Teste"
+						},
+						{
+							"key": "numPiso",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete EdificioA",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/edificio?codEdificio=Teste",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"edificio"
+					],
+					"query": [
+						{
+							"key": "codEdificio",
+							"value": "Teste"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete EdificioB",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/edificio?codEdificio=Test1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"edificio"
+					],
+					"query": [
+						{
+							"key": "codEdificio",
+							"value": "Test1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

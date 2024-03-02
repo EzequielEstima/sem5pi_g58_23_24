@@ -1,0 +1,10 @@
+autonumber
+
+actor "Gestor de campus" 
+participant "SistemaRobDroneGo" as sistema <<System (C4)>>
+
+"Gestor de campus" -> sistema: seleciona o edifício e introduz a nova informação (pisos servidos, \nmarca, modelo, numero de série e descrição)
+activate sistema
+return resposta
+
+ 

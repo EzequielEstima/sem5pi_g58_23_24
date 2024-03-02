@@ -1,0 +1,27 @@
+autonumber
+ 
+
+participant "Controller" as ctrl
+participant "ImplServices" as service
+participant "Tarefa" as domain
+participant "Repos" as repo
+participant "DTO" as dto
+
+[o-> ctrl: GET(params algoritmo) 
+activate ctrl
+ctrl -> service: carregarTarefasNoPlaneamento(alterarEstadoDaTarefaDTO) 
+activate service
+service -> repo : GetTarefasAceitesAsync(id)
+activate repo
+return tarefas
+service --> dto** : create
+service -> : POST(tarefas)
+service <-- : resposta
+service -> repo : GetAsync(id)
+service -> dto : create
+service -> domain : alterarEstadoTarefa(Planeada)
+service -> repo : updateAsync(tarefa.id ,tarefa)
+
+return resposta
+return resposta
+

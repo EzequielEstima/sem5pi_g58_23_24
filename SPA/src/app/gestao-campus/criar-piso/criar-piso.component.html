@@ -1,0 +1,38 @@
+<html>
+  <body>
+    <div class="sidebar">
+      <app-sidebarGestaoCampus></app-sidebarGestaoCampus>
+    </div>
+    <div class="header">
+      <h1>Criar Piso</h1>
+  </div>
+    <div class="conteudo">
+      <div class="input-field">
+        <select id="codigo" name="codigo" #codigo required>
+          <option value="" disabled selected>Codigo Edificio *</option>
+          <option *ngFor="let option of listaCodigos" [value]="option">{{ option }}</option>
+        </select>
+        <span></span>
+      </div>
+
+      <div class = "input-field">
+        <input type="number" name="numeroPiso" #numeroPiso placeholder="Numero do Piso *" required/>
+        <span></span>
+      </div>
+
+      <div class = "input-field"> 
+        <input name="descricaoPiso" #descricaoPiso placeholder="Descrição do Piso" />
+        <span></span>
+      </div>
+
+      <div class = "button-submit">
+        <button type="button" class="add-button" (click)="add(codigo.value, numeroPiso.value, descricaoPiso.value);">Criar Piso</button>
+      </div>
+      
+      <app-message></app-message>
+    </div>
+  </body>
+  
+</html>
+
+

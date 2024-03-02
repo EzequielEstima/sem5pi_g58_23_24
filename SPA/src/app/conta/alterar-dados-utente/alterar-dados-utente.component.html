@@ -1,0 +1,31 @@
+<html>
+    <body>
+        <div class="sidebar">
+            <app-sidebar-conta></app-sidebar-conta>
+        </div>
+        <div class="header">
+            <h1>Alterar dados</h1>
+        </div>
+        <form class="conteudo" [formGroup]="myForm">
+            <div class = "input-field"> 
+                <input formControlName="nome" name="nome" #nome placeholder="Nome*" required />
+            </div>
+
+            <div class = "input-field"> 
+                <input formControlName="tel" name="tel" #tel placeholder="Número de telefone*" required/>
+            </div>
+
+            <div class = "input-field">
+                <input formControlName="nif" name="nif" #nif placeholder="Número de contribuinte*" required/>
+            </div>
+
+            <div class = "button-submit">
+                <button type="button" class="add-button" (click) = "alterarDadosUtente()"> Alterar</button>
+            </div>
+
+            <app-message></app-message>
+        </form>
+    </body>
+</html>
+
+

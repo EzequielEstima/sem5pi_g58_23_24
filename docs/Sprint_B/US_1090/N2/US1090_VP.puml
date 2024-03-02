@@ -1,0 +1,18 @@
+autonumber
+
+actor "Gestor de Campus" as ator
+participant SPA as fe <<Container (C4)>>
+participant MDRoboISEP as md <<Container (C4)>>
+
+
+ator -> fe: escolhe a opção criar piso
+activate fe
+fe -> md: GET listarEdificios()
+activate md
+return resposta
+ator <-- fe: lista de codigos de edificios
+ator -> fe: escolhe o edificio e introduz o numero piso e descrição
+fe	-> md: POST criarPiso(json)
+activate md
+return resposta
+return resposta

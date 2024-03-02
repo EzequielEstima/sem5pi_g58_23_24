@@ -1,0 +1,19 @@
+autonumber
+
+actor "Gestor de Campus" as actor
+participant Component as comp
+participant ServiceInfo as servInf
+participant DataModel as dm
+
+
+actor -> comp: seleciona o edifício e pede a listagem dos elevadores
+activate comp
+comp -> servInf: listarElevador(codigoEdificio)
+activate servInf
+servInf ->o] : GET listarElevadores()
+servInf <-- : resposta
+return resposta
+return resposta
+
+
+

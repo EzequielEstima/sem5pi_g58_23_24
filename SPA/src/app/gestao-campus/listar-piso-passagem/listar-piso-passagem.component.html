@@ -1,0 +1,54 @@
+<html>
+<header>
+    <style>
+        th:first-of-type {
+            border-top-left-radius: 10px;
+        }
+
+        th:last-of-type {
+            border-top-right-radius: 10px;
+        }
+
+        tr:last-of-type td:first-of-type {
+            border-bottom-left-radius: 10px;
+        }
+
+        tr:last-of-type td:last-of-type {
+            border-bottom-right-radius: 10px;
+        }
+    </style>
+</header>
+
+<body>
+    <div class="sidebar">
+        <app-sidebarGestaoCampus></app-sidebarGestaoCampus>
+    </div>
+
+    <div class="header">
+        <h1>Lista Pisos com Passagem</h1>
+    </div>
+
+    <div class="conteudo">
+
+        <table>
+            <tr>
+                <th>ID Passagem</th>
+                <th>Passagem</th>
+                <th>Piso Info</th>
+                <th>Edifício</th>
+            </tr>
+            <tr *ngFor="let item of tabelaInfo">
+                <td>{{ item.idPassagem }}</td>
+                <td>{{ item.passagem }}</td>
+                <!-- Utilize a diretiva ngFor para iterar sobre pisoInfo e edificio se eles forem arrays -->
+                <td><span *ngFor="let info of item.pisoInfo.split(';'); let last = last">{{ info }}<br *ngIf="!last"></span></td>
+                <td><span *ngFor="let edif of item.edificio.split(';'); let last = last">{{ edif }}<br *ngIf="!last"></span></td>
+            </tr>
+        </table>
+
+
+        <app-message></app-message>
+    </div>
+</body>
+
+</html>

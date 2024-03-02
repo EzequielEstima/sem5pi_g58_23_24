@@ -1,0 +1,16 @@
+autonumber
+
+actor "Utente" as actor
+participant SPA as fe <<Container (C4)>>
+participant auth as md <<Container (C4)>>
+
+actor -> fe:  pede para que os seus dados sejam eliminados
+activate fe
+fe	-> md: deleteDados()
+activate md
+return resposta
+return resposta
+
+
+ 
+ 

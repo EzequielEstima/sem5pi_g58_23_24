@@ -1,0 +1,12 @@
+autonumber
+
+actor "Gestor de campus" as actor
+participant SPA as container <<Container (C4)>>
+
+actor -> container: pede para listar todos os edificios
+activate container
+alt
+actor <-- container: lista de edificios
+else "Erro"
+actor <-- container: Erro
+end alt

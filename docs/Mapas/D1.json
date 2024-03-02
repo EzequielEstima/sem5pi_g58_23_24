@@ -1,0 +1,80 @@
+{
+    "codigoEdificio": "D",
+    "numeroPiso" : 1,
+    "elevador" : {
+        "xCoord" :0,
+        "yCoord" : 0,
+        "orientacao": "Este"   
+    },
+    "salas": [{
+        "nome": "D101",
+        "abcissaA": 0,
+        "ordenadaA": 2,
+        "abcissaB": 1,
+        "ordenadaB": 4,
+        "abcissaPorta" : 2,
+        "ordenadaPorta" : 4,
+        "orientacaoPorta" : "Oeste"
+    },
+    {
+        "nome": "D102",
+        "abcissaA": 6,
+        "ordenadaA": 2,
+        "abcissaB": 11,
+        "ordenadaB": 4,
+        "abcissaPorta" : 10,
+        "ordenadaPorta" : 2,
+        "orientacaoPorta" : "Norte"
+    },
+    {
+        "nome": "D103",
+        "abcissaA": 0,
+        "ordenadaA": 5,
+        "abcissaB": 3,
+        "ordenadaB": 11,
+        "abcissaPorta" : 4,
+        "ordenadaPorta" : 9,
+        "orientacaoPorta" : "Oeste"
+    },
+    {
+        "nome": "D104",
+        "abcissaA": 6,
+        "ordenadaA": 5,
+        "abcissaB": 11,
+        "ordenadaB": 10,
+        "abcissaPorta" : 6,
+        "ordenadaPorta" : 6,
+        "orientacaoPorta" : "Oeste"
+    },
+    {
+        "nome": "D105",
+        "abcissaA": 0,
+        "ordenadaA": 12,
+        "abcissaB": 3,
+        "ordenadaB": 19,
+        "abcissaPorta" : 4,
+        "ordenadaPorta" : 16,
+        "orientacaoPorta" : "Oeste"
+    },
+    {
+        "nome": "D106",
+        "abcissaA": 6,
+        "ordenadaA": 11,
+        "abcissaB": 11,
+        "ordenadaB": 13,
+        "abcissaPorta" : 6,
+        "ordenadaPorta" : 12,
+        "orientacaoPorta" : "Oeste"
+    },
+    {
+        "nome": "D108",
+        "abcissaA": 6,
+        "ordenadaA": 14,
+        "abcissaB": 11,
+        "ordenadaB": 19,
+        "abcissaPorta" : 6,
+        "ordenadaPorta" : 18,
+        "orientacaoPorta" : "Oeste"
+    }
+    ] 
+}

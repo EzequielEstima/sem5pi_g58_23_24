@@ -1,0 +1,10 @@
+autonumber
+
+actor ator 
+participant "SistemaRobDroneGo" as sistema <<System (C4)>>
+
+ator -> sistema: recebe informação de criação (edificio, pisosServidos, marca, modelo, numeroSerie, descricao)
+activate sistema
+return resposta
+
+ 

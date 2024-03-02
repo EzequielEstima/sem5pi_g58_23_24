@@ -1,0 +1,16 @@
+autonumber
+
+actor "Gestor de Tarefas" as actor
+participant SPA as fe <<Container (C4)>>
+participant Auth as auth <<Container (C4)>>
+
+actor -> fe: dados pessoais a serem alterados
+activate fe
+fe	-> auth: alterarDadosUtilizador(userDataModel)
+activate auth
+return resposta
+return resposta
+
+
+ 
+ 

@@ -1,0 +1,15 @@
+Pontos Fortes
+    - Tarefas definidas logo no início
+    - Comunicação
+    
+A melhorar
+    - Prioridade das tarefas
+    - Análise
+Ideias
+    - Definir prioridades mais cedo
+    - Identificar dependências mais cedo
+    - Esclarecimento de requesitos
+
+Ações
+    - Maior interação com o cliente
+    - Registo de prioridades/dependências

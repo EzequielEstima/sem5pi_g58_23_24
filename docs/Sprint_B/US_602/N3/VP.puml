@@ -1,0 +1,37 @@
+autonumber
+
+participant Route as route
+participant "Contoller" as ctrl
+participant "DTO" as dto
+participant "Service" as service
+participant "EdificioRepo" as edRepo
+participant "Domain" as mapa
+
+[o-> route: GET()
+activate route
+route -> ctrl: exportarMapa()
+activate ctrl
+ctrl -> dto**: create()
+ctrl -> service: exportarMapa(mapaDTO)
+activate service
+service -> edRepo: findByDomainId(mapaDTO.edmapa)
+activate edRepo
+return edificio
+service -> mapa: exportarMapa()
+activate mapa
+return mapaDTO
+return mapaDTO
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,1129 @@
+{
+	"info": {
+		"_postman_id": "1ac8873b-eb1a-456a-b2e4-804a0f374fa4",
+		"name": "EdificioTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "30690787"
+	},
+	"item": [
+		{
+			"name": "ListarMinEMaxPisosVemSemConteudo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"pm.test(\"Informação retornada foi a esperada\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.eql(\"Não existem edificios com o número de pisos pretendido\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"header": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/edificio/listarMinEMaxPisos?minPisos=1000&maxPisos=10000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"edificio",
+						"listarMinEMaxPisos"
+					],
+					"query": [
+						{
+							"key": "minPisos",
+							"value": "1000"
+						},
+						{
+							"key": "maxPisos",
+							"value": "10000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarMinEMaxPisosComNumerosNegativos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"pm.test(\"Informação retornada foi a esperada\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.eql(\"O número mínimo e máximo de pisos não pode ser inferior a 0\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"header": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/edificio/listarMinEMaxPisos?minPisos=-1&maxPisos=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"edificio",
+						"listarMinEMaxPisos"
+					],
+					"query": [
+						{
+							"key": "minPisos",
+							"value": "-1"
+						},
+						{
+							"key": "maxPisos",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarMinEMaxPisosComOMinimoEOMaximoTrocados",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"pm.test(\"Informação retornada foi a esperada\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.eql(\"O número mínimo de pisos não pode ser superior ao máximo\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"header": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/edificio/listarMinEMaxPisos?minPisos=5&maxPisos=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"edificio",
+						"listarMinEMaxPisos"
+					],
+					"query": [
+						{
+							"key": "minPisos",
+							"value": "5"
+						},
+						{
+							"key": "maxPisos",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarMinEMaxPisos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"resposta tem um tamanho especifico\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.environment.set(\"length\", jsonData.length);\r",
+							"    pm.expect(jsonData).to.have.lengthOf(pm.environment.get(\"length\"));\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"header": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/edificio/listarMinEMaxPisos?minPisos=0&maxPisos=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"edificio",
+						"listarMinEMaxPisos"
+					],
+					"query": [
+						{
+							"key": "minPisos",
+							"value": "0"
+						},
+						{
+							"key": "maxPisos",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarEdificios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"resposta tem um tamanho especifico\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.environment.set(\"lengthListarEdificios\", jsonData.length);\r",
+							"    pm.expect(jsonData).to.have.lengthOf(pm.environment.get(\"lengthListarEdificios\"));\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"header": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:4000/api/edificio"
+			},
+			"response": []
+		},
+		{
+			"name": "CriarEdificioComCodigoErrado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"header": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codigo\": \"___\",\r\n    \"nome\": \"EdificioTest\",\r\n    \"descricao\": \"EdificioTest\",\r\n    \"dimensaoX\": \"4\",\r\n    \"dimensaoY\": \"4\"\r\n}"
+				},
+				"url": "http://localhost:4000/api/edificio"
+			},
+			"response": []
+		},
+		{
+			"name": "CriarEdificioComNomeErrado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"header": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codigo\": \"Teste\",\r\n    \"nome\": \"_____\",\r\n    \"descricao\": \"EdificioTest\",\r\n    \"dimensaoX\": \"4\",\r\n    \"dimensaoY\": \"4\"\r\n}"
+				},
+				"url": "http://localhost:4000/api/edificio"
+			},
+			"response": []
+		},
+		{
+			"name": "CriarEdificioComDescricaoErrada",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"header": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codigo\": \"Teste\",\r\n    \"nome\": \"Teste\",\r\n    \"descricao\": \"_____\",\r\n    \"dimensaoX\": \"4\",\r\n    \"dimensaoY\": \"4\"\r\n}"
+				},
+				"url": "http://localhost:4000/api/edificio"
+			},
+			"response": []
+		},
+		{
+			"name": "CriarEdificioComDimensoesErradas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"header": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codigo\": \"Teste\",\r\n    \"nome\": \"Teste\",\r\n    \"descricao\": \"Teste\",\r\n    \"dimensaoX\": \"0\",\r\n    \"dimensaoY\": \"0\"\r\n}"
+				},
+				"url": "http://localhost:4000/api/edificio"
+			},
+			"response": []
+		},
+		{
+			"name": "CriarEdificio",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"Informação retornada foi a esperada\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.eql({\r",
+							"    \"codigo\": \"Teste\",\r",
+							"    \"nome\": \"EdificioTest\",\r",
+							"    \"descricao\": \"EdificioTest\",\r",
+							"    \"dimensaoX\": 4,\r",
+							"    \"dimensaoY\": 4\r",
+							"});\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"header": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codigo\": \"Teste\",\r\n    \"nome\": \"EdificioTest\",\r\n    \"descricao\": \"EdificioTest\",\r\n    \"dimensaoX\": \"4\",\r\n    \"dimensaoY\": \"4\"\r\n}"
+				},
+				"url": "http://localhost:4000/api/edificio"
+			},
+			"response": []
+		},
+		{
+			"name": "CriarEdificioCodigoJaExiste",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"header": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codigo\": \"Teste\",\r\n    \"nome\": \"EdificioTest\",\r\n    \"descricao\": \"EdificioTest\",\r\n    \"dimensaoX\": \"4\",\r\n    \"dimensaoY\": \"4\"\r\n}"
+				},
+				"url": "http://localhost:4000/api/edificio"
+			},
+			"response": []
+		},
+		{
+			"name": "EditarEdificioNome",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Informação retornada foi a esperada\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.eql({\r",
+							"    \"codigo\": \"Teste\",\r",
+							"    \"nome\": \"EdificioTeste\",\r",
+							"});\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"header": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codigo\": \"Teste\",\r\n    \"nome\": \"EdificioTeste\"\r\n}"
+				},
+				"url": "http://localhost:4000/api/edificio"
+			},
+			"response": []
+		},
+		{
+			"name": "EditarEdificioDescricao",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Informação retornada foi a esperada\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.eql({\r",
+							"    \"codigo\": \"Teste\",\r",
+							"    \"descricao\": \"EdificioTeste\",\r",
+							"});\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"header": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codigo\": \"Teste\",\r\n    \"descricao\": \"EdificioTeste\"\r\n}"
+				},
+				"url": "http://localhost:4000/api/edificio"
+			},
+			"response": []
+		},
+		{
+			"name": "EditarEdificioNomeDescricao",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Informação retornada foi a esperada\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.eql({\r",
+							"    \"codigo\": \"Teste\",\r",
+							"    \"nome\": \"EdificioTeste\",\r",
+							"    \"descricao\": \"EdificioTeste\",\r",
+							"});\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"header": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codigo\": \"Teste\",\r\n    \"nome\": \"EdificioTeste\",\r\n    \"descricao\": \"EdificioTeste\"\r\n}"
+				},
+				"url": "http://localhost:4000/api/edificio"
+			},
+			"response": []
+		},
+		{
+			"name": "EditarEdificioCodigoNaoExiste",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"header": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codigo\": \"CodigoQueNaoExiste\",\r\n    \"nome\": \"EdificioTeste\",\r\n    \"descricao\": \"EdificioTeste\"\r\n}"
+				},
+				"url": "http://localhost:4000/api/edificio"
+			},
+			"response": []
+		},
+		{
+			"name": "EditarEdificioNomeDescricaoIncorretos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"header": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codigo\": \"Teste\",\r\n    \"nome\": \"____\",\r\n    \"descricao\": \"___\"\r\n}"
+				},
+				"url": "http://localhost:4000/api/edificio"
+			},
+			"response": []
+		},
+		{
+			"name": "ListarEdificios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"resposta tem um tamanho especifico\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.lengthOf(pm.environment.get(\"length\")+1);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"header": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/edificio/listarMinEMaxPisos?minPisos=0&maxPisos=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"edificio",
+						"listarMinEMaxPisos"
+					],
+					"query": [
+						{
+							"key": "minPisos",
+							"value": "0"
+						},
+						{
+							"key": "maxPisos",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarMinEMaxPisos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"resposta tem um tamanho especifico\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.lengthOf(pm.environment.get(\"length\")+1);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"header": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/edificio/listarMinEMaxPisos?minPisos=0&maxPisos=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"edificio",
+						"listarMinEMaxPisos"
+					],
+					"query": [
+						{
+							"key": "minPisos",
+							"value": "0"
+						},
+						{
+							"key": "maxPisos",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Informação retornada foi a esperada\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.eql({\r",
+							"    \"codigo\": \"Teste\",\r",
+							"    \"dimensaoX\": 4,\r",
+							"    \"dimensaoY\": 4,\r",
+							"    \"descricao\": \"EdificioTeste\",\r",
+							"    \"nome\": \"EdificioTeste\"\r",
+							"});\r",
+							"    \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"header": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de campus\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codigo\": \"Teste\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/edificio?codEdificio=Teste",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"edificio"
+					],
+					"query": [
+						{
+							"key": "codEdificio",
+							"value": "Teste"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

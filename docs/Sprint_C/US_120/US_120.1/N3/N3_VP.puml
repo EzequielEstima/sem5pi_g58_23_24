@@ -1,0 +1,19 @@
+autonumber
+
+actor "Utente" as ator
+participant "Delete-utente" as component
+participant "serviceInfo" as serviceInfo
+
+
+ator -> component: pede para os seu dados serem eliminados
+activate component
+component -> serviceInfo: deleteUtente()
+activate serviceInfo
+serviceInfo ->o]: Delete deleteUtente(token)
+serviceInfo<-- : resposta
+return resposta
+return resposta
+
+
+
+ 

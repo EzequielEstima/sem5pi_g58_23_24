@@ -1,0 +1,13 @@
+autonumber
+
+actor Ator as ator
+participant SistemaRobDroneGo as sistema <<System (C4)>>
+
+activate ator
+ator -> sistema: criar tipo de dispositivo e insere a informação(tipo de tarefa, modelo, marca)
+activate sistema
+alt
+ator <-- sistema: OK
+else "Erro"
+ator <-- sistema: Erro
+end alt

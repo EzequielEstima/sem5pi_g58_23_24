@@ -1,0 +1,106 @@
+{
+    "codigoEdificio": "A",
+    "numeroPiso" : 2,
+    "elevador" : {
+        "xCoord" :21,
+        "yCoord" : 0,
+        "orientacao": "Sul"   
+    },
+    "salas": [{
+        "nome": "A201",
+        "abcissaA": 0,
+        "ordenadaA": 0,
+        "abcissaB": 3,
+        "ordenadaB": 5,
+        "abcissaPorta" : 4,
+        "ordenadaPorta" : 5,
+        "orientacaoPorta" : "Oeste"
+    },
+    {
+        "nome": "A202",
+        "abcissaA": 0,
+        "ordenadaA": 6,
+        "abcissaB": 9,
+        "ordenadaB": 9,
+        "abcissaPorta" : 6,
+        "ordenadaPorta" : 6,
+        "orientacaoPorta" : "Norte"
+    },
+    {
+        "nome": "A203",
+        "abcissaA": 4,
+        "ordenadaA": 0,
+        "abcissaB": 7,
+        "ordenadaB": 3,
+        "abcissaPorta" : 6,
+        "ordenadaPorta" : 4,
+        "orientacaoPorta" : "Norte"
+    },
+    {
+        "nome": "A204",
+        "abcissaA": 10,
+        "ordenadaA": 6,
+        "abcissaB": 13,
+        "ordenadaB": 9,
+        "abcissaPorta" : 10,
+        "ordenadaPorta" : 6,
+        "orientacaoPorta" : "Norte"
+    },
+    {
+        "nome": "A205",
+        "abcissaA": 8,
+        "ordenadaA": 0,
+        "abcissaB": 11,
+        "ordenadaB": 3,
+        "abcissaPorta" : 10,
+        "ordenadaPorta" : 4,
+        "orientacaoPorta" : "Norte"
+    },
+    {
+        "nome": "A206",
+        "abcissaA": 14,
+        "ordenadaA": 6,
+        "abcissaB": 17,
+        "ordenadaB": 9,
+        "abcissaPorta" : 14,
+        "ordenadaPorta" : 6,
+        "orientacaoPorta" : "Norte"
+    },
+    {
+        "nome": "A207",
+        "abcissaA": 12,
+        "ordenadaA": 0,
+        "abcissaB": 15,
+        "ordenadaB": 3,
+        "abcissaPorta" : 13,
+        "ordenadaPorta" : 4,
+        "orientacaoPorta" : "Norte"
+    },
+    {
+        "nome": "A208",
+        "abcissaA": 18,
+        "ordenadaA": 8,
+        "abcissaB": 21,
+        "ordenadaB": 9,
+        "abcissaPorta" : 18,
+        "ordenadaPorta" : 8,
+        "orientacaoPorta" : "Norte"
+    },
+    {
+        "nome": "A209",
+        "abcissaA": 16,
+        "ordenadaA": 0,
+        "abcissaB": 19,
+        "ordenadaB": 1,
+        "abcissaPorta" : 17,
+        "ordenadaPorta" : 2,
+        "orientacaoPorta" : "Norte"
+    }
+    ],
+    "passagens": [{
+        "id": 50,
+        "abcissa": 22,
+        "ordenada": 4,
+        "orientacao": "Oeste"
+    }]
+}

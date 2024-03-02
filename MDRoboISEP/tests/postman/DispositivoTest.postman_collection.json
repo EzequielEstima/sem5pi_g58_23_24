@@ -1,0 +1,918 @@
+{
+	"info": {
+		"_postman_id": "b62c5930-42de-45b6-924e-f3841e14404b",
+		"name": "DispositivoTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "30690787"
+	},
+	"item": [
+		{
+			"name": "CriarDispositivoSemExistirTipoDispositivo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Informação retornada foi a esperada\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.eql(\"O tipo de dispositivo com o id -1 não existe\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"header": "",
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de frota\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codigo\": \"RoboTesteTeste\",\r\n    \"descricaoDispositivo\": \"testeTeste\",\r\n    \"nickname\": \"robotesteTeste\",\r\n    \"tipoDispositivo\": -1,\r\n    \"numeroSerie\": \"12343254\"\r\n}"
+				},
+				"url": "http://localhost:4000/api/dispositivo"
+			},
+			"response": []
+		},
+		{
+			"name": "CriarTipoDispositivo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Informação retornada foi a esperada\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.environment.set(\"id\", jsonData.idTipoDispositivo);\r",
+							"    pm.expect(jsonData).to.eql({\r",
+							"    \"idTipoDispositivo\": pm.environment.get(\"id\"),\r",
+							"    \"tipoTarefa\": [\r",
+							"        \"PickUp/Delivery\"\r",
+							"    ],\r",
+							"    \"marca\": \"testeTeste\",\r",
+							"    \"modelo\": \"testeTeste\"\r",
+							"});\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"header": "",
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de frota\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tipoTarefa\": [\"PickUp/Delivery\"],\r\n    \"marca\": \"testeTeste\",\r\n    \"modelo\": \"testeTeste\"\r\n}"
+				},
+				"url": "http://localhost:4000/api/tipoDispositivo"
+			},
+			"response": []
+		},
+		{
+			"name": "CriarDispositivoComCodigoErrado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Informação retornada foi a esperada\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.eql(\"Código do Dispositivo deve ser alfanumérico.\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"header": "",
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de frota\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codigo\": \"RoboTeste@Teste\",\r\n    \"descricaoDispositivo\": \"testeTeste\",\r\n    \"nickname\": \"robotesteTeste\",\r\n    \"tipoDispositivo\": {{id}},\r\n    \"numeroSerie\": \"12343254\"\r\n}"
+				},
+				"url": "http://localhost:4000/api/dispositivo"
+			},
+			"response": []
+		},
+		{
+			"name": "ListarDispositivosPorTipoTarefa",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Resposta tem o tamanho certo\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.be.an('object');\r",
+							"    pm.expect(jsonData.dispositivosPickup).to.be.an('array');\r",
+							"    pm.environment.set(\"lengthTarefaPickUp\", jsonData.dispositivosPickup.length);\r",
+							"    pm.expect(jsonData.dispositivosPickup).to.have.lengthOf(pm.environment.get(\"lengthTarefaPickUp\"));\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de tarefas\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n}"
+				},
+				"url": "http://localhost:4000/api/dispositivo/tipoTarefa"
+			},
+			"response": []
+		},
+		{
+			"name": "ListarDispositivosDaFrota",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"resposta tem um tamanho especifico\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.environment.set(\"length\", jsonData.length);\r",
+							"    pm.expect(jsonData).to.have.lengthOf(pm.environment.get(\"length\"));\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de frota\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n}"
+				},
+				"url": "http://localhost:4000/api/dispositivo"
+			},
+			"response": []
+		},
+		{
+			"name": "CriarDispositivo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Informação retornada foi a esperada\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.eql({\r",
+							"    \"codigo\": \"RoboTesteTeste\",\r",
+							"    \"estado\": true,\r",
+							"    \"nickname\": \"robotesteTeste\",\r",
+							"    \"numeroSerie\": \"12343254\",\r",
+							"    \"descricaoDispositivo\": \"testeTeste\"\r",
+							"});\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de frota\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codigo\": \"RoboTesteTeste\",\r\n    \"descricaoDispositivo\": \"testeTeste\",\r\n    \"nickname\": \"robotesteTeste\",\r\n    \"tipoDispositivo\": {{id}},\r\n    \"numeroSerie\": \"12343254\"\r\n}"
+				},
+				"url": "http://localhost:4000/api/dispositivo"
+			},
+			"response": []
+		},
+		{
+			"name": "ListarDispositivosDaFrota",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"resposta tem um tamanho especifico\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.lengthOf(pm.environment.get(\"length\")+1);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de frota\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n}"
+				},
+				"url": "http://localhost:4000/api/dispositivo"
+			},
+			"response": []
+		},
+		{
+			"name": "ListarDispositivosPorTipoTarefa",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response tem tamanho especifico\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.dispositivosPickup).to.have.lengthOf(pm.environment.get(\"lengthTarefaPickUp\")+1);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de tarefas\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n}"
+				},
+				"url": "http://localhost:4000/api/dispositivo/tipoTarefa"
+			},
+			"response": []
+		},
+		{
+			"name": "CriarDispositivoComOMesmoCodigo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Informação retornada foi a esperada\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.eql(\"O dispositivo com o codigo RoboTesteTeste já existe\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de frota\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codigo\": \"RoboTesteTeste\",\r\n    \"descricaoDispositivo\": \"teste\",\r\n    \"nickname\": \"teste\",\r\n    \"tipoDispositivo\": {{id}},\r\n    \"numeroSerie\": \"12343254\"\r\n}"
+				},
+				"url": "http://localhost:4000/api/dispositivo"
+			},
+			"response": []
+		},
+		{
+			"name": "ListarDispositivosDaFrota",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"resposta tem um tamanho especifico\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.lengthOf(pm.environment.get(\"length\")+1);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de frota\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n}"
+				},
+				"url": "http://localhost:4000/api/dispositivo"
+			},
+			"response": []
+		},
+		{
+			"name": "CriarDispositivoComOMesmoNickname",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Informação retornada foi a esperada\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.eql(\"O dispositivo com o nickname robotesteTeste já existe\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de frota\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codigo\": \"RoboTesteTeste131231\",\r\n    \"descricaoDispositivo\": \"testeTeste\",\r\n    \"nickname\": \"robotesteTeste\",\r\n    \"tipoDispositivo\": {{id}},\r\n    \"numeroSerie\": \"12343254\"\r\n}"
+				},
+				"url": "http://localhost:4000/api/dispositivo"
+			},
+			"response": []
+		},
+		{
+			"name": "ListarDispositivosDaFrota",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"resposta tem um tamanho especifico\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.lengthOf(pm.environment.get(\"length\")+1);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de frota\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n}"
+				},
+				"url": "http://localhost:4000/api/dispositivo"
+			},
+			"response": []
+		},
+		{
+			"name": "CriarDispositivoComOMesmoNumeroSerie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Informação retornada foi a esperada\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.eql(\"O dispositivo com o numero de serie 12343254 já existe\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de frota\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codigo\": \"RoboTesteTeste131231\",\r\n    \"descricaoDispositivo\": \"testeTeste\",\r\n    \"nickname\": \"robotesteTeste23123\",\r\n    \"tipoDispositivo\": {{id}},\r\n    \"numeroSerie\": \"12343254\"\r\n}"
+				},
+				"url": "http://localhost:4000/api/dispositivo"
+			},
+			"response": []
+		},
+		{
+			"name": "ListarDispositivosDaFrota",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"resposta tem um tamanho especifico\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.lengthOf(pm.environment.get(\"length\")+1);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de frota\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n}"
+				},
+				"url": "http://localhost:4000/api/dispositivo"
+			},
+			"response": []
+		},
+		{
+			"name": "InibirRobot",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Informação retornada foi a esperada\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.eql({\r",
+							"    \"codigo\": \"RoboTesteTeste\",\r",
+							"    \"estado\": false,\r",
+							"    \"nickname\": \"robotesteTeste\",\r",
+							"    \"numeroSerie\": \"12343254\",\r",
+							"    \"descricaoDispositivo\": \"testeTeste\"\r",
+							"});\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de frota\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codigo\": \"RoboTesteTeste\"\r\n}"
+				},
+				"url": "http://localhost:4000/api/dispositivo/inibir"
+			},
+			"response": []
+		},
+		{
+			"name": "InibirRobot não existe robot",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Informação retornada foi a esperada\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.eql(\"O dispositivo com o codigo EVA não existe\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de frota\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codigo\": \"EVA\"\r\n}"
+				},
+				"url": "http://localhost:4000/api/dispositivo/inibir"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"payload": "      {\n        \"id\": 123,\n        \"email\": \"default@email.com\",\n        \"role\": \"gestor de frota\",\n        \"firstName\": \"nome1\",\n        \"lastName\": \"nome2\",\n        \"exp\": 2524608000000\n      }",
+						"header": "",
+						"isSecretBase64Encoded": false,
+						"secret": "my sakdfho2390asjod$%jl)!sdjas0i secret",
+						"algorithm": "HS256",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token"
+					}
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/tipoDispositivo?idTipoDispositivo={{id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"tipoDispositivo"
+					],
+					"query": [
+						{
+							"key": "idTipoDispositivo",
+							"value": "{{id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

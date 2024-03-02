@@ -1,0 +1,8 @@
+autonumber
+
+actor "gestor de campus" as ator
+participant "RobDroneGo" as system <<System (C4)>>
+
+ator -> system: Escolhe opção de criar edifício e insere os dados
+activate system
+return Criado com sucesso

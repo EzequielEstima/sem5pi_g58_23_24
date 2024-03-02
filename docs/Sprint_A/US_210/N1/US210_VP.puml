@@ -1,0 +1,11 @@
+autonumber
+
+actor "ator" as ator
+participant RobDroneGo as sistema <<System (C4)>>
+
+
+ator -> sistema: Listar todos os pisos de um edificio e inserir o codigo do edificio
+activate sistema
+return resposta
+
+ 

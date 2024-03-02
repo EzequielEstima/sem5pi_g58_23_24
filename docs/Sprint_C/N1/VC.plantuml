@@ -1,0 +1,125 @@
+@startuml
+left to right direction
+actor "Administrador de Sistema" as admin
+actor "Administrador" as administrador
+actor "Gestor de tarefas" as tarefa
+actor "Utente" as utente
+actor "Ator" as ator
+actor "Arquitecto de Solução" as arquiteto
+
+
+usecase "Como administrador da organização quero um plano de recuperação de desastre que satisfaça o MBCO definido no sprint B" as UC680
+usecase "Como administrador da organização quero que me seja apresentada de forma justificada a ou as alterações a realizar na infraestrutura por forma a assegurar um MTD (Maximum Tolerable Downtime) de 20 minutos" as UC690
+usecase "Como administrador de sistemas quero que seja realizada uma cópia de segurança da(s) DB(s) para um ambiente de Cloud através de um script que a renomeie para o formato <nome_da_db>_yyyymmdd sendo <nome_da_db> o nome da base de dados, yyyy o ano de realização da cópia, mm o mês de realização da cópia e dd o dia da realização da cópia" as UC840
+usecase "Como administrador de sistemas quero que utilizando o Backup elaborado na US 840, seja criado um script quer faça a gestão dos ficheiros resultantes desse backup, no seguinte calendário. 1 Backup por mês no último ano, 1 backup por semana no último mês, 1 backup por dia na última semana" as UC850
+usecase "Como administrador de sistemas quero que o processo da US da cópia de segurança da DB seja mantido no log do Linux, num contexto adequado, e alertado o administrador no acesso à consola se ocorrer uma falha grave neste processo" as UC860
+usecase "Como administrador de sistemas quero que a cópia de segurança da US da cópia de segurança da DB tenha um tempo de vida não superior a 7 (sete) dias exceto no indicado na US de retenção das cópias mensais e anuais" as UC870
+usecase "Como administrador da organização quero que me seja apresentado um BIA (Business Impact Analysis) da solução final, adaptando se e onde aplicável o(s) risco(s) identificados no sprint anterior" as UC880
+usecase "Como administrador da organização quero que seja implementada uma gestão de acessos que satisfaça os critérios apropriados de segurança" as UC890
+usecase "Como administrador da organização quero que seja implementado de forma justificada um sistema de clustering entre os sistemas que implementam o SPA" as UC900
+usecase "Como administrador de sistemas quero que o administrador tenha um acesso SSH à maquina virtual, apenas por certificado, sem recurso a password" as UC910
+usecase "Como administrador de sistemas quero que para agilização entre as várias equipas seja criada uma partilha pública de ficheiros, formato SMB/CIFS  ou NFS ." as UC920
+usecase "Como administrador de sistemas temos de garantir que em caso de necessidade os backups foram efetuados corretamente. Para isso devemos automatizar a sua reposição, validando no final o funcionamento do sistema (Ex. Base de Dados - executar uma query SQL com sucesso após reposição)" as UC930
+
+usecase "Como utente do sistema pretendo requisitar uma tarefa indicando os parâmetros necessários à sua execução, nomeadamente o ponto inicial e o término e qual a tarefa pretendida" as UC460
+
+usecase "Como gestor de tarefas pretendo aprovar ou recusar uma requisição" as UC470
+usecase "Como gestor de tarefas pretendo consultar as requisições de tarefas ainda não aprovadas" as UC480
+usecase "Como gestor de tarefas pretendo pesquisar as requisições de tarefas por estado, por tipo de dispositivo, ou utente" as UC490
+usecase "Como gestor de tarefas pretendo obter a sequencia de execução das tarefas aprovadas" as UC500
+
+usecase "Como administrador pretendo criar um utilizador de sistema indicando as suas permissões" as UC10
+
+usecase "Como potencial utente do sistema (ex., aluno, docente) pretendo registar-me como utente do sistema" as UC20
+usecase "a.       Dar o meu consentimento ou não à recolha e tratamento dos meus dados pessoais" as UC30
+usecase "b.       Que me seja informada a finalidade para a qual os dados pessoais são recolhidos e tratados" as UC40
+usecase "c.       Conhecer e ter acesso ao responsável pelo tratamento" as UC50
+usecase "d.       Saber o período pelo qual os dados serão conservados" as UC60
+usecase "e.       Conhecer os meus direitos enquanto titular de dados pessoais." as UC70
+usecase "Como administrador do sistema pretendo aprovar ou recusar o registo de um utente" as UC80
+usecase "Como utente do sistema pretendo retificar/alterar os meus dados" as UC100
+usecase "Como utente do sistema pretendo uma cópia dos meus dados pessoais" as UC110
+usecase "Como utente do sistema pretendo cancelar a minha conta garantindo que os meus dados são apagados" as US120
+
+
+
+
+usecase "Como utilizador pretendo que o menu da aplicação se ajuste consoante o meu tipo de utilizador" as UC1300
+usecase "Como arquiteto da solução pretendo que todos os serviços de backend sejam autenticados" as UC1310
+usecase "Como arquiteto da solução pretendo que todos os serviços de backend validem as permissões do utilizador para executar determinada operação" as UC1320
+usecase "como arquiteto da solução pretendo que a informação sobre tarefas seja partilhada entre os módulos de Admnistração de dados e Pleaneamento" as UC720
+usecase "como arquiteto da solução pretendo que a informação sobre percursos de um robot para a execução de tarefas seja partilhada entre os módulos de Planeamento e visualização" as UC740
+usecase "Como arquiteto da solução pretendo a utilização de um módulo de IAM  (ex., Azure, auth0, Google, Linkedin) para gestão de identidades e permissões (role-based)" as UC750
+
+usecase "seja gerado um plano de atendimento das tarefas indicadas que indique uma sequência de execução das tarefas que seja criada através da geração de todas as sequências e escolha da que durar menos tempo." as UC1410
+usecase "deverá ser feito o estudo da complexidade da solução ao requisito 1410, permitindo concluir até que dimensão de nº de tarefas se pode usar essa abordagem." as UC1420
+usecase "seja gerado um plano de atendimento das tarefas indicadas que indique uma sequência de execução das tarefas que seja criada através de um Algoritmo Genético" as UC1430
+usecase "efetuar um estudo do estado da arte na geração de trajetórias de robots. Poderão combinar pesquisa bibliográfica própria com ferramentas de IA Generativa (por exemplo ChatGPT), indicando os prompts utilizados e deixando bem claro o que foi produzido via ferramentas de IA Generativa." as UC1440
+
+usecase "Ao navegar interactivamente e ao chegar a uma passagem entre edifícios, deve transitar automaticamente para o piso adjacente." as UC607
+usecase "Ao navegar interactivamente e ao entrar num elevador, deve ser possível escolher o piso a que se pretende aceder e transitar para esse piso." as UC608
+usecase "Animar o movimento automático do robot de um dado ponto de partida a um dado ponto de chegada, de acordo com a informação disponibilizada pelo módulo de planeamento de percurso." as UC609
+usecase "Ao navegar de forma automática com base no planeamento de percurso, a passagem entre edifícios deve ter feedback visual adequado" as UC610
+usecase "Ao navegar de forma automática com base no planeamento de percurso, a utilização de elevadores deve ter feedback visual adequado" as UC611
+usecase "Exibir uma tip flutuante que identifique a sala, gabinete ou elevador a que pertence a célula apontada em cada momento pelo cursor do rato" as UC612
+
+
+ator --> UC607
+ator --> UC608
+ator --> UC609
+ator --> UC610
+ator --> UC611
+ator --> UC612
+
+
+ator --> UC1410
+ator --> UC1420
+ator --> UC1430
+ator --> UC1440
+
+
+arquiteto --> UC1310
+arquiteto --> UC1320
+arquiteto --> UC720
+arquiteto --> UC740
+arquiteto --> UC750
+
+ator --> UC1300
+
+utente --> UC20
+utente --> UC30
+utente --> UC40
+utente --> UC50
+utente --> UC60
+utente --> UC70
+utente --> UC460
+utente --> UC100
+utente --> UC110
+utente --> US120
+
+
+administrador --> UC10
+administrador --> UC80
+
+
+admin --> UC680
+admin --> UC690
+admin --> UC840
+admin --> UC850
+admin --> UC860
+admin --> UC870
+admin --> UC880
+admin --> UC890
+admin --> UC900
+admin --> UC910
+admin --> UC920
+admin --> UC930
+
+
+tarefa --> UC470
+tarefa --> UC480
+tarefa --> UC490
+tarefa --> UC500
+
+
+@enduml

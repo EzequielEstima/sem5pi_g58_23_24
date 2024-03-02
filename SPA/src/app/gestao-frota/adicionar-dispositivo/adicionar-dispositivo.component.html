@@ -1,0 +1,46 @@
+<html>
+  <body>
+    <div class="sidebar">
+      <app-sidebar-frota></app-sidebar-frota>
+    </div>
+    <div class="header">
+      <h1>Adicionar Robot</h1>
+    </div>
+    <div class="conteudo">
+
+        <div class = "input-field">
+            <input name="codigo" #codigo placeholder="Código *" required/>
+            <span></span>
+        </div>
+
+        <div class = "input-field">
+            <input name="nickname" #nickname placeholder="Nickname *" required/>
+            <span></span>
+        </div>
+      
+        <div class = "input-field">
+            <input type="number" name="idTipoDispositivo" #idTipoDispositivo placeholder="Id do Tipo de Dispositivo *" required/>
+            <span></span>
+        </div>
+
+        <div class = "input-field">
+            <input name="numeroSerie" #numeroSerie placeholder="Número de Série *" required/>
+            <span></span>
+        </div>
+
+        <div class = "input-field"> 
+            <input name="descricao" #descricao placeholder="Descrição" />
+            <span></span>
+        </div>
+
+        <div class = "button-submit">
+            <button type="button" class="add-button" (click)="add(codigo.value, nickname.value,idTipoDispositivo.value, numeroSerie.value ,descricao.value);">Adicionar robot</button>
+        </div>
+      
+      <app-message></app-message>
+    </div>
+  </body>
+  
+</html>
+
+

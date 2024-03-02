@@ -1,0 +1,11 @@
+autonumber
+
+actor ator 
+participant RobDroneGo as sistema <<System (C4)>>
+
+
+ator -> sistema: listar edificios com minimo e maximo pisos e insere a informação (min, max)
+activate sistema
+return resposta
+
+ 

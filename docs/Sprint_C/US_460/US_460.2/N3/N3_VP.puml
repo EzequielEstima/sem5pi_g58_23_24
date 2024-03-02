@@ -1,0 +1,36 @@
+autonumber
+
+title <<Container (C4)>> MDTarefas
+
+participant "Controller" as ctrl
+participant "Service" as service
+participant "Model" as domain
+participant "Repository" as repo
+
+
+[o-> ctrl: POST(json)
+activate ctrl
+ctrl -> service: criarTarefa(tarefaDTO) 
+activate service
+service ->o] : GET obterPercurso()
+service <-- : resposta
+service -> domain : criarTarefa(propsTarefa)
+activate domain
+return newTarefa
+service -> repo : createAsync(newTarefa)
+activate repo
+deactivate repo
+return resposta
+return resposta
+
+
+
+
+
+
+
+
+
+
+
+

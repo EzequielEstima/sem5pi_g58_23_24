@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="268px" preserveAspectRatio="none" style="width:566px;height:268px;background:#FFFFFF;" version="1.1" viewBox="0 0 566 268" width="566px" zoomAndPan="magnify"><defs/><g><rect fill="#FFFFFF" height="117.8906" style="stroke:#181818;stroke-width:1.0;" width="10" x="482" y="87.5703"/><rect fill="none" height="94.8906" style="stroke:#000000;stroke-width:1.5;" width="556" x="3" y="102.5703"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="487" x2="487" y1="55.2188" y2="214.4609"/><rect fill="#E2E2F0" height="49.2188" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="124" x="425" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="110" x="432" y="26.5332">«Container (C4)»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="85" x="444.5" y="44.1426">MDRoboISEP</text><rect fill="#E2E2F0" height="49.2188" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="124" x="425" y="213.4609"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="110" x="432" y="234.9941">«Container (C4)»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="85" x="444.5" y="252.6035">MDRoboISEP</text><rect fill="#FFFFFF" height="117.8906" style="stroke:#181818;stroke-width:1.0;" width="10" x="482" y="87.5703"/><ellipse cx="7.5" cy="86.8203" fill="none" rx="4" ry="4" style="stroke:#181818;stroke-width:1.5;"/><polygon fill="#181818" points="470,83.5703,480,87.5703,470,91.5703,474,87.5703" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="12" x2="476" y1="87.5703" y2="87.5703"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="15" y="82.7139">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="437" x="26" y="82.7139">criar tipo de dispositivo e insere a informação(tipo de tarefa, modelo, marca)</text><path d="M3,102.5703 L64,102.5703 L64,110.9219 L54,120.9219 L3,120.9219 L3,102.5703 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.5;"/><rect fill="none" height="94.8906" style="stroke:#000000;stroke-width:1.5;" width="556" x="3" y="102.5703"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="16" x="18" y="117.0654">alt</text><polygon fill="#181818" points="11,139.2734,1,143.2734,11,147.2734,7,143.2734" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="5" x2="481" y1="143.2734" y2="143.2734"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="17" y="138.417">2</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="19" x="28" y="138.417">OK</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="3" x2="559" y1="152.2734" y2="152.2734"/><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="41" x="8" y="163.6924">["Erro"]</text><polygon fill="#181818" points="11,185.4609,1,189.4609,11,193.4609,7,189.4609" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="5" x2="481" y1="189.4609" y2="189.4609"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="17" y="184.6045">3</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="24" x="28" y="184.6045">Erro</text><!--MD5=[6599882a091092619ec04c9e7a6d4e05]
+@startuml
+autonumber
+
+participant MDRoboISEP as md <<Container (C4)>>
+
+[o-> md: criar tipo de dispositivo e insere a informação(tipo de tarefa, modelo, marca)
+activate md
+
+alt
+<- - md: OK
+else "Erro"
+<- - md: Erro
+end alt
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 18:01:30 BST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: US
+--></g></svg>

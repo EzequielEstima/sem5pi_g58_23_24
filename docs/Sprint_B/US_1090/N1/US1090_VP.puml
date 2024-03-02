@@ -1,0 +1,12 @@
+autonumber
+
+actor "Gestor de Campus" as ator
+participant RobDroneGo as sistema <<System (C4)>>
+
+
+ator -> sistema: criar piso e insere a informação (edifício, nPiso, descricao)
+activate sistema
+return resposta
+
+
+ 

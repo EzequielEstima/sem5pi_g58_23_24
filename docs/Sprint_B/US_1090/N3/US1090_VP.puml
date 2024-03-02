@@ -1,0 +1,29 @@
+autonumber
+
+actor "Gestor de campus" as ator
+participant "criar-piso" as component
+participant "serviceInfo" as serviceInfo
+participant "dataModel" as dataModel
+
+
+ator -> component: escolhe a opção criar Piso
+activate component
+component -> serviceInfo: listarCodEdificios()
+activate serviceInfo
+serviceInfo ->o] : GET listarEdificios()
+serviceInfo<-- : resposta
+return listaCodigos
+ator <-- component: lista de codigos de edificios
+ator -> component: escolhe o edificio e introduz o numero piso e descrição
+
+component -> serviceInfo: criarPiso(codigo,numeroPiso,descricao)
+activate serviceInfo
+serviceInfo -> dataModel **: create(codigo,numeroPiso,descricao)
+serviceInfo ->o]: POST criarPiso(piso)
+serviceInfo<-- : resposta
+return resposta
+return resposta
+
+
+
+ 

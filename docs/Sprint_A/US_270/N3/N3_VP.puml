@@ -1,0 +1,60 @@
+autonumber
+
+participant "route: \n ElevadorRoute" as route
+participant "dto: \n ElevadorDTO" as dto
+participant "controller: \n ElevadorController" as ctrl
+participant "service: \n ElevadorService" as service
+participant "repo: \n EdificioRepo" as edRepo
+participant "domain: \n Edificio" as edificio
+participant "repo: \n ElevadorRepo" as eleRepo
+participant "domain: \n Elevador" as elevador
+participant "domain: \n Piso" as Piso
+participant "domain: \n Ponto" as ponto
+participant "repo: \n PontoRepo" as pRepo
+
+
+[o-> route: POST(json)
+activate route
+route -> dto ** : create(json)
+route -> ctrl: criarElevador(req, res, next)
+activate ctrl
+ctrl -> service: criarElevador(elevadorDTO) 
+activate service
+service -> edRepo: findByDomain(codigoEd)
+activate edRepo
+return edificio
+service -> edificio : temElevador()
+activate edificio
+return boolean
+service -> edificio : pisosCorrespondentes(pisosServidos)
+activate edificio
+return pisos
+service -> eleRepo: maxId()
+activate eleRepo
+return idElevador
+service -> elevador ** : create(idElevador, pisosServidos, pontos, marca, modelo, nSerie, descricao)
+service -> edificio: adicionarElevador(elevador)
+activate edificio
+deactivate edificio
+service -> eleRepo: save(elevador)
+activate eleRepo
+deactivate eleRepo
+service -> edRepo: save(edificio)
+activate edRepo
+deactivate edRepo
+return resposta
+return resposta
+return reposta
+
+
+
+
+
+
+
+
+
+
+
+
+

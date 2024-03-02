@@ -1,0 +1,19 @@
+autonumber
+
+actor "Gestor de campus" as ator
+participant "listar-edificios-min-max-pisos" as component
+participant "serviceInfo" as serviceInfo
+
+
+ator -> component: quer listar Edifícios com min e max pisos e introduz dados
+activate component
+component -> serviceInfo: listarEdificioMinEMaxPisos(minPisos, maxPisos)
+activate serviceInfo
+serviceInfo ->o] : GET listarEdificioMinEMaxPisos()
+serviceInfo<-- : resposta
+return listaEdificios
+ator <-- component: lista edifícios
+
+
+
+ 

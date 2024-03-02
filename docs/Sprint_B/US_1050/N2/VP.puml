@@ -1,0 +1,8 @@
+autonumber
+
+actor "gestor de campus" as ator
+participant "SPA" as modulo <<Container (C4)>>
+
+ator -> modulo: Escolhe opção de criar edifício e insere os dados
+activate modulo
+return Criado com sucesso

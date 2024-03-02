@@ -1,0 +1,15 @@
+autonumber
+
+actor "Gestor de Tarefas" as ator
+participant RobDroneGo as sistema <<System (C4)>>
+
+ator -> sistema: quero alterar o estado de uma tarefa
+activate sistema
+sistema-> ator: demonstra lista de tarefas pendentes
+
+ator -> sistema: escolhe a tarefa e seleciona o estado
+alt aprovar
+sistema -> ator: pede para escolher um robo
+ator -> sistema: escolhe um robo
+end 
+sistema -> ator: resposta

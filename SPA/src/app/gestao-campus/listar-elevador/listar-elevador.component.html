@@ -1,0 +1,111 @@
+<html>
+    <header>
+        <style>
+            th:first-of-type {
+            border-top-left-radius: 10px;
+            }
+            th:last-of-type {
+            border-top-right-radius: 10px;
+            }
+            tr:last-of-type td:first-of-type {
+            border-bottom-left-radius: 10px;
+            }
+            tr:last-of-type td:last-of-type {
+            border-bottom-right-radius: 10px;
+            }
+        </style>
+    </header>
+  <body>
+    <div class="sidebar">
+      <app-sidebarGestaoCampus></app-sidebarGestaoCampus>
+    </div>
+    
+    <div class="header">
+        <h1>Listar elevadores de um edifício</h1>
+    </div>
+
+    <div class="conteudo">
+        <form [formGroup]="myForm">
+            <div class="input-field">
+              <select formControlName="codigo" id="codigo" (change)="listarElevador()" required>
+                <option value="" disabled selected>Codigo Edificio*</option>
+                <option *ngFor="let option of listaCodigosEd" [value]="option">{{ option }}</option>
+              </select>
+              <span></span>
+            </div>
+        </form>
+        <div *ngIf="listaElevadores && listaElevadores.length > 0">
+            <p-table [value]="listaElevadores" [tableStyle]="{'border-collapse': 'collapse'}">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="
+                         padding: 12px;
+                         max-width: 10px;
+                         text-align: left;
+                         background-color: #3e3e3e;
+                         color: white;
+                        ">
+                            Id</th>
+                        <th style="
+                        padding: 12px;
+                        max-width: 60px;
+                        text-align: left;
+                        background-color: #3e3e3e;
+                        color: white;
+                        ">
+                            Marca</th>
+                        <th style="
+                        padding: 12px;
+                        max-width: 60px;
+                        text-align: left;
+                        background-color: #3e3e3e;
+                        color: white;
+                        ">
+                            Modelo</th>
+                        <th style="
+                        padding: 12px;
+                        max-width: 60px;
+                        text-align: left;
+                        background-color: #3e3e3e;
+                        color: white;
+                       ">
+                            Número de série</th>
+                        <th style="
+                        padding: 12px;
+                        max-width: 60px;
+                        text-align: left;
+                        background-color: #3e3e3e;
+                        color: white;
+                        ">
+                            Descrição</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-elevador let-i>
+                    <tr>
+                        <td style="max-width: 10px; border-bottom: 1px solid #000000; border-right: 1px solid #000000;padding: 8px;">
+                            {{ elevador.id || "-"}}
+                        </td>
+                        <td style="max-width: 10px; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 8px;">
+                            <span *ngIf="elevador.marca">{{ elevador.marca }}</span>
+                            <span *ngIf="!elevador.marca">-</span>
+                        </td>
+                        <td style="max-width: 10px; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;padding: 8px;">
+                            <span *ngIf="elevador.modelo">{{ elevador.modelo }}</span>
+                            <span *ngIf="!elevador.modelo">-</span>
+                        </td>
+                        <td style="max-width: 10px; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 8px;overflow-wrap: break-word;">
+                            <span *ngIf="elevador.numeroSerie">{{ elevador.numeroSerie }}</span>
+                            <span *ngIf="!elevador.numeroSerie">-</span>
+                        </td>
+                        <td style="max-width: 50px; border-bottom: 1px solid #000000; border-left: 1px solid #000000; padding: 8px;overflow-wrap: break-word;">
+                            <span *ngIf="elevador.descricao">{{ elevador.descricao }}</span>
+                            <span *ngIf="!elevador.descricao">-</span>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+        <app-message></app-message>
+    </div>
+  </body>
+</html>

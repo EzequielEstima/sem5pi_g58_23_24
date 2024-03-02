@@ -1,0 +1,32 @@
+autonumber
+
+title <<Container (C4)>> SPA
+
+actor "Utente" as user
+participant "Component" as component
+participant "ServiceInfo" as service
+participant "DataModel" as dataModel
+
+
+
+user -> component: insere os dados que pretende editar
+activate component
+component -> service: updateUser(userInfo) 
+activate service
+service -> dataModel** :create(userInfo)
+service ->o] : PUT updateUserInfo(updateUserDataModel)
+service <-- : resposta
+return resposta
+return resposta
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,16 @@
+autonumber
+
+actor "gestor de campus" as ator
+participant "component: criar-edificio" as componente
+participant "infoService" as infoService
+participant "dataModel" as dataModel
+
+ator -> componente: Escolhe opção de criar edifício e insere os dados
+activate componente
+componente -> infoService: criarEdificio(codigo, dimensaoX, dimensaoY, nome, descricao)
+activate infoService
+infoService -> dataModel**: create()
+infoService ->o] : POST: /edificio
+infoService<-- : 201
+return resposta
+return resposta

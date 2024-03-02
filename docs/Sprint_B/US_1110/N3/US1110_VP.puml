@@ -1,0 +1,39 @@
+autonumber
+
+actor "Gestor de campus" as ator
+participant "editar-piso" as component
+participant "serviceInfo" as serviceInfo
+participant "dataModel" as dataModel
+
+
+ator -> component: escolhe a opção editar Piso
+activate component
+component -> serviceInfo: listarCodEdificios()
+activate serviceInfo
+serviceInfo ->o] : GET listarEdificios()
+serviceInfo<-- : resposta
+return listaCodigos
+ator <-- component: lista de codigos de edificios
+ator -> component: escolhe o edificio e introduz o numero piso e descrição
+
+component -> serviceInfo: listarNumeroPisos(codigo)
+activate serviceInfo
+serviceInfo ->o] : GET listarTodosOsPisosDeUmEdificio()
+serviceInfo<-- : resposta
+return listaNumeroPisos
+ator <-- component: lista de numeros de pisos
+
+ator -> component: escolhe o piso a editar e insere informação a editar
+
+
+component -> serviceInfo: editarPiso(codigo,numeroPiso, novoNumeroPiso,descricao)
+activate serviceInfo
+serviceInfo -> dataModel **: create(codigo,numeroPiso, novoNumeroPiso,descricao)
+serviceInfo ->o]: PUT editarPiso(piso)
+serviceInfo<-- : resposta
+return resposta
+return resposta
+
+
+
+ 

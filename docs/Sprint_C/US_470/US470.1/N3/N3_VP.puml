@@ -1,0 +1,22 @@
+autonumber
+ 
+
+participant "Controller" as ctrl
+participant "ImplServices" as service
+participant "Tarefa" as domain
+participant "Repos" as repo
+
+
+[o-> ctrl: PUT(json)
+activate ctrl
+ctrl -> service: listarTarefasPendentes() 
+activate service
+service -> repo : GetAsync(id)
+activate repo
+return tarefa
+service -> domain : alterarEstadoTarefa(estado)
+service -> domain : atribuirRobo(codigo)
+service -> repo : updateAsync(tarefa)
+return resposta
+return resposta
+

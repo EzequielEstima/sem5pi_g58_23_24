@@ -1,0 +1,73 @@
+{
+    "codigoEdificio": "D",
+    "numeroPiso" : 3,
+    "elevador" : {
+        "xCoord" :0,
+        "yCoord" : 0,
+        "orientacao": "Este"   
+    },
+    "salas": [{
+        "nome": "D301",
+        "abcissaA": 0,
+        "ordenadaA": 2,
+        "abcissaB": 3,
+        "ordenadaB": 8,
+        "abcissaPorta" : 4,
+        "ordenadaPorta" : 7,
+        "orientacaoPorta" : "Oeste"
+    },
+    {
+        "nome": "D302",
+        "abcissaA": 8,
+        "ordenadaA": 2,
+        "abcissaB": 11,
+        "ordenadaB": 8,
+        "abcissaPorta" : 8,
+        "ordenadaPorta" : 7,
+        "orientacaoPorta" : "Oeste"
+    },
+    {
+        "nome": "D303",
+        "abcissaA": 0,
+        "ordenadaA": 9,
+        "abcissaB": 3,
+        "ordenadaB": 15,
+        "abcissaPorta" : 4,
+        "ordenadaPorta" : 10,
+        "orientacaoPorta" : "Oeste"
+    },
+    {
+        "nome": "D304",
+        "abcissaA": 8,
+        "ordenadaA": 9,
+        "abcissaB": 11,
+        "ordenadaB": 15,
+        "abcissaPorta" : 8,
+        "ordenadaPorta" : 10,
+        "orientacaoPorta" : "Oeste"
+    },
+    {
+        "nome": "D305",
+        "abcissaA": 0,
+        "ordenadaA": 16,
+        "abcissaB": 11,
+        "ordenadaB": 19,
+        "abcissaPorta" : 5,
+        "ordenadaPorta" : 16,
+        "orientacaoPorta" : "Norte"
+    }
+    ],
+    "passagens": [{
+        "id": 52,
+        "abcissa": 8,
+        "ordenada": 0,
+        "orientacao": "Norte"
+    },
+    {
+        "id": 55,
+        "abcissa": 12,
+        "ordenada": 0,
+        "orientacao": "Oeste"
+    }
+    ] 
+}

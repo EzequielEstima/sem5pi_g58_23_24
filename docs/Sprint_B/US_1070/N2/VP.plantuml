@@ -1,0 +1,12 @@
+autonumber
+
+actor "Gestor de campus" as ator <<Container (C4)>>
+participant SPA as spa <<Container (C4)>>
+
+ator-> spa: escolhe a opção de editar edifício, escolhe o edifício e insere os dados
+activate spa
+alt
+ator<-- spa: OK
+else "Erro"
+ator<-- spa: Erro
+end alt

@@ -1,0 +1,20 @@
+{
+    "codigoEdificio": "B",
+    "numeroPiso" : 4,
+    "elevador" : {
+        "xCoord" :21,
+        "yCoord" : 7,
+        "orientacao": "Oeste"   
+    },
+    "salas": [{
+        "nome": "B401",
+        "abcissaA": 18,
+        "ordenadaA": 0,
+        "abcissaB": 21,
+        "ordenadaB": 3,
+        "abcissaPorta" : 19,
+        "ordenadaPorta" : 4,
+        "orientacaoPorta" : "Norte"
+    }
+    ]
+}

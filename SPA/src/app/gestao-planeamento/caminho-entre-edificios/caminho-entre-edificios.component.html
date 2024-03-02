@@ -1,0 +1,32 @@
+<html>
+
+<body>
+  <div class="sidebar">
+    <app-sidebar-gestao-planeamento></app-sidebar-gestao-planeamento>
+  </div>
+  <div class="header">
+    <h1>Caminho Entre Edificios</h1>
+  </div>
+  <div class="conteudo">
+    <div class="input-field">
+      <input name="salaInicial" #salaInicial placeholder="Sala Inicial*" required />
+      <span></span>
+    </div>
+
+    <div class="input-field">
+      <input name="salaFinal" #salaFinal placeholder="Sala Final*" />
+      <span></span>
+    </div>
+
+    <div class="button-submit">
+      <button type="button" class="add-button"
+        (click)="encontrar_caminhos(salaInicial.value, salaFinal.value);">Encontrar Caminho</button>
+    </div>
+
+    <div class="app-message"> 
+      <app-message></app-message>
+    </div>
+  </div>
+</body>
+
+</html>

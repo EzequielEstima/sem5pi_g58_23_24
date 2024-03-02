@@ -1,0 +1,6 @@
+@MDTarefas_HostAddress = http://localhost:5261
+
+GET {{MDTarefas_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,9 @@
+autonumber
+
+actor "Potencial Utente" as ator
+participant RobDroneGo as sistema <<System (C4)>>
+
+
+ator -> sistema: pede para registar e insere os dados(nome, password, email, telefone, numero contribuinte)
+activate sistema
+return resposta

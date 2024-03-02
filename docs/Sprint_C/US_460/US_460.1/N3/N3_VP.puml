@@ -1,0 +1,32 @@
+autonumber
+
+title <<Container (C4)>> SPA
+
+actor "Gestor de tarefas" as user
+participant "Component" as component
+participant "ServiceInfo" as service
+participant "DataModel" as dataModel
+
+
+
+user -> component: insere a informação da tarefa
+activate component
+component -> service: criarTarefa(tarefaInfo) 
+activate service
+service -> dataModel **: create(tarefaInfo)
+service ->o] : POST criarTarefa(tarefaDataModel)
+service <-- : resposta
+return resposta
+return resposta
+
+
+
+
+
+
+
+
+
+
+
+

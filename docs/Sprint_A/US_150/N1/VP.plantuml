@@ -1,0 +1,12 @@
+autonumber
+actor "Ator" as actor
+participant SistemaRobDroneGo as sistema <<System (C4)>>
+
+activate actor
+actor -> sistema: criar edifício e insere a informação(descricao, nome, codigo,dimensao)
+activate sistema
+alt
+<-- sistema: OK
+else "Erro"
+<-- sistema: Erro
+end alt

@@ -1,0 +1,16 @@
+autonumber
+
+actor "gestor de campus" as ator
+participant "component: listar-edificios" as componente
+participant "infoService" as infoService
+participant "dataModel" as dataModel
+
+ator -> componente: Escolhe opção de listar edifícios
+activate componente
+componente -> infoService: listarEdificios()
+activate infoService
+infoService -> dataModel**: create()
+infoService ->o] : GET: /edificio
+infoService<-- : 200
+return resposta
+return resposta

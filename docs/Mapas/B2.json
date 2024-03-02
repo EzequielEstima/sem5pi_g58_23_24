@@ -1,0 +1,79 @@
+{
+    "codigoEdificio": "B",
+    "numeroPiso" : 2,
+    "elevador" : {
+        "xCoord" :21,
+        "yCoord" : 7,
+        "orientacao": "Oeste"   
+    },
+    "salas": [{
+        "nome": "B201",
+        "abcissaA": 0,
+        "ordenadaA": 0,
+        "abcissaB": 1,
+        "ordenadaB": 3,
+        "abcissaPorta" : 1,
+        "ordenadaPorta" : 4,
+        "orientacaoPorta" : "Norte"
+    },
+    {
+        "nome": "B202",
+        "abcissaA": 8,
+        "ordenadaA": 2,
+        "abcissaB": 11,
+        "ordenadaB": 9,
+        "abcissaPorta" : 12,
+        "ordenadaPorta" : 4,
+        "orientacaoPorta" : "Oeste"
+    },
+    {
+        "nome": "B203",
+        "abcissaA": 2,
+        "ordenadaA": 0,
+        "abcissaB": 5,
+        "ordenadaB": 7,
+        "abcissaPorta" : 6,
+        "ordenadaPorta" : 6,
+        "orientacaoPorta" : "Oeste"
+    },
+    {
+        "nome": "B205",
+        "abcissaA": 14,
+        "ordenadaA": 0,
+        "abcissaB": 17,
+        "ordenadaB": 7,
+        "abcissaPorta" : 18,
+        "ordenadaPorta" : 6,
+        "orientacaoPorta" : "Oeste"
+    },
+    {
+        "nome": "B207",
+        "abcissaA": 18,
+        "ordenadaA": 0,
+        "abcissaB": 21,
+        "ordenadaB": 3,
+        "abcissaPorta" : 19,
+        "ordenadaPorta" : 4,
+        "orientacaoPorta" : "Norte"
+    }
+    ],
+    "passagens": [{
+        "id": 50,
+        "abcissa": 0,
+        "ordenada": 4,
+        "orientacao": "Oeste"
+    },
+    {
+        "id": 51,
+        "abcissa": 22,
+        "ordenada": 8,
+        "orientacao": "Oeste"
+    },
+    {
+        "id": 52,
+        "abcissa": 20,
+        "ordenada": 10,
+        "orientacao": "Norte"
+    }
+    ]
+}

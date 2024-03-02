@@ -1,0 +1,97 @@
+{
+    "codigoEdificio": "C",
+    "numeroPiso" : 2,
+    "elevador" : {
+        "xCoord" : 0,
+        "yCoord" : 12,
+        "orientacao": "Este"   
+    },
+    "salas": [{
+        "nome": "C201",
+        "abcissaA": 0,
+        "ordenadaA": 0,
+        "abcissaB": 3,
+        "ordenadaB": 3,
+        "abcissaPorta" : 4,
+        "ordenadaPorta" : 1,
+        "orientacaoPorta" : "Oeste"
+    },
+    {
+        "nome": "C202",
+        "abcissaA": 6,
+        "ordenadaA": 0,
+        "abcissaB": 11,
+        "ordenadaB": 3,
+        "abcissaPorta" : 7,
+        "ordenadaPorta" : 4,
+        "orientacaoPorta" : "Norte"
+    },
+    {
+        "nome": "C203",
+        "abcissaA": 0,
+        "ordenadaA": 4,
+        "abcissaB": 3,
+        "ordenadaB": 7,
+        "abcissaPorta" : 4,
+        "ordenadaPorta" : 4,
+        "orientacaoPorta" : "Oeste"
+    },
+    {
+        "nome": "C204",
+        "abcissaA": 4,
+        "ordenadaA": 14,
+        "abcissaB": 7,
+        "ordenadaB": 19,
+        "abcissaPorta" : 6,
+        "ordenadaPorta" : 14,
+        "orientacaoPorta" : "Norte"
+    },
+    {
+        "nome": "C205",
+        "abcissaA": 4,
+        "ordenadaA": 6,
+        "abcissaB": 9,
+        "ordenadaB": 9,
+        "abcissaPorta" : 8,
+        "ordenadaPorta" : 10,
+        "orientacaoPorta" : "Norte"
+    },
+    {
+        "nome": "C206",
+        "abcissaA": 8,
+        "ordenadaA": 12,
+        "abcissaB": 11,
+        "ordenadaB": 19,
+        "abcissaPorta" : 8,
+        "ordenadaPorta" : 12,
+        "orientacaoPorta" : "Norte"
+    },
+    {
+        "nome": "C207",
+        "abcissaA": 0,
+        "ordenadaA": 8,
+        "abcissaB": 3,
+        "ordenadaB": 11,
+        "abcissaPorta" : 4,
+        "ordenadaPorta" : 10,
+        "orientacaoPorta" : "Oeste"
+    },
+    {
+        "nome": "C209",
+        "abcissaA": 0,
+        "ordenadaA": 16,
+        "abcissaB": 3,
+        "ordenadaB": 19,
+        "abcissaPorta" : 2,
+        "ordenadaPorta" : 16,
+        "orientacaoPorta" : "Norte"
+    }
+    ],
+    "passagens": [{
+        "id": 54,
+        "abcissa": 0,
+        "ordenada": 14,
+        "orientacao": "Oeste"
+    }
+    ]
+}

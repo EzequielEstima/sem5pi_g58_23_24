@@ -1,0 +1,43 @@
+autonumber
+
+participant routes as route
+participant "ImplControllers" as ctrl
+participant "dto" as dto
+participant "ImplServices" as service
+participant "repos" as userRepo
+participant "user" as user
+
+[o-> route: POST(json)
+activate route
+route -> ctrl: signupUtente(Request, Response, Next)
+activate ctrl
+ctrl -> dto ** : create(json)
+ctrl -> service: signupUtente(signupUtenteDTO) 
+activate service
+service -> userRepo: findByEmail(email)
+activate userRepo
+return user
+service -> user ** : create(userProps, email)
+service -> userRepo: save(user)
+return resposta
+alt
+route <-- ctrl: Ok
+<-- route: Ok
+else "Erro"
+route <-- ctrl: Erro
+deactivate ctrl
+<-- route: Erro
+end alt
+deactivate route
+
+
+
+
+
+
+
+
+
+
+
+

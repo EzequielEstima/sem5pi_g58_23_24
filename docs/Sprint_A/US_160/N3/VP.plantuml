@@ -1,0 +1,43 @@
+autonumber
+
+participant RouteEdificio as route
+participant "dto: EdificioDTO" as dto
+participant "controller: EdificioController" as ctrl
+participant "service: EdificioService" as service
+participant "repository: EdificioRepo" as edRepo
+participant "Edificio" as ed
+
+[o-> route: PUT(json)
+activate route
+route -> dto ** : create(json)
+route -> ctrl: editarEdificio(edificioDTO)
+activate ctrl
+ctrl -> service: editarEdificio(edificioDTO) 
+activate service
+service -> edRepo: findByDomainId(codigo)
+activate edRepo
+return edificio
+service -> ed : alterarDescricao(descricao)
+activate ed
+deactivate ed
+service -> ed : alterarNome(nome)
+activate ed
+deactivate ed
+service -> edRepo: save(edificio)
+activate edRepo
+deactivate edRepo
+return ok
+return ok
+
+
+
+
+
+
+
+
+
+
+
+
+

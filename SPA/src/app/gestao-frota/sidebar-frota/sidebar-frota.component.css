@@ -1,0 +1,66 @@
+.sidebar {
+    overflow: auto;
+    height: 100%;
+    width: 15%; /* Adjust this percentage as needed */
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    padding-top: 20px;
+    z-index: 1; /* Ensure the sidebar is above other content */
+    display: flex;
+    flex-direction: column;
+}
+
+
+.sidebar a {
+    word-wrap: break-word;
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #fff;
+    display: block;
+}
+
+.sidebar a:hover {
+    background-color: #555;
+}
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    background-color: #555;
+    position: relative;
+    top: 0;
+    left: 0%; /* Position the dropdown to the right of the parent link */
+    z-index: 2;
+}
+
+.dropdown-content a {
+    word-wrap: break-word;
+    font-size: 16px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.logout {
+    position: fixed; 
+    bottom: 0;
+    margin-bottom: 25px;
+    width: 15%; 
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    background-color: #333;
+    word-wrap: break-word;
+}
+
+.logout:hover {
+    background-color: #555;
+}

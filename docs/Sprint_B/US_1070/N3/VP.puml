@@ -1,0 +1,16 @@
+autonumber
+
+actor "gestor de campus" as ator
+participant "component: editar-edificio" as componente
+participant "infoService" as infoService
+participant "dataModel" as dataModel
+
+ator -> componente: Escolhe opção de editar edifício, e o edificio e insere os dados
+activate componente
+componente -> infoService: editarEdificio(codigo,nome, descricao)
+activate infoService
+infoService -> dataModel**: create()
+infoService ->o] : PUT: /edificio
+infoService<-- : 200
+return resposta
+return resposta

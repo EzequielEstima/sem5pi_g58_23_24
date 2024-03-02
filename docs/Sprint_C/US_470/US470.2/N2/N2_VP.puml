@@ -1,0 +1,31 @@
+autonumber
+
+actor "Gestor de Tarefas" as actor
+participant SPA as fe <<Container (C4)>>
+participant MDTarefas as mdTarefas <<Container (C4)>>
+participant MDRoboISEP as mdBack <<Container (C4)>>
+
+actor -> fe:  quero alterar o estado de uma tarefa
+
+activate fe
+fe	-> mdTarefas: GetTarefasPendentes()
+activate mdTarefas
+return resposta
+
+fe -> actor: demonstra lista de tarefas pendentes
+actor -> fe: quero alterar o estado de uma tarefa
+alt aprovar
+fe -> mdBack: listarCodigoDosDispositivosDaFrotaPorTarefa()
+activate mdBack
+return resposta    
+fe -> actor: pede para escolher um robo
+actor -> fe: escolhe um robo
+end 
+fe -> mdTarefas: AlterarEstadoDaTarefa(alterarEstadoDaTarefaDTO)
+activate mdTarefas
+return resposta
+return resposta
+
+
+ 
+ 

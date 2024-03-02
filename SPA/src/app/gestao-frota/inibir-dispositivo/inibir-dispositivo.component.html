@@ -1,0 +1,24 @@
+<html>
+
+<body>
+  <div class="sidebar">
+    <app-sidebar-frota></app-sidebar-frota>
+  </div>
+  <div class="conteudo">
+
+    <div class="input-field">
+      <select id="codigo" name="codigo" #codigo required>
+        <option value="" disabled selected>Codigo Dispositivo *</option>
+        <option *ngFor="let option of listaCod" [value]="option">{{ option }}</option>
+      </select>
+      <span></span>
+    </div>
+
+    <div class="button-submit">
+      <button type="button" class="add-button" (click)="add(codigo.value);">Inibir Dispositivo</button>
+    </div>
+    <app-message></app-message>
+  </div>
+</body>
+
+</html>
